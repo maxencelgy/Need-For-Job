@@ -8,8 +8,11 @@ get_header(); ?>
 
 <section id="home">
     <div class="filter">
-        <h1>Need For Job</h1>
-        <h2>Votre génerateur de CV en ligne</h2>
+        <div class="title" data-aos="fade-up" data-aos-duration="3000">
+            <h1>Need For Job</h1>
+            <h2 id="typer">Votre génerateur de CV en ligne</h2>
+            <a href="" class="btn-a" id="btn">Créer un CV !</a>
+        </div>
     </div>
 </section>
 

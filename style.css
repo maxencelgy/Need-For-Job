@@ -69,30 +69,48 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
 }
-#home h1 {
-  text-transform: uppercase;
+#home .title {
   color: white;
-  font-size: 6rem;
-  font-weight: 300;
+  z-index: 9999;
   position: absolute; /* postulat de départ */
   top: 50%;
   left: 50%; /* à 50%/50% du parent référent */
   transform: translate(-50%, -50%);
+  padding: 1rem;
 }
-#home h2 {
-  text-transform: uppercase;
+
+#home .title h1 {
+  font-size: 6rem;
+}
+#home .title h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 4rem;
+}
+#home .title .btn-a {
+  display: inline-block;
+  padding: 1rem;
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
   color: white;
-  font-size: 2rem;
-  position: absolute; /* postulat de départ */
-  top: 60%;
-  left: 50%; /* à 50%/50% du parent référent */
-  transform: translate(-50%, -50%);
+  border-radius: 0.3rem;
+  background-color: #ea4c88;
+  -webkit-box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
+  box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
+}
+#home .filter img {
+  transform: scaleX(-1);
+  width: 15%;
+  position: absolute;
+  top: 50%;
+  right: 10%;
 }
 
 /************************** HEADER Thibault********** */
 header {
   width: 100%;
-  z-index: 99;
+  z-index: 99999;
   -webkit-box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
   box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
   background-color: #3b4148;
@@ -319,7 +337,7 @@ header {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  gap: 2rem
+  gap: 2rem;
 }
 #footer .footer_nav ul a {
   color: white;
