@@ -173,7 +173,7 @@ body {
 
 /* HEADER Thibault */
 #masthead {
-  background-color: transparent;
+  background: inherit;
 }
 #masthead .site-branding {
   display: flex;
@@ -192,9 +192,12 @@ body {
 }
 #masthead .navigation a {
   text-decoration: none;
-  color: white;
+  color: black;
   font-size: 1.5rem;
   margin-right: 1rem;
+}
+#masthead .navigation a:hover {
+  text-decoration: underline;
 }
 #masthead .navigation  {
   display: flex;
