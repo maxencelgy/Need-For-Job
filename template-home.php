@@ -2,6 +2,7 @@
 
 /* Template Name: HomePage */
 
+session_start();
 
 get_header(); ?>
 

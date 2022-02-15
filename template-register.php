@@ -9,13 +9,15 @@ if (!empty($_POST['submitted'])) {
     // Faille xss
     $prenom    = cleanXss('prenom');
     $nom       = cleanXss('nom');
-    $phone     = cleanXss('phone');
+
     $email     = cleanXss('email');
     $password  = cleanXss('password');
     $password2 = cleanXss('password2');
 
     // Validation
     $errors = mailValidation($errors, $email, 'email');
+    $errors = textValidation($errors, $prenom, 'prenom',2,100);
+    $errors = textValidation($errors, $nom, 'nom',2,100);
 
     if (empty($errors['email'])) {
     }
@@ -36,11 +38,28 @@ if (!empty($_POST['submitted'])) {
         // hashpassword
         $hashpassword = password_hash($password, PASSWORD_DEFAULT);
         // INSERT INTO
+        if (count($errors) === 0) {
+            global $wpdb;
+            $wpdb->insert(
+                $wpdb->prefix . 'users',
+                array(
+                    'user_login'    => $email,
+                    'user_pass'    => $hashpassword,
+                    'user_nicename'      => $prenom,
+                    'user_email'    => $email,
+                    'user_registered' => current_time('mysql'),
+                    'user_status' => 0,
+                    'display_name'    => $nom,
+                ),
+                array('%s', '%s', '%s', '%s', '%s','%s','%s')
+            );
+
+            $success = true;
 
         // redirection
-        $success = true;
-        header('refresh:5;url=index.php');
+
     }
+}
 }
 get_header();
 ?>
@@ -51,7 +70,7 @@ get_header();
 <section id="register_form">
 
     <div class="wrap">
-        <?php if ($success == false) { ?>
+
             <form action="" method="post" class="wrapform" novalidate>
                 <div class="info_box">
                     <i class="fa-solid fa-user"></i>
@@ -108,9 +127,7 @@ get_header();
 
             </form>
 
-        <?php } else {
-            echo '<div class="info_box_success"><h2>Bienvenue ! Votre compte a bien été créé !</h2><h4>Redirection dans 5 secondes.</h4></div>';
-        } ?>
+
 
 
 
