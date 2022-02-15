@@ -37,8 +37,168 @@ a {
   text-decoration: none;
 }
 
+/* ******************HEADER**************************** */
+
 body {
-  background-color: blueviolet;
+  margin: 0;
+  font-family: sans-serif;
+  color: #1e1e1e;
+  background: white;
+  height: 100%;
+}
+
+/* *************** HOME************** */
+.filter {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+#home {
+  background: url(asset/img/background-cv.jpg) center;
+  background-size: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+#home h1 {
+  text-transform: uppercase;
+  color: white;
+  font-size: 6rem;
+  position: absolute; /* postulat de départ */
+  top: 50%;
+  left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%);
+}
+#contact {
+  height: 50vh;
+  background-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HEADER Thibault */
+#masthead {
+  background-color: transparent;
+}
+#masthead .site-branding {
+  display: flex;
+  justify-content: space-between;
+}
+#masthead .header_img{
+  margin-left: 1rem;
+}
+#masthead .header_img img{
+  width: 60%;
+}
+#masthead .navigation ul {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem
+}
+#masthead .navigation a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+#masthead .navigation  {
+  display: flex;
+  margin: auto 0;
 }
 
 
@@ -296,10 +456,6 @@ body {
 
 
 
-
-#cards{
- 
-}
 .wrap_card{
   width: 100%;
   max-width: 1200px;
