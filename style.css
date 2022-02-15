@@ -119,9 +119,22 @@ header {
   color: white;
   font-size: 1.5rem;
   margin-right: 1rem;
+  position: relative;
 }
-#masthead .navigation a:hover {
-  text-decoration: underline;
+#masthead .navigation a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+#masthead .navigation a:hover::before {
+  transform: scaleX(1);
 }
 #masthead .navigation {
   display: flex;
@@ -386,3 +399,43 @@ header {
 }
 /*Fin footer Thibault*/
 
+/* Pub Thibault */
+#pub {
+  padding: 10rem 0;
+  background: no-repeat url("asset/img/fond.png");
+  background-size: cover;
+}
+#pub .pub_titre p {
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+}
+#pub .pub_texte_titre {
+  font-weight: bold;
+}
+/* Fin pub Thibault */
+
+/* Entreprise Thibault */
+
+#entreprise {
+  padding: 2rem 0;
+}
+#entreprise .entreprise_text {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+
+  margin-bottom: 3rem;
+}
+#entreprise .entreprises ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  gap: 3rem;
+}
+#entreprise .entreprises img {
+  width: 100px;
+  height: 100px;
+}
+
+/* Fin Entreprise Thibault */
