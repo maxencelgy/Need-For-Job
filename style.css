@@ -172,9 +172,7 @@ header {
 }
 
 
-.card:hover{
-  filter: blur(10px);
-}
+
 
 
 .card {

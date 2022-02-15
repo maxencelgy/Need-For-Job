@@ -5,9 +5,13 @@ const plus = document.querySelector('.card_plus')
 
 cardImg.forEach((elements) => {
     elements.addEventListener("mouseenter", function (e) {
-        e.preventDefault();
-        console.log('oui');
-        
+        const span = document.querySelector('.card_plus')
+        span.style.display='block'
+    });
+
+    elements.addEventListener("mouseleave", function (e) {
+        const span = document.querySelector('.card_plus')
+        span.style.display='none'
     });
   
   });
