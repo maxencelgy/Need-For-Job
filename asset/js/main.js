@@ -11,3 +11,4 @@ cardImg.forEach((elements) => {
     });
   
   });
+console.log("salut main");

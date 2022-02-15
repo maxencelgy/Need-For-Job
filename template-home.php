@@ -8,12 +8,9 @@ get_header(); ?>
 
 <section id="home">
     <div class="filter">
-        <h1>HOME</h1>
+        <h1>Need For Job</h1>
+        <h2>Votre génerateur de CV en ligne</h2>
     </div>
-</section>
-
-<section id="contact">
-    <h1>cc</h1>
 </section>
 
 
@@ -25,6 +22,8 @@ get_header(); ?>
     </div>
     
 </section>
+
+<section id="contact"></section>
 
 
 
@@ -41,6 +40,3 @@ get_header(); ?>
 
 
 <?php get_footer();
-
-
-
