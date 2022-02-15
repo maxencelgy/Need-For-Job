@@ -1280,7 +1280,6 @@ body {
   justify-content:center;
   gap:.5rem;
   align-items:center;
-
 }
 #register_form .img_part_register{
   width:65%;
@@ -1300,11 +1299,18 @@ body {
 .shadow{
   -webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.21);
   box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.21);
+  border-radius:10px;
 }
+#register_form .img_part_register{background:center url("asset/img/background_login_register.jpg")}
 #register_form .error{color:red;text-align: center;padding-top:1rem;}
-#register_form .img_float1{width:300px;top:200px; left:100px; z-index:2;}
-#register_form .img_float2{width:300px;top:50px; left:175px;z-index:1}
-#register_form .img_float3{width:150px;top:240px; left:350px;z-index:3}
-#register_form .img_float4{width:350px;top:75px; left:350px;z-index:0}
+#register_form .img_part_register h2{top:50%;left:50%;transform:translate(-50%,-50%);color:black}
+#register_form .img_float1{width:250px;top:200px; left:100px; z-index:2;}
+#register_form .img_float2{width:250px;top:50px; left:175px;z-index:1}
+#register_form .img_float3{width:150px;top:240px; left:340px;z-index:3}
+#register_form .img_float4{width:300px;top:75px; left:350px;z-index:0}
+#register_form .img_float5{width:250px;top:700px; left:800px; z-index:2;}
+#register_form .img_float6{width:250px;top:660px; left:600px;z-index:1}
+#register_form .img_float7{width:150px;top:240px; left:340px;z-index:3}
+#register_form .img_float8{width: 200px;top: 750px;left: 670px;z-index: 6;}
 
 

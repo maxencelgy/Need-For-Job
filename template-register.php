@@ -115,7 +115,7 @@ get_header();
 
 
         <div class="img_part_register">
-            <h2>Rejoins la communauté Need For Job !</h2>
+            <div><h2>Rejoins la communauté Need For Job !</h2></div>
             <img class="img_float1 absolute shadow" src="<?php echo get_template_directory_uri(); ?>../asset/img/img_register1.jpg" alt="">
             <img class="img_float2 absolute shadow" src="<?php echo get_template_directory_uri(); ?>../asset/img/img_register2.jpg" alt="">
             <img class="img_float3 absolute shadow" src="<?php echo get_template_directory_uri(); ?>../asset/img/img_register3.jpg" alt="">
