@@ -145,6 +145,11 @@ header {
   display: flex;
   margin: auto 0;
 }
+
+/*******************carte mathis***********************/
+
+
+
 /***************** card ***********************/
 .wrap_card {
   width: 100%;
@@ -152,7 +157,44 @@ header {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  margin-top: 5%;
+  
 }
+
+.card{
+  position: relative;
+  height: 500px;
+  width: 32%;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 3%;
+  position: relative;
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.21);
+}
+.card img{
+  height: 500px;
+  width: 100%;
+  border-radius: 3%;
+}
+
+.card_plus{
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  left: 40%;
+  border: 2px solid;
+  padding: 2%;
+  background-color:white;
+  color: black;
+  border-radius: 5%;
+}
+
+
+.card:hover{
+  filter: blur(10px);
+}
+
+
 .card {
   height: 300px;
   width: 32%;
@@ -363,3 +405,4 @@ header {
   transform: scaleX(1);
 }
 /*Fin footer Thibault*/
+
