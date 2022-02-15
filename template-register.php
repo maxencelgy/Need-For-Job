@@ -113,12 +113,30 @@ get_header();
         } ?>
 
 
+
         <div class="img_part_register">
-            <div><h2>Rejoins la communauté Need For Job !</h2></div>
-            <img class="img_float1 absolute shadow" src="<?php echo get_template_directory_uri(); ?>../asset/img/img_register1.jpg" alt="">
-            <img class="img_float2 absolute shadow" src="<?php echo get_template_directory_uri(); ?>../asset/img/img_register2.jpg" alt="">
-            <img class="img_float3 absolute shadow" src="<?php echo get_template_directory_uri(); ?>../asset/img/img_register3.jpg" alt="">
-            <img class="img_float4 absolute shadow" src="<?php echo get_template_directory_uri(); ?>../asset/img/img_register4.jpg" alt="">
+            <h2 class="title">Rejoins la communauté Need For Job !</h2>
+            <div class="box_part">
+                <div class="box">
+                    <i class="fa-solid fa-address-book"></i>
+                    <h2>Créer ton CV !</h2>
+                    <div class="separator"></div>
+                    <p>Plusieurs modèles de CV sont disponible, choisi celui qui te plaît et personnalise-le à tes goûts !</p>
+                </div>
+                <div class="box">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <h2>Fais toi recruter !</h2>
+                    <div class="separator"></div>
+                    <p>Un grand nombre de recruteurs sont déjà présent sur Need For Job ! C'est ton occasion de mettre en avant tes compétences !</p>
+                </div>
+                <div class="box">
+                    <i class="fa-solid fa-globe"></i>
+                    <h2>Tout ça en ligne !</h2>
+                    <div class="separator"></div>
+                    <p>En créant ton compte, tu peux créer, sauvegarder et modifier tes différents CV ! Les recruteurs contactent plus souvent les personnes ayant un compte !</p>
+                </div>
+
+            </div>
         </div>
 
     </div>

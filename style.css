@@ -68,7 +68,7 @@ body {
   text-transform: uppercase;
   color: white;
   font-size: 6rem;
-  /*font-weight: 300px;*/
+  font-weight: 300;
   position: absolute; /* postulat de départ */
   top: 50%;
   left: 50%; /* à 50%/50% du parent référent */
@@ -86,7 +86,7 @@ body {
 
 /* HEADER Thibault */
 #masthead {
-  background-color: transparent;
+  background: inherit;
 }
 #masthead .site-branding {
   display: flex;
@@ -105,9 +105,12 @@ body {
 }
 #masthead .navigation a {
   text-decoration: none;
-  color: white;
+  color: black;
   font-size: 1.5rem;
   margin-right: 1rem;
+}
+#masthead .navigation a:hover {
+  text-decoration: underline;
 }
 #masthead .navigation {
   display: flex;
@@ -135,11 +138,11 @@ body {
   position: absolute;
 }
 /*Register*/
-
+#register_form h2{font-family: 'Rowdies', cursive }
 #register_form .wrap {
   display: flex;
   background-color: white;
-  height: 90vh;
+  height: 100vh;
   color: white;
 }
 #register_form .wrapform {
@@ -153,8 +156,30 @@ body {
 }
 #register_form .img_part_register {
   width: 60%;
-  position: relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-flow:column;
+  gap:6rem;
 }
+#register_form .box_part{
+  display:flex;
+  align-items: flex-start;
+  justify-content:space-around;
+}
+#register_form .separator{border-bottom:solid 1px grey;width:100px;}
+#register_form .box_part .box{
+  display:flex;flex-flow:column;justify-content:center;align-items:center;gap:2rem;width:25%;
+  background:white;
+  -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.21);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.21);
+  color:black;
+  padding:1.5rem;
+  border-radius:15px;
+  text-align:center;
+  font-weight:bold;
+}
+#register_form .box_part .box i{font-size:5rem;color:#EA4C88; }
 #register_form .info_box {
   display: flex;
   align-items: center;
@@ -177,38 +202,19 @@ body {
   align-items:center;
 }
 
-.prenom {
-  margin-bottom: 0.5rem;
-
-}
-.phone {
-  margin-bottom: 0.5rem;
-}
-.email {
-  margin-bottom: 0.5rem;
-}
-#register_form .info_box_button {
-  padding-left: 2.5rem;
-}
-
-
+.prenom {margin-bottom: 0.5rem;}
+.phone {margin-bottom: 0.5rem;}
+.email {margin-bottom: 0.5rem;}
+#register_form .info_box_button {padding-left: 2.5rem;}
 .shadow{
   -webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.21);
   box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.21);
   border-radius:10px;
 }
 #register_form .img_part_register{background:center url("asset/img/background_login_register.jpg") no-repeat}
+#register_form .img_part_register .title{font-size:3.5rem;}
 #register_form .error{color:red;text-align: center;padding-top:1rem;}
-#register_form .img_part_register h2{top:50%;left:50%;transform:translate(-50%,-50%);color:black;font-family:'Rowdies',cursive;}
-#register_form .img_float1{width:250px;top:200px; left:100px; z-index:2;}
-#register_form .img_float2{width:250px;top:50px; left:175px;z-index:1}
-#register_form .img_float3{width:150px;top:240px; left:340px;z-index:3}
-#register_form .img_float4{width:300px;top:75px; left:350px;z-index:0}
-#register_form .img_float5{width:250px;top:700px; left:800px; z-index:2;}
-#register_form .img_float6{width:250px;top:660px; left:600px;z-index:1}
-#register_form .img_float7{width:150px;top:240px; left:340px;z-index:3}
-#register_form .img_float8{width: 200px;top: 750px;left: 670px;z-index: 6;}
-
+#register_form .img_part_register h2{color:black;font-family:'Rowdies',cursive;}
 #register_form .info_box_button input {
   color: white;
   background-color: #ea4c88;
@@ -217,45 +223,14 @@ body {
   cursor: pointer;
 }
 
-
 #register_form .info_box i {
   font-size: 2rem;
 }
+.champsRequis {color: #3b4148;}
 
-.champsRequis {
-  color: #3b4148;
-}
-
-.shadow {
-  -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.21);
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.21);
-}
 #register_form .error {
   color: red;
   text-align: center;
   padding-top: 1rem;
 }
-#register_form .img_float1 {
-  width: 300px;
-  top: 200px;
-  left: 100px;
-  z-index: 2;
-}
-#register_form .img_float2 {
-  width: 300px;
-  top: 50px;
-  left: 175px;
-  z-index: 1;
-}
-#register_form .img_float3 {
-  width: 150px;
-  top: 240px;
-  left: 350px;
-  z-index: 3;
-}
-#register_form .img_float4 {
-  width: 350px;
-  top: 75px;
-  left: 350px;
-  z-index: 0;
-}
+
