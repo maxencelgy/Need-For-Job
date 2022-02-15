@@ -155,3 +155,12 @@ function isAdmin()
     }
     return false;
 }
+
+function getImageAttachment($id_attachment,$size = 'thumbnail', $alt = '')
+{
+    $image = wp_get_attachment_image_src($id_attachment,$size);
+    if(!empty($image)) {
+        return '<img src="'.$image[0].'" alt="'.$alt.'"/>';
+    }
+    return '';
+} 
