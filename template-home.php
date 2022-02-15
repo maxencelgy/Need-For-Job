@@ -14,15 +14,15 @@ get_header(); ?>
 </section>
 
 
-
-
 <section id="cards">
     <div class="wrap_card">
-        <div class="card"> <img src="asset/img/cv1.jpeg" alt=""></div>
+        <div class="card"> <img src="" alt=""></div>
         <div class="card"> caca 3</div>
         <div class="card"></div>
     </div>
 </section>
+
+<section id="contact"></section>
 
 
 

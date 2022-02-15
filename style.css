@@ -37,12 +37,22 @@ a {
   text-decoration: none;
 }
 
+.hidden {
+  display: none;
+}
+
 /* ******************HEADER**************************** */
+
+#contact {
+  height: 100vh;
+  background-color: rebeccapurple;
+}
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Lato", sans-serif;
   color: #1e1e1e;
   background: white;
+  scroll-behavior: smooth;
   height: 100%;
 }
 /* *************** HOME************** */
@@ -79,13 +89,19 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* HEADER Thibault */
-#masthead {
-  background: inherit;
+/************************** HEADER Thibault********** */
+header {
+  width: 100%;
+  z-index: 99;
+  -webkit-box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
+  box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
+  background-color: #3b4148;
 }
+
 #masthead .site-branding {
   display: flex;
   justify-content: space-between;
+  padding: 1rem;
 }
 #masthead .header_img {
   margin-left: 1rem;
@@ -100,7 +116,7 @@ body {
 }
 #masthead .navigation a {
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 1.5rem;
   margin-right: 1rem;
 }
@@ -111,7 +127,7 @@ body {
   display: flex;
   margin: auto 0;
 }
-/* card */
+/***************** card ***********************/
 .wrap_card {
   width: 100%;
   max-width: 1200px;
@@ -133,11 +149,13 @@ body {
   position: absolute;
 }
 /*Register*/
-
+#register_form h2 {
+  font-family: "Rowdies", cursive;
+}
 #register_form .wrap {
   display: flex;
   background-color: white;
-  height: 90vh;
+  height: 100vh;
   color: white;
 }
 #register_form .wrapform {
@@ -151,7 +169,40 @@ body {
 }
 #register_form .img_part_register {
   width: 60%;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  gap: 6rem;
+}
+#register_form .box_part {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+#register_form .separator {
+  border-bottom: solid 1px grey;
+  width: 100px;
+}
+#register_form .box_part .box {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 25%;
+  background: white;
+  -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.21);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.21);
+  color: black;
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+#register_form .box_part .box i {
+  font-size: 5rem;
+  color: #ea4c88;
 }
 #register_form .info_box {
   display: flex;
@@ -166,6 +217,15 @@ body {
   border-radius: 0.3rem;
 }
 
+#register_form .wrapform {
+  width: 40%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 .prenom {
   margin-bottom: 0.5rem;
 }
@@ -178,6 +238,26 @@ body {
 #register_form .info_box_button {
   padding-left: 2.5rem;
 }
+.shadow {
+  -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.21);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.21);
+  border-radius: 10px;
+}
+#register_form .img_part_register {
+  background: center url("asset/img/background_login_register.jpg") no-repeat;
+}
+#register_form .img_part_register .title {
+  font-size: 3.5rem;
+}
+#register_form .error {
+  color: red;
+  text-align: center;
+  padding-top: 1rem;
+}
+#register_form .img_part_register h2 {
+  color: black;
+  font-family: "Rowdies", cursive;
+}
 #register_form .info_box_button input {
   color: white;
   background-color: #ea4c88;
@@ -189,15 +269,10 @@ body {
 #register_form .info_box i {
   font-size: 2rem;
 }
-
 .champsRequis {
   color: #3b4148;
 }
 
-.shadow {
-  -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.21);
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.21);
-}
 #register_form .error {
   color: red;
   text-align: center;

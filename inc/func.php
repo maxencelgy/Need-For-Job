@@ -1,20 +1,41 @@
 <?php
 
 //FONCTIONS BASIQUES DE BASE (Ne pas toucher)
-function debug($tableau){
+function debug($tableau)
+{
     echo '<pre style="height:200px;overflow-y:scroll;font-size:.7rem;padding:.6rem;font-family: Consolas,Monospace;background-color: black;color:#33d00c;">';
     print_r($tableau);
-    echo'</pre>';
+    echo '</pre>';
 };
 
-function dateFormat($data, string $format = 'd/m/Y à H:i') : string
+function asset($file)
 {
-    if($data == null) {
+    return get_template_directory_uri() . '/asset/' . $file;
+}
+
+function path($lien)
+{
+    return esc_url(home_url($lien));
+}
+
+function getImageFeatured($id, $size = 'thumbnail', $alt = '')
+{
+    $image_url = get_the_post_thumbnail_url($id, $size);
+    if (!empty($image_url)) {
+        return '<img src="' . $image_url . '" alt="' . $alt . '"/>';
+    }
+    return '<img src="' . asset('/biche.jpeg') . '" width="300px" height="200px" />';
+}
+
+
+function dateFormat($data, string $format = 'd/m/Y à H:i'): string
+{
+    if ($data == null) {
         return '';
     }
-    return date($format,strtotime($data));
+    return date($format, strtotime($data));
 }
-function dateFormatWithoutHour($data, string $format = 'd/m/Y') : string
+function dateFormatWithoutHour($data, string $format = 'd/m/Y'): string
 {
     if (strtotime($data) != NULL) {
         return date($format, strtotime($data));
@@ -23,30 +44,32 @@ function dateFormatWithoutHour($data, string $format = 'd/m/Y') : string
     }
 }
 
-function selectValidation($errors,$value,$key){
-    if(empty($value)) {
+function selectValidation($errors, $value, $key)
+{
+    if (empty($value)) {
         $errors[$key] = "Veuillez renseigner un état";
     }
 }
 
-function textValidation($errors,$value,$key,$min=0,$max=500)
+function textValidation($errors, $value, $key, $min = 0, $max = 500)
 {
-    if(!empty($value)){
-        if (mb_strlen($value)<$min) {
-            $errors[$key]='Veuillez renseigner au minimum '.$min.' caractères';
-        } elseif(mb_strlen($value)>$max){
-            $errors[$key]='Veuillez renseigner au maximum '.$max.' caractères ';
+    if (!empty($value)) {
+        if (mb_strlen($value) < $min) {
+            $errors[$key] = 'Veuillez renseigner au minimum ' . $min . ' caractères';
+        } elseif (mb_strlen($value) > $max) {
+            $errors[$key] = 'Veuillez renseigner au maximum ' . $max . ' caractères ';
         }
-    } else{
-        $errors[$key]='Veuillez renseigner ce champ';
+    } else {
+        $errors[$key] = 'Veuillez renseigner ce champ';
     }
     return $errors;
 }
 
 
-function intValidation($errors, $value, $key){
+function intValidation($errors, $value, $key)
+{
     if (!empty($value)) {
-        if (!is_int($key)){
+        if (!is_int($key)) {
             $errors[$key] = "Veuillez renseigner un entier";
         }
     }
@@ -54,18 +77,19 @@ function intValidation($errors, $value, $key){
 }
 
 
-function mailValidation($errors,$value,$key){
-    if(!empty($value)){
-        if (filter_var($value, FILTER_VALIDATE_EMAIL)==false) {
-            $errors[$key]='Veuillez renseigner un email valide';
+function mailValidation($errors, $value, $key)
+{
+    if (!empty($value)) {
+        if (filter_var($value, FILTER_VALIDATE_EMAIL) == false) {
+            $errors[$key] = 'Veuillez renseigner un email valide';
         }
-    } else{
-        $errors[$key]='Veuillez renseigner ce champ';
+    } else {
+        $errors[$key] = 'Veuillez renseigner ce champ';
     }
     return $errors;
 }
 
-function phoneNumberValidation($errors,$value,$key)
+function phoneNumberValidation($errors, $value, $key)
 {
     if (!empty($value)) {
         $regex = '#^0[6-7]{1}\d{8}$#';
@@ -76,25 +100,28 @@ function phoneNumberValidation($errors,$value,$key)
     return $errors;
 }
 
-function cleanXss($key){
+function cleanXss($key)
+{
     return trim(strip_tags($_POST[$key]));
 }
 
-function recupInputValue($key){
+function recupInputValue($key)
+{
     if (!empty($_POST[$key])) {
         echo $_POST[$key];
     }
 }
 
-function viewError($errors,$key)
+function viewError($errors, $key)
 {
-    if(!empty($errors[$key])) {
+    if (!empty($errors[$key])) {
         echo $errors[$key];
     }
 }
 //
 
-function generateRandomString($length = 10) {
+function generateRandomString($length = 10)
+{
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
@@ -104,33 +131,38 @@ function generateRandomString($length = 10) {
     return $randomString;
 }
 
-function verifUserConnected(){
-    if (isLogged()==false){
+function verifUserConnected()
+{
+    if (isLogged() == false) {
         header('Location: login.php');
     }
 }
-function verifUserConnectedAdmin(){
-    if (isAdmin()==false){
+function verifUserConnectedAdmin()
+{
+    if (isAdmin() == false) {
         header('Location: http://localhost/Vactolib/403.php');
     }
 }
-function verifUserConnectedAdminTables(){
-    if (isAdmin()==false){
+function verifUserConnectedAdminTables()
+{
+    if (isAdmin() == false) {
         header('Location: http://localhost/Vactolib/403.php');
     }
 }
 
-function verifUserAlreadyConnected(){
-    if (isLogged()==true){
+function verifUserAlreadyConnected()
+{
+    if (isLogged() == true) {
         header('Location: index.php');
-    }else{ }
+    } else {
+    }
 }
 
 
 
 function isLogged()
 {
-    if(!empty($_SESSION['user'])) {
+    if (!empty($_SESSION['user'])) {
         if (!empty($_SESSION['user']['id'])) {
             if (!empty($_SESSION['user']['email'])) {
                 if (!empty($_SESSION['user']['status'])) {
@@ -148,19 +180,19 @@ function isLogged()
 
 function isAdmin()
 {
-    if(isLogged()) {
-        if($_SESSION['user']['status'] == 'admin') {
+    if (isLogged()) {
+        if ($_SESSION['user']['status'] == 'admin') {
             return true;
         }
     }
     return false;
 }
 
-function getImageAttachment($id_attachment,$size = 'thumbnail', $alt = '')
+function getImageAttachment($id_attachment, $size = 'thumbnail', $alt = '')
 {
-    $image = wp_get_attachment_image_src($id_attachment,$size);
-    if(!empty($image)) {
-        return '<img src="'.$image[0].'" alt="'.$alt.'"/>';
+    $image = wp_get_attachment_image_src($id_attachment, $size);
+    if (!empty($image)) {
+        return '<img src="' . $image[0] . '" alt="' . $alt . '"/>';
     }
     return '';
-} 
+}
