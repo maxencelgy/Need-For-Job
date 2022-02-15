@@ -43,7 +43,7 @@ get_header();
         <div class="wrap">
 
                 <form action="" method="post" class="wrapform" novalidate>
-
+                    <h2>Connexion :</h2>
 
                     <div class="info_box">
                         <label for="login"></label>

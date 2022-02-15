@@ -3,9 +3,9 @@
 
 session_start();
 
-$success=false;
+$success = false;
 $errors = [];
-if(!empty($_POST['submitted'])) {
+if (!empty($_POST['submitted'])) {
     // Faille xss
     $prenom    = cleanXss('prenom');
     $nom       = cleanXss('nom');
@@ -15,15 +15,14 @@ if(!empty($_POST['submitted'])) {
     $password2 = cleanXss('password2');
 
     // Validation
-    $errors = mailValidation($errors,$email,'email');
+    $errors = mailValidation($errors, $email, 'email');
 
-    if(empty($errors['email'])) {
-
+    if (empty($errors['email'])) {
     }
 
     // password
-    if(!empty($password) || !empty($password2)) {
-        if($password != $password2) {
+    if (!empty($password) || !empty($password2)) {
+        if ($password != $password2) {
             $errors['password'] = 'Veuillez renseigner des mot de passe identiques';
         } elseif (mb_strlen($password2) < 6) {
             $errors['password'] = 'Min 6 caractères pour votre mot de passe';
@@ -31,15 +30,15 @@ if(!empty($_POST['submitted'])) {
     } else {
         $errors['password'] = 'Veuillez renseigner un mot de passe';
     }
-    if(count($errors) == 0) {
+    if (count($errors) == 0) {
         // generate token
         $token = generateRandomString(100);
         // hashpassword
-        $hashpassword = password_hash($password,PASSWORD_DEFAULT);
+        $hashpassword = password_hash($password, PASSWORD_DEFAULT);
         // INSERT INTO
 
         // redirection
-        $success=true;
+        $success = true;
         header('refresh:5;url=index.php');
     }
 }
@@ -52,39 +51,37 @@ get_header();
 <section id="register_form">
 
     <div class="wrap">
-        <?php if($success==false){ ?>
+        <?php if ($success == false) { ?>
             <form action="" method="post" class="wrapform" novalidate>
-
                 <div class="info_box">
                     <i class="fa-solid fa-user"></i>
                     <div>
                         <div>
                             <label for="nom"></label>
-                            <input type="text" placeholder="Nom" id="nom" name="nom" value="<?=recupInputValue('nom');?>">
-                            <span class="error"><?= viewError($errors,'nom'); ?></span>
+                            <input type="text" placeholder="Nom" id="nom" name="nom" value="<?= recupInputValue('nom'); ?>">
+                            <span class="error"><?= viewError($errors, 'nom'); ?></span>
                         </div>
-
-                        <div>
+                        <div class="prenom">
                             <label for="prenom"></label>
-                            <input type="text" placeholder="Prénom" id="prenom" name="prenom" value="<?=recupInputValue('prenom');?>">
-                            <span class="error"><?= viewError($errors,'prenom'); ?></span>
+                            <input type="text" placeholder="Prénom" id="prenom" class="pre" name="prenom" value="<?= recupInputValue('prenom'); ?>">
+                            <span class="error"><?= viewError($errors, 'prenom'); ?></span>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="info_box">
+                <div class="info_box phone">
                     <label for="phone"></label>
                     <i class="fa-solid fa-phone"></i>
                     <input type="tel" placeholder="Numéro de téléphone" pattern="[0-9]{10}" maxlength="10" id="phone" name="phone" value="<?= recupInputValue('phone'); ?>">
-                    <span class="error"><?= viewError($errors,'phone'); ?></span>
+                    <span class="error"><?= viewError($errors, 'phone'); ?></span>
                 </div>
 
-                <div class="info_box">
+                <div class="info_box email">
                     <label for="email"></label>
                     <i class="fa-solid fa-envelope"></i>
                     <input type="email" placeholder="Email*" id="email" name="email" value="<?= recupInputValue('email'); ?>">
-                    <span class="error"><?= viewError($errors,'email'); ?></span>
+                    <span class="error"><?= viewError($errors, 'email'); ?></span>
                 </div>
 
 
@@ -94,7 +91,7 @@ get_header();
                         <div>
                             <label for="password"></label>
                             <input type="password" placeholder="Mot de passe*" id="password" name="password" value="">
-                            <span class="error"><?= viewError($errors,'password'); ?></span>
+                            <span class="error"><?= viewError($errors, 'password'); ?></span>
                         </div>
                         <div>
                             <label for="password2"></label>
@@ -107,11 +104,13 @@ get_header();
                 <div class="info_box info_box_button">
                     <input type="submit" name="submitted" value="ENVOYER">
                 </div>
-                <p>Les champs avec * sont requis</p>
+                <p class="champsRequis">Les champs avec * sont requis</p>
 
             </form>
 
-        <?php } else {echo'<div class="info_box_success"><h2>Bienvenue ! Votre compte a bien été créé !</h2><h4>Redirection dans 5 secondes.</h4></div>';} ?>
+        <?php } else {
+            echo '<div class="info_box_success"><h2>Bienvenue ! Votre compte a bien été créé !</h2><h4>Redirection dans 5 secondes.</h4></div>';
+        } ?>
 
 
         <div class="img_part_register">
