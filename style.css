@@ -38,11 +38,17 @@ a {
 }
 
 /* ******************HEADER**************************** */
+
+#contact {
+  height: 100vh;
+  background-color: rebeccapurple;
+}
 body {
   margin: 0;
   font-family: sans-serif;
   color: #1e1e1e;
   background: white;
+  scroll-behavior: smooth;
   height: 100%;
 }
 /* *************** HOME************** */
@@ -79,15 +85,22 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* HEADER Thibault */
-#masthead {
-  background: inherit;
+/************************** HEADER Thibault********** */
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  -webkit-box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
+  box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
 }
+
 #masthead .site-branding {
   display: flex;
   justify-content: space-between;
+  padding: 1rem;
 }
 #masthead .header_img {
+  width: 8%;
   margin-left: 1rem;
 }
 #masthead .header_img img {
@@ -100,7 +113,7 @@ body {
 }
 #masthead .navigation a {
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 1.5rem;
   margin-right: 1rem;
 }
@@ -111,7 +124,7 @@ body {
   display: flex;
   margin: auto 0;
 }
-/* card */
+/***************** card ***********************/
 .wrap_card {
   width: 100%;
   max-width: 1200px;
