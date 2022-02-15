@@ -4,6 +4,7 @@
 add_image_size('imgblog', 347, 256, true);
 add_image_size('imgflickr', 250, 250, true);
 add_image_size('imgdiapo', 300, 200, true);
+add_image_size('imgcard', 400, 300, true);
 
 function remove_default_img_sizes($sizes)
 {
