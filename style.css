@@ -178,7 +178,7 @@ header {
 
 
 .card {
-  height: 300px;
+  height: 500px;
   width: 32%;
   border: 1px solid black;
   text-align: center;
@@ -351,40 +351,45 @@ header {
   background-color: #2c3338;
   padding: 2rem 0;
 }
-#footer .copyright {
-  text-align: center;
-  color: white;
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-#footer .footer_nav ul {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  gap: 2rem
-}
-#footer .footer_nav ul a {
-  color: white;
-  font-size: 1.2rem;
-  position: relative;
-}
-#footer .footer_nav ul a:hover {
-  color: white;
-}
-#footer .footer_nav ul a::before {
-  content: "";
-  position: absolute;
-  display: block;
+.wrap_footer{
   width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: white;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between
 }
-#footer .footer_nav ul a:hover::before {
-  transform: scaleX(1);
+.separator_footer{
+  background-color: #ea4c88;
+  width: 1px;
+  height: 100px;
 }
+
+.footer_nav{
+  margin-right: 10%;
+  line-height: 2rem;
+
+}
+.footer_nav a{
+  color: white;
+}
+.footer_nav a:hover{
+  border-bottom: 1px solid white;
+  padding-bottom: 0.5rem;
+}
+.reseau_footer{
+  display: grid;
+  font-size: 2rem;
+  line-height: 3rem;
+  
+}
+.reseau_footer a{
+  color: #ea4c88;
+}
+.reseau_footer a:hover{
+  font-size: 2rem;
+
+}
+
 /*Fin footer Thibault*/
 
