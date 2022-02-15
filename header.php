@@ -23,8 +23,16 @@
 					<ul>
 						<li><a href="<?= path('/'); ?>">Home</a></li>
 						<li><a href="#cards">Voir les modèles</a></li>
+
+                        <!--MENU QUAND CONNECTÉ-->
+                        <?php if(!empty($_SESSION)){ ?>
+                            <li><a href="<?= path('logout'); ?>">Se déconnecter</a></li
+
+                        <!--MENU QUAND DECONNECTÉ-->
+                      <?php  } else{ ?>
 						<li><a href="<?= path('login'); ?>">Connexion</a></li>
 						<li><a href="<?= path('register'); ?>">Inscription</a></li>
+                        <?php } ?>
 					</ul>
 				</nav>
 			</div>
