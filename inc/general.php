@@ -55,7 +55,8 @@ function nfj_scripts()
     wp_deregister_script('jquery');
     wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js', array(), '2.1.13', true);
     wp_enqueue_script('mainjs', get_template_directory_uri() . '/asset/js/main.js', array(), '1.0.1', true);
-
+    if (is_page_template('template-home.php')) {
+        wp_enqueue_script('navabarjs', get_template_directory_uri() . '/asset/js/navbar.js', array(), '1.0.1', true);
+    }
 }
 add_action('wp_enqueue_scripts', 'nfj_scripts');
-
