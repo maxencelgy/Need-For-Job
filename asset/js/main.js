@@ -7,7 +7,6 @@ cardImg.forEach((elements) => {
     elements.addEventListener("mouseenter", function (e) {
         e.preventDefault();
         console.log('oui');
-        
     });
   
   });
