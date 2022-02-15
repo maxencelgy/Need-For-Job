@@ -42,11 +42,6 @@ a {
 }
 
 /* ******************HEADER**************************** */
-
-#contact {
-  height: 100vh;
-  background-color: rebeccapurple;
-}
 body {
   margin: 0;
   font-family: "Lato", sans-serif;
@@ -69,30 +64,48 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
 }
-#home h1 {
-  text-transform: uppercase;
+#home .title {
   color: white;
-  font-size: 6rem;
-  font-weight: 300;
+  z-index: 9999;
   position: absolute; /* postulat de départ */
   top: 50%;
   left: 50%; /* à 50%/50% du parent référent */
   transform: translate(-50%, -50%);
+  padding: 1rem;
 }
-#home h2 {
-  text-transform: uppercase;
+
+#home .title h1 {
+  font-size: 6rem;
+}
+#home .title h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 4rem;
+}
+#home .title .btn-a {
+  display: inline-block;
+  padding: 1rem;
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
   color: white;
-  font-size: 2rem;
-  position: absolute; /* postulat de départ */
-  top: 60%;
-  left: 50%; /* à 50%/50% du parent référent */
-  transform: translate(-50%, -50%);
+  border-radius: 0.3rem;
+  background-color: #ea4c88;
+  -webkit-box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
+  box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
+}
+#home .filter img {
+  transform: scaleX(-1);
+  width: 15%;
+  position: absolute;
+  top: 50%;
+  right: 10%;
 }
 
 /************************** HEADER Thibault********** */
 header {
   width: 100%;
-  z-index: 99;
+  z-index: 99999;
   -webkit-box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
   box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
   background-color: #3b4148;
@@ -119,9 +132,22 @@ header {
   color: white;
   font-size: 1.5rem;
   margin-right: 1rem;
+  position: relative;
 }
-#masthead .navigation a:hover {
-  text-decoration: underline;
+#masthead .navigation a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+#masthead .navigation a:hover::before {
+  transform: scaleX(1);
 }
 #masthead .navigation {
   display: flex;
@@ -129,8 +155,6 @@ header {
 }
 
 /*******************carte mathis***********************/
-
-
 
 /***************** card ***********************/
 .wrap_card {
@@ -140,10 +164,9 @@ header {
   display: flex;
   justify-content: space-between;
   margin-top: 5%;
-  
 }
 
-.card{
+.card {
   position: relative;
   height: 500px;
   width: 32%;
@@ -151,31 +174,25 @@ header {
   text-align: center;
   border-radius: 3%;
   position: relative;
-  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.21);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.21);
 }
-.card img{
+.card img {
   height: 500px;
   width: 100%;
   border-radius: 3%;
 }
 
-.card_plus{
+.card_plus {
   position: absolute;
   top: 50%;
   z-index: 2;
   left: 40%;
   border: 2px solid;
   padding: 2%;
-  background-color:white;
+  background-color: white;
   color: black;
   border-radius: 5%;
 }
-
-
-.card:hover{
-  filter: blur(10px);
-}
-
 
 .card {
   height: 500px;
@@ -289,7 +306,7 @@ header {
   background: center url("asset/img/background_login_register.jpg") no-repeat;
 }
 #register_form .img_part_register .title {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
 }
 #register_form .error {
   color: red;
@@ -357,7 +374,13 @@ header {
   margin: 0 auto;
 
   display: flex;
-  justify-content: space-between
+
+  justify-content: space-between;
+
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 2rem;
+
 }
 .separator_footer{
   background-color: #ea4c88;
@@ -393,3 +416,43 @@ header {
 
 /*Fin footer Thibault*/
 
+/* Pub Thibault */
+#pub {
+  padding: 10rem 0;
+  background: no-repeat url("asset/img/fond.png");
+  background-size: cover;
+}
+#pub .pub_titre p {
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+}
+#pub .pub_texte_titre {
+  font-weight: bold;
+}
+/* Fin pub Thibault */
+
+/* Entreprise Thibault */
+
+#entreprise {
+  padding: 2rem 0;
+}
+#entreprise .entreprise_text {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+
+  margin-bottom: 3rem;
+}
+#entreprise .entreprises ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  gap: 3rem;
+}
+#entreprise .entreprises img {
+  width: 100px;
+  height: 100px;
+}
+
+/* Fin Entreprise Thibault */

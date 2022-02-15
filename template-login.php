@@ -2,7 +2,7 @@
 /* Template Name: Login Page*/
 
 session_start();
-
+debug($_SESSION);
 $errors = [];
 
 if(!empty($_POST['submitted'])) {
@@ -12,27 +12,35 @@ if(!empty($_POST['submitted'])) {
 
 
     //Chercher User dans BDD
+    global $wpdb;
+    $user = $wpdb->get_results(
+        $wpdb->prepare("SELECT * FROM {$wpdb->prefix}users WHERE user_login=%s",$login),ARRAY_A);
+    debug($user);
 
 
     if(empty($user)) {
         $errors['login'] = 'Email invalide';
     } else {
-        if (password_verify($password , $user['password'] )==true){
+        if (password_verify($password , $user[0]['user_pass'] )==true){
             $_SESSION['user']=array(
-                'id'    =>$user['id'],
-                'email' =>$user['email'],
-                'status'=>$user['status'],
-                'ip'     =>$_SERVER['REMOTE_ADDR'],//::1
+                'id'=>$user[0]['ID'],
+                'pseudo'=>$user[0]['user_nicename'],
+                'email' =>$user[0]['user_email'],
+                'status'=>$user[0]['user_status'],
+                'ip'=>$_SERVER['REMOTE_ADDR']
             );
         }else {
             $errors['password'] = 'Mot de passe incorrect';
         }
     }
     if(count($errors) == 0) {
+        echo'Ouais fuck les erreurs';
         header('Location: index.php');
     }
 }
+
 get_header();
+debug($errors);
 ?>
 
 
@@ -54,12 +62,12 @@ get_header();
                     <div class="info_box">
                         <label for="password"></label>
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Mot de Passe*" id="password" name="password" value="">
+                        <input type="password" placeholder="Mot de Passe*" id="password" name="password" value="<?= recupInputValue('password'); ?>">
                     </div>
 
                     <span class="error"><?php if(!empty($errors)){echo'Mot de passe ou Adresse Mail invalide';} ?></span>
-
-
+                    <span class="error"><?= viewError($errors, 'email'); ?></span>
+                    <span class="error"><?= viewError($errors, 'password'); ?></span>
                     <div class="info_box info_box_button">
                         <input type="submit" name="submitted" value="ENVOYER">
                     </div>

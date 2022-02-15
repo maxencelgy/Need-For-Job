@@ -5,6 +5,7 @@
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 	<?php wp_head(); ?>
 </head>
@@ -22,8 +23,16 @@
 					<ul>
 						<li><a href="<?= path('/'); ?>">Home</a></li>
 						<li><a href="#cards">Voir les modèles</a></li>
+
+                        <!--MENU QUAND CONNECTÉ-->
+                        <?php if(!empty($_SESSION)){ ?>
+                            <li><a href="<?= path('logout'); ?>">Se déconnecter</a></li
+
+                        <!--MENU QUAND DECONNECTÉ-->
+                      <?php  } else{ ?>
 						<li><a href="<?= path('login'); ?>">Connexion</a></li>
 						<li><a href="<?= path('register'); ?>">Inscription</a></li>
+                        <?php } ?>
 					</ul>
 				</nav>
 			</div>
