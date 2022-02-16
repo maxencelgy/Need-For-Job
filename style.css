@@ -496,5 +496,32 @@ header {
   box-shadow: -8px 10px 15px 0px #ea4c88;
 }
 
-
 /* Fin presentation Thibault */
+
+/* 404 Thibault */
+#introuvable {
+  padding: 12rem 0;
+  text-align: center;
+}
+#introuvable h1 {
+  font-family: "Rowdies", cursive;
+  font-size: 5rem;
+}
+#introuvable p {
+  font-size: 3rem;
+}
+/* Fin 404 Thibault */
+
+/* 403 Thibault */
+#autorisation {
+  padding: 12rem 0;
+  text-align: center;
+}
+#autorisation h1 {
+  font-family: "Rowdies", cursive;
+  font-size: 5rem;
+}
+#autorisation p {
+  font-size: 3rem;
+}
+/* Fin 403 Thibault */
