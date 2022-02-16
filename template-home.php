@@ -35,7 +35,7 @@ get_header(); ?>
     </div>
 </section>
 
-
+    <div class="separator_home_page"></div>
 <section id="cards">
     <div class="wrap_card">
         <div class="card">
@@ -54,6 +54,9 @@ get_header(); ?>
     </div>
 
 </section>
+
+
+
 
 <section id="pub">
     <div class="pub_titre">

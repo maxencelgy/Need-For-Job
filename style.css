@@ -57,6 +57,15 @@ body {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+.separator_home_page{
+  color:black;
+  border-bottom:solid 5px black;
+  width:30%;
+  margin:0 auto;
+  padding:4rem;
+}
+
 #home {
   background: url(asset/img/background-cv.jpg) center;
   background-size: 100%;
