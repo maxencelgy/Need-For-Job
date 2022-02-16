@@ -157,6 +157,9 @@ header {
 /*******************carte mathis***********************/
 
 /***************** card ***********************/
+#cards{
+  padding:4rem;
+}
 .wrap_card {
   width: 100%;
   max-width: 1200px;
@@ -401,8 +404,10 @@ header {
   padding-bottom: 0.5rem;
 }
 .reseau_footer{
-  display: grid;
-  font-size: 2rem;
+  display: flex;
+  gap:2rem;
+  align-items:center;
+  font-size: 3rem;
   line-height: 3rem;
   
 }
@@ -410,8 +415,7 @@ header {
   color: #ea4c88;
 }
 .reseau_footer a:hover{
-  font-size: 2rem;
-
+color:white;
 }
 
 /*Fin footer Thibault*/
@@ -447,12 +451,10 @@ header {
 #entreprise .entreprises ul {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around;
-  gap: 3rem;
+  justify-content: center;
+  align-items:center;
+  gap: 6rem;
 }
-#entreprise .entreprises img {
-  width: 100px;
-  height: 100px;
-}
+
 
 /* Fin Entreprise Thibault */

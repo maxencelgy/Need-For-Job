@@ -3,6 +3,9 @@
 /* Template Name: HomePage */
 
 session_start();
+if (!empty($_SESSION)){
+    $user_meta=get_user_meta($_SESSION['user']['id']);
+}
 
 get_header(); ?>
 

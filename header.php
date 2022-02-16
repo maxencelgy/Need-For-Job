@@ -21,7 +21,7 @@
 			<div class="navigation">
 				<nav>
 					<ul>
-						<li><a href="<?= path('/'); ?>">Home</a></li>
+						<li><a href="<?= path('/'); ?>">Accueil</a></li>
 						<li><a href="#cards">Voir les modèles</a></li>
 
                         <!--MENU QUAND CONNECTÉ-->
