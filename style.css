@@ -78,12 +78,17 @@ body {
   font-size: 6rem;
 }
 #home .title h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 4rem;
 }
 #home .title .btn-a {
-  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   padding: 1rem;
   width: 40%;
   margin: 0 auto;
@@ -368,7 +373,7 @@ header {
   background-color: #2c3338;
   padding: 2rem 0;
 }
-.wrap_footer{
+.wrap_footer {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -380,38 +385,34 @@ header {
   flex-flow: row nowrap;
   justify-content: center;
   gap: 2rem;
-
 }
-.separator_footer{
+.separator_footer {
   background-color: #ea4c88;
   width: 1px;
   height: 100px;
 }
 
-.footer_nav{
+.footer_nav {
   margin-right: 10%;
   line-height: 2rem;
-
 }
-.footer_nav a{
+.footer_nav a {
   color: white;
 }
-.footer_nav a:hover{
+.footer_nav a:hover {
   border-bottom: 1px solid white;
   padding-bottom: 0.5rem;
 }
-.reseau_footer{
+.reseau_footer {
   display: grid;
   font-size: 2rem;
   line-height: 3rem;
-  
 }
-.reseau_footer a{
+.reseau_footer a {
   color: #ea4c88;
 }
-.reseau_footer a:hover{
+.reseau_footer a:hover {
   font-size: 2rem;
-
 }
 
 /*Fin footer Thibault*/
@@ -456,3 +457,103 @@ header {
 }
 
 /* Fin Entreprise Thibault */
+
+/***************************** RECRUTEUR****************** */
+#recruteur {
+  padding: 1rem;
+}
+#recruteur .wrap_recruteur {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#recruteur .title_recru {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+#recruteur .title_recru h2 {
+  font-size: 2.5rem;
+
+  margin-bottom: 0.5rem;
+}
+#recruteur .title_recru h3 {
+  display: inline;
+  font-weight: 400;
+}
+
+.lastCV .result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lastCV .result .searchbar {
+  display: flex;
+  align-items: center;
+}
+
+.lastCV .result label {
+  margin-right: 0.5rem;
+}
+.lastCV .result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+.lastCV .result .left {
+  font-size: 1.5rem;
+}
+.lastCV .result .left h2 {
+  font-weight: 300;
+  border-bottom: solid 2px #ea4c88;
+}
+.cv {
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+}
+
+.cv .cvImg {
+  width: 20%;
+}
+
+.cv .cvImg img {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 0.3rem;
+}
+.cv .cvImg img:hover {
+  filter: grayscale(0.5);
+  transition: 0.5s;
+}
+.cv .cvDescription {
+  width: 70%;
+}
+.cv .cvDescription h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.cv .cvDescription h2 span {
+  text-transform: uppercase;
+}
+.cv .cvDescription p {
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
+}
+.cv .cvDescription a {
+  color: white;
+  text-decoration: none;
+  padding: 1rem;
+  background-color: #ea4c88;
+  border-radius: 0.3rem;
+}
+/* SINGLE CV */
+#single_blog {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.wrapBlog {
+}
