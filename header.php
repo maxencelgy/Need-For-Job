@@ -18,6 +18,11 @@
 				<a href="<?= path('/'); ?>"><img src="<?php echo get_template_directory_uri() . '/asset/img/NeedForJobv2.png' ?>" /></a>
 
 			</div>
+            <?php
+            if (!empty($_SESSION)){
+            $user_meta=get_user_meta($_SESSION['user']['id']);
+            }
+            ?>
 			<div class="navigation">
 				<nav>
 					<ul>
@@ -26,7 +31,10 @@
 
                         <!--MENU QUAND CONNECTÉ-->
                         <?php if(!empty($_SESSION)){ ?>
-                            <li><a href="<?= path('logout'); ?>">Se déconnecter</a></li
+                            <li><a href="<?= path('logout'); ?>">Se déconnecter</a></li>
+                        <?php if($user_meta['user_meta_role'][0]=='utilisateur'){ ?>
+                            <li><a href="<?= path('profil'); ?>">Mon profil</a></li>
+                            <?php } ?>
 
                         <!--MENU QUAND DECONNECTÉ-->
                       <?php  } else{ ?>

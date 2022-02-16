@@ -2,7 +2,7 @@
 /* Template Name: Login Page*/
 
 session_start();
-debug($_SESSION);
+
 $errors = [];
 
 if(!empty($_POST['submitted'])) {
@@ -29,18 +29,19 @@ if(!empty($_POST['submitted'])) {
                 'status'=>$user[0]['user_status'],
                 'ip'=>$_SERVER['REMOTE_ADDR']
             );
+            wp_redirect(path('home'));
         }else {
             $errors['password'] = 'Mot de passe incorrect';
         }
     }
     if(count($errors) == 0) {
         echo'Ouais fuck les erreurs';
-        header('Location: index.php');
+
     }
 }
 
 get_header();
-debug($errors);
+
 ?>
 
 
@@ -66,8 +67,7 @@ debug($errors);
                     </div>
 
                     <span class="error"><?php if(!empty($errors)){echo'Mot de passe ou Adresse Mail invalide';} ?></span>
-                    <span class="error"><?= viewError($errors, 'email'); ?></span>
-                    <span class="error"><?= viewError($errors, 'password'); ?></span>
+
                     <div class="info_box info_box_button">
                         <input type="submit" name="submitted" value="ENVOYER">
                     </div>

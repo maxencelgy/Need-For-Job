@@ -153,7 +153,7 @@ function verifUserConnectedAdminTables()
 function verifUserAlreadyConnected()
 {
     if (isLogged() == true) {
-        header('Location: index.php');
+       wp_redirect(path('home'));
     } else {
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /* Template Name: Recruteur*/
-
+session_start();
 get_header(); ?>
 
 <section id="recruteur">
