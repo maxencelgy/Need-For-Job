@@ -3,6 +3,9 @@
 /* Template Name: HomePage */
 
 session_start();
+if (!empty($_SESSION)){
+    $user_meta=get_user_meta($_SESSION['user']['id']);
+}
 
 get_header(); ?>
 
@@ -30,8 +33,10 @@ get_header(); ?>
         <p class="presentation_titre">Pas besoin d'inscription !</p>
         <p>Vous n'avez pas besoin d'être inscrit sur le site de Need for job pour créer votre CV en ligne, il vous suffit simplement de cliquer sur le bouton "Créer mon cv"</p>
     </div>
+
 </section>
 
+    <div class="separator_home_page"></div>
 
 <section id="cards">
     <div class="wrap_card">
@@ -51,6 +56,9 @@ get_header(); ?>
     </div>
 
 </section>
+
+
+
 
 <section id="pub">
     <div data-aos="fade-down"

@@ -9,7 +9,6 @@ if (!empty($_POST['submitted'])) {
     // Faille xss
     $prenom    = cleanXss('prenom');
     $nom       = cleanXss('nom');
-
     $email     = cleanXss('email');
     $password  = cleanXss('password');
     $password2 = cleanXss('password2');
@@ -19,7 +18,13 @@ if (!empty($_POST['submitted'])) {
     $errors = textValidation($errors, $prenom, 'prenom',2,100);
     $errors = textValidation($errors, $nom, 'nom',2,100);
 
-    if (empty($errors['email'])) {
+    if(empty($errors['email'])) {
+        global $wpdb;
+        $verifPseudo = $wpdb->get_results(
+            $wpdb->prepare("SELECT * FROM {$wpdb->prefix}users WHERE user_email=%s",$email),ARRAY_A);
+        if(!empty($verifPseudo)) {
+            $errors['email'] = 'Vous avez déjà un compte avec cette adresse mail';
+        }
     }
 
     // password
@@ -55,7 +60,8 @@ if (!empty($_POST['submitted'])) {
             );
 
             $success = true;
-
+            wp_redirect('home');
+            exit;
         // redirection
 
     }
@@ -70,7 +76,7 @@ get_header();
 <section id="register_form">
 
     <div class="wrap">
-
+        <?php if(!$success==true){ ?>
             <form action="" method="post" class="wrapform" novalidate>
                 <div class="info_box">
                     <i class="fa-solid fa-user"></i>
@@ -88,21 +94,12 @@ get_header();
                     </div>
                 </div>
 
-
-                <div class="info_box phone">
-                    <label for="phone"></label>
-                    <i class="fa-solid fa-phone"></i>
-                    <input type="tel" placeholder="Numéro de téléphone" pattern="[0-9]{10}" maxlength="10" id="phone" name="phone" value="<?= recupInputValue('phone'); ?>">
-                    <span class="error"><?= viewError($errors, 'phone'); ?></span>
-                </div>
-
                 <div class="info_box email">
                     <label for="email"></label>
                     <i class="fa-solid fa-envelope"></i>
                     <input type="email" placeholder="Email*" id="email" name="email" value="<?= recupInputValue('email'); ?>">
                     <span class="error"><?= viewError($errors, 'email'); ?></span>
                 </div>
-
 
                 <div class="info_box">
                     <i class="fa-solid fa-lock"></i>
@@ -126,9 +123,14 @@ get_header();
                 <p class="champsRequis">Les champs avec * sont requis</p>
 
             </form>
+        <?php }else {?>
 
+            <div class="success_msg wrapform">
+                <h2>Compte créé avec succès !</h2>
+                <p>Redirection en cours...</p>
+            </div>
 
-
+        <?php }?>
 
 
         <div class="img_part_register">
