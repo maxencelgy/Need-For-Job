@@ -34,6 +34,7 @@ get_header(); ?>
                 }
                 wp_reset_postdata(); ?>
 
+
             <?php  } else { ?>
                 <?php $args = array(
                     'post_type' => 'cv',
@@ -55,26 +56,28 @@ get_header(); ?>
                 wp_reset_postdata(); ?>
             <?php } ?>
 
-            <div class="btnDiscover">
-                <a href="">Voir plus de modèle</a>
-            </div>
+        </div>
 
-            <?php if (!empty($_SESSION)) { ?>
-                <div class="message"></div>
-            <?php  } else { ?>
-                <div class="message">
-                    <div class="popup">
-                        <h2>Continuer sans se connecter ?</h2>
-                        <p>Attention, si vous continuez sans vous connecté les recruteurs ne pourront pas vous trouvez
-                            il sera aussi impossible de modifier votre CV par la suite.</p>
-                        <div class="btnPop">
-                            <a href="<?= get_the_permalink() ?>" class="btnPop1">Continuer sans se connecter</a>
-                            <a href="<?= path('login'); ?>" class="btnPop2">Se connecter</a>
-                        </div>
+        <div class="btnDiscover">
+            <a href="">Voir plus de modèle</a>
+        </div>
+
+        <?php if (!empty($_SESSION)) { ?>
+            <div class="message"></div>
+        <?php  } else { ?>
+            <div class="message">
+                <div class="popup">
+                    <h2>Continuer sans se connecter ?</h2>
+                    <p>Attention, si vous continuez sans vous connecté les recruteurs ne pourront pas vous trouvez
+                        il sera aussi impossible de modifier votre CV par la suite.</p>
+                    <div class="btnPop">
+                        <a href="<?= get_the_permalink() ?>" class="btnPop1">Continuer sans se connecter</a>
+                        <a href="<?= path('login'); ?>" class="btnPop2">Se connecter</a>
                     </div>
                 </div>
-            <?php } ?>
-        </div>
+            </div>
+        <?php } ?>
+    </div>
     </div>
 </section>
 
