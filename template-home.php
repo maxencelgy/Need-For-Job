@@ -17,6 +17,21 @@ get_header(); ?>
     </div>
 </section>
 
+<section id="presentation">
+    <div class="presentation_box">
+        <p class="presentation_titre">Rapide et facile !</p>
+        <p>Notre outil de rédaction de CV en ligne permet aisément à chacun(e) de faire un CV professionnel de manière rapide. Vous introduisez vos données personnelles avant d'entamer la rédaction du contenu de votre CV. Pour conclure, vous choisissez une mise en page parmi nos 36 versions de CV proposées et vous téléchargez votre CV.</p>
+    </div>
+    <div class="presentation_box2">
+        <p class="presentation_titre">Chance augmenté de trouver un emploi !</p>
+        <p>La rédaction d'un CV pertinent et professionnel vous distinguera des autres demandeurs d'emploi. Vous disposerez ainsi d'environ 80% de chance supplémentaire pour décrocher une invitation pour un entretien de sélection</p>
+    </div>
+    <div class="presentation_box">
+        <p class="presentation_titre">Pas besoin d'inscription !</p>
+        <p>Vous n'avez pas besoin d'être inscrit sur le site de Need for job pour créer votre CV en ligne, il vous suffit simplement de cliquer sur le bouton "Créer mon cv"</p>
+    </div>
+</section>
+
 
 <section id="cards">
     <div class="wrap_card">
