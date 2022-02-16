@@ -58,12 +58,12 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.separator_home_page{
-  color:black;
-  border-bottom:solid 5px black;
-  width:30%;
-  margin:0 auto;
-  padding:4rem;
+.separator_home_page {
+  color: black;
+  border-bottom: solid 5px black;
+  width: 30%;
+  margin: 0 auto;
+  padding: 4rem;
 }
 
 #home {
@@ -171,8 +171,8 @@ header {
 /*******************carte mathis***********************/
 
 /***************** card ***********************/
-#cards{
-  padding:4rem;
+#cards {
+  padding: 4rem;
 }
 .wrap_card {
   width: 100%;
@@ -410,20 +410,19 @@ header {
   padding-bottom: 0.5rem;
 }
 
-.reseau_footer{
+.reseau_footer {
   display: flex;
-  gap:2rem;
-  align-items:center;
+  gap: 2rem;
+  align-items: center;
   font-size: 3rem;
 }
 .reseau_footer a {
   color: #ea4c88;
 }
 
-.reseau_footer a:hover{
-color:white;
+.reseau_footer a:hover {
+  color: white;
 }
-
 
 /*Fin footer Thibault*/
 
@@ -460,10 +459,9 @@ color:white;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   gap: 6rem;
 }
-
 
 /* Fin Entreprise Thibault */
 
@@ -600,4 +598,120 @@ color:white;
   border-radius: 5px;
   -webkit-box-shadow: -8px 10px 15px 0px #ea4c88;
   box-shadow: -8px 10px 15px 0px #ea4c88;
+}
+
+/* **************SELECT ************ */
+#select .wrap_select {
+  padding: 4rem 0;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#select .wrap_select h2 {
+  font-family: "Rowdies", "cursive";
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+#select .CVS {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+#select .CVS .CV {
+  width: 23.33%;
+  -webkit-box-shadow: 2px 3px 7px 3px rgba(0, 0, 0, 0.28);
+  box-shadow: 2px 3px 7px 3px rgba(0, 0, 0, 0.28);
+}
+#select .CVS img {
+  width: 100%;
+  border-radius: 0.2rem;
+  flex-wrap: wrap;
+}
+
+#select .CV {
+  position: relative;
+}
+#select .discover {
+  font-size: 1.3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  color: white;
+  background-color: #ea4c88;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  -webkit-box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
+  box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
+}
+#select .discoverTwo {
+  font-size: 1.3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  color: white;
+  background-color: #ea4c88;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  -webkit-box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
+  box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
+}
+
+.btnDiscover {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #ea4c88;
+  border-radius: 0.3rem;
+}
+
+.btnDiscover a {
+  color: white;
+}
+.message {
+  display: none;
+}
+.popup {
+  border-radius: 0.3rem;
+  padding: 1rem;
+  color: white;
+  position: fixed;
+  background-color: #1e1e1e;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.popup h2 {
+  font-size: 2rem;
+}
+.popup p {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 4rem;
+}
+.btnPop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popup a {
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
+}
+.popup .btnPop2 {
+  background-color: #ea4c88;
+  border-radius: 0.3rem;
 }

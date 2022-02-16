@@ -1,6 +1,5 @@
 <?php
-
-
+session_start();
 get_header();
 ?>
 
@@ -17,7 +16,6 @@ get_header();
 
             echo  getImageFeatured(get_the_ID(), 'imgblog');
             echo '<p>' . get_the_content() . '</p>';
-
 
 
         endwhile; // End of the loop.

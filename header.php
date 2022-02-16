@@ -18,29 +18,31 @@
 				<a href="<?= path('/'); ?>"><img src="<?php echo get_template_directory_uri() . '/asset/img/NeedForJobv2.png' ?>" /></a>
 
 			</div>
-            <?php
-            if (!empty($_SESSION)){
-            $user_meta=get_user_meta($_SESSION['user']['id']);
-            }
-            ?>
+			<?php
+			if (!empty($_SESSION)) {
+				$user_meta = get_user_meta($_SESSION['user']['id']);
+			}
+			?>
 			<div class="navigation">
 				<nav>
 					<ul>
 						<li><a href="<?= path('/'); ?>">Accueil</a></li>
-						<li><a href="#cards">Voir les modèles</a></li>
+						<li><a href="<?= path('select'); ?>">Nos template </a></li>
+						<!--MENU QUAND CONNECTÉ-->
+						<?php if (!empty($_SESSION)) { ?>
+							<?php if ($user_meta['user_meta_role'][0] == 'utilisateur') { ?>
 
-                        <!--MENU QUAND CONNECTÉ-->
-                        <?php if(!empty($_SESSION)){ ?>
-                            <li><a href="<?= path('logout'); ?>">Se déconnecter</a></li>
-                        <?php if($user_meta['user_meta_role'][0]=='utilisateur'){ ?>
-                            <li><a href="<?= path('profil'); ?>">Mon profil</a></li>
-                            <?php } ?>
-
-                        <!--MENU QUAND DECONNECTÉ-->
-                      <?php  } else{ ?>
-						<li><a href="<?= path('login'); ?>">Connexion</a></li>
-						<li><a href="<?= path('register'); ?>">Inscription</a></li>
-                        <?php } ?>
+							<?php } ?>
+							<?php if ($user_meta['user_meta_role'][0] == 'recruteur') { ?>
+								<li><a href="<?= path('recruteur'); ?>">Les derniers CV</a></li>
+							<?php } ?>
+							<li><a href="<?= path('profil'); ?>">Mon profil</a></li>
+							<li><a href="<?= path('logout'); ?>">Se déconnecter</a></li>
+							<!--MENU QUAND DECONNECTÉ-->
+						<?php  } else { ?>
+							<li><a href="<?= path('login'); ?>">Connexion</a></li>
+							<li><a href="<?= path('register'); ?>">Inscription</a></li>
+						<?php } ?>
 					</ul>
 				</nav>
 			</div>

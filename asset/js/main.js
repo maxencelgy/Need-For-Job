@@ -25,3 +25,22 @@ new Typewriter(txtAnim, {
   .typeString("Votre génerateur de CV en ligne !")
   .pauseFor(700)
   .start();
+
+const discover = document.querySelectorAll(".discover");
+const discoverTwo = document.querySelectorAll(".discoverTwo");
+console.log(discoverTwo);
+const message = document.querySelector(".message");
+
+discover.forEach((elements) => {
+  elements.addEventListener("click", function (e) {
+    e.preventDefault();
+    message.style.display = "block";
+  });
+});
+
+discoverTwo.forEach((elements) => {
+  elements.addEventListener("click", function (e) {
+    message.style.display = "block";
+  });
+});
+console.log(message);
