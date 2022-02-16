@@ -429,10 +429,11 @@ color:white;
 #pub .pub_titre p {
   color: white;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
-#pub .pub_texte_titre {
-  font-weight: bold;
+#pub p.pub_texte_titre{
+  font-size: 2.5rem;
+  font-family: "Rowdies", cursive;
 }
 /* Fin pub Thibault */
 
@@ -458,3 +459,44 @@ color:white;
 
 
 /* Fin Entreprise Thibault */
+
+/* Presentation Thibault */
+
+#presentation {
+  padding-top: 2rem;
+}
+#presentation p {
+  font-size: 1.2rem;
+  text-align: center;
+  gap: 0.5rem;
+}
+#presentation .presentation_titre {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align:center;
+  font-family: "Rowdies", cursive;
+}
+#presentation .presentation_box {
+  padding: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+  width: 50%;
+  border: solid #ea4c88 2px;
+  border-radius: 5px;
+  -webkit-box-shadow: 7px 10px 15px 0px #ea4c88;
+  box-shadow: 7px 10px 15px 0px #ea4c88;
+}
+#presentation .presentation_box2 {
+  margin-left: 50%;
+  margin-right: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+
+  border: solid #ea4c88 2px;
+  border-radius: 5px;
+  -webkit-box-shadow: -8px 10px 15px 0px #ea4c88;
+  box-shadow: -8px 10px 15px 0px #ea4c88;
+}
+
+
+/* Fin presentation Thibault */
