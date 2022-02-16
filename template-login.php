@@ -15,7 +15,7 @@ if(!empty($_POST['submitted'])) {
     global $wpdb;
     $user = $wpdb->get_results(
         $wpdb->prepare("SELECT * FROM {$wpdb->prefix}users WHERE user_login=%s",$login),ARRAY_A);
-    debug($user);
+
 
 
     if(empty($user)) {
@@ -29,13 +29,13 @@ if(!empty($_POST['submitted'])) {
                 'status'=>$user[0]['user_status'],
                 'ip'=>$_SERVER['REMOTE_ADDR']
             );
-            wp_redirect(path('home'));
+            wp_redirect('home');
+            exit;
         }else {
             $errors['password'] = 'Mot de passe incorrect';
         }
     }
     if(count($errors) == 0) {
-        echo'Ouais fuck les erreurs';
 
     }
 }

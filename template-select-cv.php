@@ -26,7 +26,7 @@ get_header(); ?>
                         $metas = get_post_meta(get_the_ID());
                 ?>
                         <div class="CV">
-                            <?= getImageFeatured(get_the_ID(), 'imgcard', get_the_title()) ?>
+                            <?= getImageFeatured(get_the_ID(), 'imgcv', get_the_title()) ?>
                             <a href="<?= get_the_permalink() ?>" class="discoverTwo">Utiliser ce modèle</a>
                         </div>
                 <?php
@@ -47,7 +47,7 @@ get_header(); ?>
                         $the_query->the_post();
                         $metas = get_post_meta(get_the_ID()); ?>
                         <div class="CV">
-                            <?= getImageFeatured(get_the_ID(), 'imgcard', get_the_title()) ?>
+                            <?= getImageFeatured(get_the_ID(), 'imgcv', get_the_title()) ?>
                             <a href="<?= get_the_permalink() ?>" class="discover">Utiliser ce modèle</a>
                         </div>
                 <?php }
