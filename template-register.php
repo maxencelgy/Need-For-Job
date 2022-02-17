@@ -75,7 +75,7 @@ get_header();
 
 <section id="register_form">
 
-    <div class="wrap">
+    <div class="wrap_2">
         <?php if(!$success==true){ ?>
             <form action="" method="post" class="wrapform" novalidate>
                 <div class="info_box">

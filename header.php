@@ -18,16 +18,15 @@
 				<a href="<?= path('/'); ?>"><img src="<?php echo get_template_directory_uri() . '/asset/img/NeedForJobv2.png' ?>" /></a>
 
 			</div>
-            <?php
-            if (!empty($_SESSION)){
-            $user_meta=get_user_meta($_SESSION['user']['id']);
-            }
-            ?>
+			<?php
+			if (!empty($_SESSION)) {
+				$user_meta = get_user_meta($_SESSION['user']['id']);
+			}
+			?>
 			<div class="navigation">
 				<nav>
 					<ul>
 						<li><a href="<?= path('/'); ?>">Accueil</a></li>
-
 
                         <!--MENU QUAND CONNECTÉ-->
                         <?php if(!empty($_SESSION)){ ?>
@@ -44,9 +43,13 @@
 
                         <!--MENU QUAND DECONNECTÉ-->
                       <?php  } else{ ?>
+                        <li><a href="<?= path('select'); ?>">Nos modèles</a></li>
 						<li><a href="<?= path('login'); ?>">Connexion</a></li>
 						<li><a href="<?= path('register'); ?>">Inscription</a></li>
                         <?php } ?>
+
+
+
 					</ul>
 				</nav>
 			</div>

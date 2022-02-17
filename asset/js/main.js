@@ -22,9 +22,10 @@ new Typewriter(txtAnim, {
   deleteSpeed: 55,
 })
   .changeDelay(105)
-  .typeString("Votre génerateur de CV en ligne !")
+  .typeString("Votre génerateur de CV en ligne ! 😁")
   .pauseFor(700)
   .start();
+
 
 
 const txtAnimation = document.getElementById("typer_2");
@@ -32,7 +33,27 @@ new Typewriter(txtAnimation, {
   deleteSpeed: 55,
 })
     .changeDelay(105)
-    .typeString("Bonsoir Recruteur ;)")
+    .typeString("Bienvenue sur la partie recruteur ! 😁")
     .pauseFor(700)
     .start();
+
+
+const discover = document.querySelectorAll(".discover");
+const discoverTwo = document.querySelectorAll(".discoverTwo");
+console.log(discoverTwo);
+const message = document.querySelector(".message");
+
+discover.forEach((elements) => {
+  elements.addEventListener("click", function (e) {
+    e.preventDefault();
+    message.style.display = "block";
+  });
+});
+
+discoverTwo.forEach((elements) => {
+  elements.addEventListener("click", function (e) {
+    message.style.display = "block";
+  });
+});
+console.log(message);
 
