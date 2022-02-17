@@ -28,25 +28,24 @@
 					<ul>
 						<li><a href="<?= path('/'); ?>">Accueil</a></li>
 
-                        <!--MENU QUAND CONNECTÉ-->
-                        <?php if(!empty($_SESSION)){ ?>
-                            <li><a href="<?= path('logout'); ?>">Se déconnecter</a></li>
-                        <?php if($user_meta['user_meta_role'][0]=='utilisateur'){ ?>
-                            <li><a href="<?= path('profil'); ?>">Mon profil</a></li>
-                            <li><a href="#cards">Voir les modèles</a></li>
-                            <?php } ?>
-                            <?php if($user_meta['user_meta_role'][0]=='recruteur'){ ?>
-                                <li><a href="<?= path('profil'); ?>">Mon Profil</a></li>
-                                <li><a href="<?= path('recruteur'); ?>">Liste des CVs</a></li>
-                            <?php } ?>
+						<!--MENU QUAND CONNECTÉ-->
+						<?php if (!empty($_SESSION)) { ?>
+							<li><a href="<?= path('logout'); ?>">Se déconnecter</a></li>
+							<?php if ($user_meta['user_meta_role'][0] == 'utilisateur') { ?>
+								<li><a href="<?= path('profil'); ?>">Mon profil</a></li>
+								<li><a href="<?= path('select'); ?>">Nos modèles</a></li>
+							<?php } ?>
+							<?php if ($user_meta['user_meta_role'][0] == 'recruteur') { ?>
+								<li><a href="<?= path('profil'); ?>">Mon Profil</a></li>
+								<li><a href="<?= path('recruteur'); ?>">Liste des CVs</a></li>
+							<?php } ?>
 
-
-                        <!--MENU QUAND DECONNECTÉ-->
-                      <?php  } else{ ?>
-                        <li><a href="<?= path('select'); ?>">Nos modèles</a></li>
-						<li><a href="<?= path('login'); ?>">Connexion</a></li>
-						<li><a href="<?= path('register'); ?>">Inscription</a></li>
-                        <?php } ?>
+							<!--MENU QUAND DECONNECTÉ-->
+						<?php  } else { ?>
+							<li><a href="<?= path('select'); ?>">Nos modèles</a></li>
+							<li><a href="<?= path('login'); ?>">Connexion</a></li>
+							<li><a href="<?= path('register'); ?>">Inscription</a></li>
+						<?php } ?>
 
 
 
