@@ -25,3 +25,14 @@ new Typewriter(txtAnim, {
   .typeString("Votre génerateur de CV en ligne !")
   .pauseFor(700)
   .start();
+
+
+const txtAnimation = document.getElementById("typer_2");
+new Typewriter(txtAnimation, {
+  deleteSpeed: 55,
+})
+    .changeDelay(105)
+    .typeString("Bonsoir Recruteur ;)")
+    .pauseFor(700)
+    .start();
+

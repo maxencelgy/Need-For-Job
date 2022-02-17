@@ -3,12 +3,27 @@
 /* Template Name: HomePage */
 
 session_start();
+
 if (!empty($_SESSION)){
     $user_meta=get_user_meta($_SESSION['user']['id']);
 }
 
 get_header(); ?>
 
+<?php   if(!empty($user_meta) && $user_meta['user_meta_role'][0]=='recruteur' ){ ?>
+        <!--PAGE HOME QUAND RECRUTEUR CONNECTÉ-->
+    <section id="home">
+        <div class="filter">
+            <div class="title" data-aos="fade-up" data-aos-duration="3000">
+                <h1>Need For Job</h1>
+                <h2 id="typer_2">Bonsoir Recruteur ;)</h2>
+                <a href="" class="btn-a" id="btn">Voir les CVs</a>
+            </div>
+        </div>
+    </section>
+        <?php }else{ ?>
+
+    <!--PAGE HOME CLASSIQUE-->
 
 <section id="home">
     <div class="filter">
@@ -85,7 +100,7 @@ get_header(); ?>
 </section>
 
 
-
+  <?php  } ?>
 
 
 
