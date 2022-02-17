@@ -40,7 +40,7 @@ new Typewriter(txtAnimation, {
 
 const discover = document.querySelectorAll(".discover");
 const discoverTwo = document.querySelectorAll(".discoverTwo");
-console.log(discoverTwo);
+// console.log(discoverTwo);
 const message = document.querySelector(".message");
 
 discover.forEach((elements) => {
