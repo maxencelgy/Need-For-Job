@@ -153,7 +153,7 @@ function verifUserConnectedAdminTables()
 function verifUserAlreadyConnected()
 {
     if (isLogged() == true) {
-       wp_redirect(path('home'));
+        wp_redirect(path('home'));
     } else {
     }
 }
@@ -195,4 +195,46 @@ function getImageAttachment($id_attachment, $size = 'thumbnail', $alt = '')
         return '<img src="' . $image[0] . '" alt="' . $alt . '"/>';
     }
     return '';
+}
+
+
+// AJAX
+
+function validText($errors, $data, $key, $min = 2, $max = 50)
+{
+    if (!empty($data)) {
+        if (mb_strlen($data) < $min) {
+            $errors[$key] = 'min ' . $min . ' caractères';
+        } elseif (mb_strlen($data) > $max) {
+            $errors[$key] = 'max ' . $max . ' caractères';
+        }
+    } else {
+        $errors[$key] = 'Veuillez renseigner ce champ';
+    }
+    return $errors;
+}
+
+
+function validEmail($errors, $data, $key)
+{
+    if (!empty($data)) {
+        if (!filter_var($data, FILTER_VALIDATE_EMAIL)) {
+            $errors[$key] = 'Veuillez renseigner un email valide';
+        }
+    } else {
+        $errors[$key] = 'Veuillez renseigner un email';
+    }
+    return $errors;
+}
+
+
+function showJson($data)
+{
+    header("Content-type: application/json");
+    $json = json_encode($data, JSON_PRETTY_PRINT);
+    if ($json) {
+        die($json);
+    } else {
+        die('error in json encoding');
+    }
 }
