@@ -40,7 +40,7 @@ a {
 .hidden {
   display: none;
 }
-
+.wrap{max-width: 1440px;width: 100%;margin: 0 auto;}
 /* ******************HEADER**************************** */
 body {
   margin: 0;
@@ -59,13 +59,7 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.separator_home_page {
-  color: black;
-  border-bottom: solid 5px black;
-  width: 30%;
-  margin: 0 auto;
-  padding: 4rem;
-}
+
 
 #home {
   background: url(asset/img/background-cv.jpg) center;
@@ -74,6 +68,7 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
 }
+
 #home .title {
   color: white;
   z-index: 9999;
@@ -169,6 +164,57 @@ header {
   margin: auto 0;
 }
 
+
+/*HOME RECRUTEUR*/
+#home_recruteur {
+  background: url(asset/img/background-recruteur2.jpg) center;
+  background-size: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+#home_recruteur .title {
+  color: white;
+  z-index: 9999;
+  position: absolute; /* postulat de départ */
+  top: 50%;
+  left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+}
+
+#home_recruteur .title h1 {
+  font-size: 6rem;
+}
+#home_recruteur .title h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 4rem;
+}
+#home_recruteur .title .btn-a {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 1rem;
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  border-radius: 0.3rem;
+  background-color: #5C068B;
+  -webkit-box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
+  box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.42);
+}
+#home_recruteur .filter img {
+  transform: scaleX(-1);
+  width: 15%;
+  position: absolute;
+  top: 50%;
+  right: 10%;
+}
 /*******************carte mathis***********************/
 
 
@@ -275,7 +321,7 @@ header {
 #register_form h2 {
   font-family: "Rowdies", cursive;
 }
-#register_form .wrap {
+#register_form .wrap_2 {
   display: flex;
   background-color: white;
   height: 100vh;
@@ -429,7 +475,7 @@ header {
 /* Footer Mathis */
 
 #footer {
-  background-color: #2c3338;
+  background-color:#3B4148;
   padding: 2rem 0;
 }
 .wrap_footer {
@@ -441,17 +487,17 @@ header {
   justify-content: center;
   gap: 2rem;
 }
-.separator_footer {
-  background-color: #ea4c88;
+#footer .separator_footer {
+  background-color:#ea4c88;
   width: 1px;
   height: 100px;
 }
 
-.footer_nav {
+#footer .footer_nav {
   margin-right: 10%;
   line-height: 2rem;
 }
-.footer_nav a {
+#footer .footer_nav a {
   color: white;
 }
 #footer .footer_nav nav a {
@@ -476,30 +522,102 @@ header {
 #footer .footer_nav nav a:hover::before {
   transform: scaleX(1);
 }
-.reseau_footer {
+#footer .reseau_footer {
   display: flex;
   gap: 2rem;
   align-items: center;
   font-size: 3rem;
 }
-.reseau_footer a {
+#footer .reseau_footer a {
   color: #ea4c88;
 }
 
-.reseau_footer a:hover {
+#footer .reseau_footer a:hover {
   color: white;
 }
-.fb:hover{
+#footer .fb:hover{
   color: rgb(32, 171, 252);
 }
-.insta:hover{
+#footer .insta:hover{
 color: rgb(243, 87, 26);
 }
-.snap:hover{
+#footer .snap:hover{
  color: yellow;
 }
 
 /*Fin footer mathis*/
+
+/*Footer Recruteur*/
+#footer_recruteur {
+  background-color: #3B4148;
+  padding: 2rem 0;
+}
+.wrap_footer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 2rem;
+}
+#footer_recruteur .separator_footer {
+  background-color: #5C068B;
+  width: 1px;
+  height: 100px;
+}
+
+#footer_recruteur .footer_nav {
+  margin-right: 10%;
+  line-height: 2rem;
+}
+#footer_recruteur .footer_nav a {
+  color: white;
+}
+#footer_recruteur .footer_nav nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  position: relative;
+}
+#footer_recruteur .footer_nav nav a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+#footer_recruteur .footer_nav nav a:hover::before {
+  transform: scaleX(1);
+}
+#footer_recruteur .reseau_footer {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  font-size: 3rem;
+}
+#footer_recruteur .reseau_footer a {
+  color:#5C068B;
+}
+
+#footer_recruteur .reseau_footer a:hover {
+  color: white;
+}
+#footer_recruteur .fb:hover{
+  color: rgb(32, 171, 252);
+}
+#footer_recruteur .insta:hover{
+  color: rgb(243, 87, 26);
+}
+#footer_recruteur .snap:hover{
+  color: yellow;
+}
 
 /* Pub Thibault */
 #pub {
@@ -647,6 +765,10 @@ color: rgb(243, 87, 26);
 #presentation {
   padding-top: 7rem;
 }
+#presentation .wrap{
+  display:flex;
+  flex-flow: column;
+}
 #presentation p {
   font-size: 1.2rem;
   text-align: center;
@@ -659,7 +781,7 @@ color: rgb(243, 87, 26);
   font-family: "Rowdies", cursive;
 }
 #presentation .presentation_box {
-  padding: 1rem;
+  padding: 2rem;
   margin-left: 1rem;
   margin-bottom: 2rem;
   width: 50%;
@@ -672,14 +794,46 @@ color: rgb(243, 87, 26);
   margin-left: 50%;
   margin-right: 1rem;
   margin-bottom: 2rem;
-  padding: 1rem;
+  padding: 2rem;
   background-color: white;
   border: solid #3b4148 2px;
   border-radius: 5px;
-
   -webkit-box-shadow: -3px 3px 5px 1px #3b4148;
   box-shadow: -3px 3px 5px 1px #3b4148;
 }
+
+/*INFO RECRUTEUR*/
+#info_recruteur{padding:5rem;}
+#info_recruteur h2{font-family: 'Rowdies',cursive}
+#info_recruteur p{font-family: "Lato", sans-serif;}
+#info_recruteur .info_box{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  gap:5rem;
+}
+#info_recruteur .info_box .left_part_box{
+  display:flex;
+  flex-flow:column;
+  gap:3rem;
+  width:50%;
+}
+#info_recruteur .left_part_box .box{
+  display:flex;
+  align-items: center ;
+  gap:2rem;
+  padding:1.5rem;
+  border:solid 2px black;
+  border-radius:10px;
+  -webkit-box-shadow: -3px 3px 5px 1px #3b4148;
+  box-shadow: -3px 3px 5px 1px #3b4148;
+}
+#info_recruteur .left_part_box i{font-size: 2rem;}
+#info_recruteur .info_box .left_part_box .box_txt{display:flex;flex-flow: column;gap:1rem;}
+#info_recruteur .info_box .right_part_box{width:30%;}
+#info_recruteur .info_box .right_part_box img{width:100%;}
+
+
 
 /* **************SELECT ************ */
 #select .wrap_select {

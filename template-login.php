@@ -49,7 +49,7 @@ get_header();
 
     <section id="register_form">
 
-        <div class="wrap">
+        <div class="wrap_2">
 
                 <form action="" method="post" class="wrapform" novalidate>
                     <h2>Connexion :</h2>

@@ -134,19 +134,19 @@ function generateRandomString($length = 10)
 function verifUserConnected()
 {
     if (isLogged() == false) {
-        header('Location: login.php');
+        wp_redirect(path('home'));
     }
 }
 function verifUserConnectedAdmin()
 {
     if (isAdmin() == false) {
-        header('Location: http://localhost/Vactolib/403.php');
+        wp_redirect(path('404'));
     }
 }
 function verifUserConnectedAdminTables()
 {
     if (isAdmin() == false) {
-        header('Location: http://localhost/Vactolib/403.php');
+        wp_redirect(path('home'));
     }
 }
 
@@ -164,17 +164,18 @@ function isLogged()
 {
     if (!empty($_SESSION['user'])) {
         if (!empty($_SESSION['user']['id'])) {
-            if (!empty($_SESSION['user']['email'])) {
-                if (!empty($_SESSION['user']['status'])) {
-                    if (!empty($_SESSION['user']['ip'])) {
-                        if ($_SESSION['user']['ip'] == $_SERVER['REMOTE_ADDR']) {
-                            return true;
+            if(!empty($_SESSION['user']['pseudo'])){
+                if (!empty($_SESSION['user']['email'])) {
+                    if (!empty($_SESSION['user']['status'])) {
+                        if (!empty($_SESSION['user']['ip'])) {
+                           echo'niquel';
                         }
                     }
                 }
             }
         }
     }
+    echo 'erreur';
     return false;
 }
 
