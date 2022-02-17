@@ -404,11 +404,28 @@ header {
 .footer_nav a {
   color: white;
 }
-.footer_nav a:hover {
-  border-bottom: 1px solid white;
-  padding-bottom: 0.5rem;
+#footer .footer_nav nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  position: relative;
 }
-
+#footer .footer_nav nav a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+#footer .footer_nav nav a:hover::before {
+  transform: scaleX(1);
+}
 .reseau_footer{
   display: flex;
   gap:2rem;
@@ -585,10 +602,10 @@ color:white;
   margin-left: 1rem;
   margin-bottom: 2rem;
   width: 50%;
-  border: solid #ea4c88 2px;
+  border: solid #3b4148 2px;
   border-radius: 5px;
-  -webkit-box-shadow: 7px 10px 15px 0px #ea4c88;
-  box-shadow: 7px 10px 15px 0px #ea4c88;
+  -webkit-box-shadow: 3px 3px 5px 1px #3b4148;
+  box-shadow: 3px 3px 5px 1px #3b4148;
   background-color:white;
 }
 #presentation .presentation_box2 {
@@ -597,10 +614,11 @@ color:white;
   margin-bottom: 2rem;
   padding: 1rem;
   background-color:white;
-  border: solid #ea4c88 2px;
+  border: solid #3b4148 2px;
   border-radius: 5px;
-  -webkit-box-shadow: -8px 10px 15px 0px #ea4c88;
-  box-shadow: -8px 10px 15px 0px #ea4c88;
+
+  -webkit-box-shadow: -3px 3px 5px 1px #3b4148;
+  box-shadow: -3px 3px 5px 1px #3b4148;
 }
 
 /* Fin presentation Thibault */
