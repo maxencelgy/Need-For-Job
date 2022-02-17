@@ -3,6 +3,11 @@
 /* Template Name: HomePage */
 
 session_start();
+if (!empty($_SESSION)) {
+    $user_meta = get_user_meta($_SESSION['user']['id']);
+}
+
+
 
 get_header(); ?>
 
@@ -17,6 +22,24 @@ get_header(); ?>
     </div>
 </section>
 
+<section id="presentation">
+    <div data-aos="fade-right" data-aos-duration="1000" class="presentation_box">
+        <p class="presentation_titre">Rapide et facile !</p>
+        <p>Notre outil de rédaction de CV en ligne permet aisément à chacun(e) de faire un CV professionnel de manière rapide. Vous introduisez vos données personnelles avant d'entamer la rédaction du contenu de votre CV. Pour conclure, vous choisissez une mise en page parmi nos 36 versions de CV proposées et vous téléchargez votre CV.</p>
+    </div>
+    <div data-aos="fade-left" data-aos-duration="1000" class="presentation_box2">
+        <p class="presentation_titre">Chance augmenté de trouver un emploi !</p>
+        <p>La rédaction d'un CV pertinent et professionnel vous distinguera des autres demandeurs d'emploi. Vous disposerez ainsi d'environ 80% de chance supplémentaire pour décrocher une invitation pour un entretien de sélection</p>
+    </div>
+    <div data-aos="fade-right" data-aos-duration="1000" class="presentation_box">
+        <p class="presentation_titre">Pas besoin d'inscription !</p>
+        <p>Vous n'avez pas besoin d'être inscrit sur le site de Need for job pour créer votre CV en ligne, il vous suffit simplement de cliquer sur le bouton "Créer mon cv"</p>
+    </div>
+
+</section>
+
+
+<div class="separator_home_page"></div>
 
 
 <section id="cards">
@@ -85,12 +108,16 @@ get_header(); ?>
                 <!-- items mirrored twice, total of 12 -->
             </ul>
         </div>
-
     </div>
 </section>
 
+
+
+
 <section id="pub">
-    <div class="pub_titre">
+    <div data-aos="fade-down"
+         data-aos-easing="linear"
+         data-aos-duration="1000" class="pub_titre">
         <p class="pub_texte_titre">Des recruteurs actifs</p>
         <br>
         <p>Retrouvez des centaines de candidatures en un clic</p>
@@ -112,12 +139,5 @@ get_header(); ?>
         </ul>
     </div>
 </section>
-
-
-
-
-
-
-
 
 <?php get_footer();
