@@ -1,12 +1,14 @@
 <?php
 /* Template Name: Recruteur*/
 session_start();
+
+debug($_SESSION);
 get_header(); ?>
 
 <section id="recruteur">
     <div class="wrap_recruteur">
         <div class="title_recru">
-            <h2>Bonjour Recruteur</h2>
+            <h2>Bonjour <?= $_SESSION['user']['pseudo'] ?></h2>
             <h3>Voici la liste des derniers CV en ligne</h3>
         </div>
 

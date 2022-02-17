@@ -3,9 +3,11 @@
 /* Template Name: HomePage */
 
 session_start();
-if (!empty($_SESSION)){
-    $user_meta=get_user_meta($_SESSION['user']['id']);
+if (!empty($_SESSION)) {
+    $user_meta = get_user_meta($_SESSION['user']['id']);
 }
+
+
 
 get_header(); ?>
 
@@ -36,25 +38,77 @@ get_header(); ?>
 
 </section>
 
-    <div class="separator_home_page"></div>
+
+<div class="separator_home_page"></div>
+
 
 <section id="cards">
-    <div class="wrap_card">
-        <div class="card">
-            <a href=""> <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt=""></a>
-            <a href=""><span class="card_plus">Voir plus</span></a>
-        </div>
-        <div class="card">
-            <a href=""> <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt=""></a>
-            <a href=""><span class="card_plus">Voir plus</span></a>
-        </div>
-        <div class="card">
-            <a href=""> <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt=""></a>
-            <a href=""><span class="card_plus">Voir plus</span></a>
-        </div>
-
+    <div class="titre_card">
+        <h2>Nos Templates de CV</h2>
+        <div class="separator_card"></div>
     </div>
+    <div class="wrap_card">
+        <div class="flexslider carousel">
+            <ul class="slides">
+                <li>
+                <li class="item">
+                    <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt="" />
+                    <div class="overlay"> <a href="#">Voir les modèles </a></div>
+                </li>
+                </li>
+                <li class="item">
+                    <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt="" />
+                    <div class="overlay"> <a href="#">Voir les modèles </a></div>
+                </li>
+                <li class="item">
+                    <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt="" />
+                    <div class="overlay"> <a href="#">Voir les modèles </a></div>
+                </li>
+                <li class="item">
+                    <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt="" />
+                    <div class="overlay"> <a href="#">Voir les modèles </a></div>
+                </li>
+                <li class="item">
+                    <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt="" />
+                    <div class="overlay"> <a href="#">Voir les modèles </a></div>
+                </li>
+                <li class="item">
+                    <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt="" />
+                    <div class="overlay"> <a href="#">Voir les modèles </a></div>
+                </li>
+                <li class="item">
+                    <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt="" />
+                    <div class="overlay"> <a href="#">Voir les modèles </a></div>
+                </li>
+                <li class="item">
+                    <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt="" />
+                    <div class="overlay"> <a href="#">Voir les modèles </a></div>
+                </li>
+                <li class="item">
+                    <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt="" />
+                    <div class="overlay"> <a href="#">Voir les modèles </a></div>
+                </li>
+                <li class="item">
+                    <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt="" />
+                    <div class="overlay"> <a href="#">Voir les modèles </a></div>
+                </li>
+                <li class="item">
+                    <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt="" />
+                    <div class="overlay"> <a href="#">Voir les modèles </a></div>
+                </li>
+                <li class="item">
+                    <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt="" />
+                    <div class="overlay"> <a href="#">Voir les modèles </a></div>
+                </li>
+                <li class="item">
+                    <img src=<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?> alt="" />
+                    <div class="overlay"> <a href="#">Voir les modèles </a></div>
+                </li>
 
+                <!-- items mirrored twice, total of 12 -->
+            </ul>
+        </div>
+    </div>
 </section>
 
 
@@ -85,12 +139,5 @@ get_header(); ?>
         </ul>
     </div>
 </section>
-
-
-
-
-
-
-
 
 <?php get_footer();
