@@ -1,13 +1,14 @@
 <style>
-    #cv_entier {
+    .cv_entier {
         background-color: aliceblue;
         width: 100%;
         max-width: 1400px;
         margin: auto;
         border: 2px solid black;
+        border-radius: .3rem;
     }
 
-    #cv_entier h2 {
+    .cv_entier h2 {
         font-weight: 900;
     }
 
@@ -16,6 +17,16 @@
         display: flex;
         justify-content: space-between;
 
+    }
+
+    .imgProfil {
+        width: 200px;
+        height: 150px;
+        margin-right: 3rem;
+    }
+
+    .imgProfil img {
+        width: 100%;
     }
 
     .info_perso_cv {
@@ -110,57 +121,55 @@
     }
 </style>
 
-<body>
-    <section id="cv_entier">
-        <div id="invoice">
-            <div class="en_tete_cv">
-                <div class="info_perso_cv">
-                    <h1 id="Nom"></h1>
-                    <p id="Date_de_naissance"></p>
-                    <br>
-                    <p id="adresse"></p>
-                    <p id="adresse_two"></p>
-                    <p id="numero"></p>
-                    <p id="adresse_mail"></p>
-                    <br>
-                    <p id="permis"></p>
-                </div>
+<section class="cv_entier">
+    <div id="invoice">
+        <div class="en_tete_cv">
+            <div class="info_perso_cv">
+                <h1 id="Nom"></h1>
+                <p id="Date_de_naissance"></p>
+                <br>
+                <p id="adresse"></p>
+                <p id="adresse_two"></p>
+                <p id="numero"></p>
+                <p id="adresse_mail"></p>
+                <br>
+                <p id="permis"></p>
             </div>
-            <div class="formation_cv">
-                <h1>Les Formations</h1>
-                <div class="date_and_forma">
-                    <div class="date_formation_cv">
-
-                    </div>
-                    <div class="formation_faites_cv">
-
-                    </div>
-                </div>
+            <div class="imgProfil">
+                <img src="<?php echo get_template_directory_uri() . '/asset/img/profil.jpg' ?>" alt="">
             </div>
-            <div class="experience_pro">
-                <h1>Experience professionelle</h1>
-                <div class="date_and_exp">
-                    <div class="date_experience">
+        </div>
+        <div class="formation_cv">
+            <h1>Les Formations</h1>
+            <div class="date_and_forma">
+                <div class="date_formation_cv">
 
-                    </div>
-                    <div class="experience">
-
-                    </div>
                 </div>
-            </div>
-            <div class="maitrise_langues">
-                <h1>Langues étrangères</h1>
-                <div class="langues_and_niveau">
-                    <div class="langues">
+                <div class="formation_faites_cv">
 
-                    </div>
-                    <div class="niveau_langues">
-
-                    </div>
-                </div>
-                <div class="loisirs">
-                    <h1>Loisirs</h1>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="experience_pro">
+            <h1>Experience professionelle</h1>
+            <div class="date_and_exp">
+                <div class="date_experience">
+
+                </div>
+                <div class="experience">
+
+                </div>
+            </div>
+        </div>
+        <div class="loisirs">
+            <h1>Loisirs</h1>
+        </div>
+        <div class="maitrise_langues">
+            <h1>Langues étrangères</h1>
+            <div class="langues_and_niveau">
+                <div class="langues"></div>
+                <div class="niveau_langues"></div>
+            </div>
+        </div>
+    </div>
+</section>

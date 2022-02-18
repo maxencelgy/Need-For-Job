@@ -25,7 +25,7 @@ get_header();
                     <label for="lieux">Adresse : </label>
                     <textarea name="" id="lieux" cols="30" rows="10"></textarea>
 
-                    <input type="submit" name="submitted" value="envoyer message">
+                    <input type="submit" name="submitted" value="Suivant">
                 </form>
                 <!-- FORMULAIRE -->
                 <form id="formulaire2" class="wrapform formulaireAll" action="" method="POST" novalidate>
@@ -38,31 +38,37 @@ get_header();
                     <label for="perms">Permis : </label>
                     <input type="text" name="perms" id="perms" value="">
 
-                    <input type="submit" name="submitted" value="envoyer message">
+                    <input type="submit" name="submitted" value="Suivant">
                 </form>
                 <!-- FORMULAIRE -->
                 <form id="formulaire3" class="wrapform" action="" method="POST" novalidate>
                     <div id="input3"></div>
-                    <button id="forma-add">Ajouter une formation</button>
-                    <input type="submit" name="submitted" value="envoyer message">
+                    <button id="forma-add" class="btnADD">Ajouter une formation</button>
+                    <input type="submit" name="submitted" value="Suivant">
                 </form>
                 <!-- FORMULAIRE -->
                 <form id="formulaire4" class="wrapform" action="" method="POST" novalidate>
                     <div id="input4"></div>
-                    <button id="forma-add-experience">Ajouter une experience</button>
-                    <input type="submit" name="submitted" value="envoyer message">
+                    <button id="forma-add-experience" class="btnADD">Ajouter une experience</button>
+                    <input type="submit" name="submitted" value="Suivant">
                 </form>
                 <!-- FORMULAIRE -->
                 <form id="formulaire5" class="wrapform" action="" method="POST" novalidate>
                     <div id="input5"></div>
-                    <button id="forma-add-langue">Ajouter une langue</button>
-                    <input type="submit" name="submitted" value="envoyer message">
+                    <button id="forma-add-langue" class="btnADD">Ajouter une langue</button>
+                    <input type="submit" name="submitted" value="Suivant">
                 </form>
                 <!-- FORMULAIRE -->
                 <form id="formulaire6" class="wrapform" action="" method="POST" novalidate>
                     <div id="input6"></div>
-                    <button id="forma-add-loisir">Ajouter un loisir</button>
-                    <input type="submit" name="submitted" value="envoyer message">
+                    <button id="forma-add-loisir" class="btnADD">Ajouter un loisir</button>
+                    <input type="submit" name="submitted" value="Suivant">
+                </form>
+                <form id="formulaire7" class="wrapform" action="" method="POST" novalidate>
+                    <h2>Merci d'avoir utiliser notre génerateur de CV</h2>
+                    <p>Vous pouvez maintenant affiche votre CV sur votre profil ou le télecharger au format pdf</p>
+                    <a href="javascript:void(0)" class="btn-download">Download PDF </a>
+                    <a href="" class="btn-add">Ajouter à mon profil</a>
                 </form>
             </div>
             <div class="right">
@@ -71,9 +77,13 @@ get_header();
         <?php
         endwhile; // End of the loop.
         ?>
+    </div>
+    <div class="download">
+        <a href="javascript:void(0)" class="btn-download">Download PDF </a>
+        <a href="" class="btn-add">Ajouter à mon profil</a>
 
     </div>
-    <a href="javascript:void(0)" class="btn-download">Download PDF </a>
+
 </section>
 
 

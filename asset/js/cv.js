@@ -7,6 +7,7 @@ $(document).ready(function () {
   const formulaire4 = $("#formulaire4");
   const formulaire5 = $("#formulaire5");
   const formulaire6 = $("#formulaire6");
+  const formulaire7 = $("#formulaire7");
 
   formulaire.on("submit", function (e) {
     e.preventDefault();
@@ -27,7 +28,7 @@ $(document).ready(function () {
     adresse.innerText = ` ${lieux}`;
     // CACHER ANCIEN FORMULAIRE
     formulaire.css("display", "none");
-    formulaire2.css("display", "block");
+    formulaire2.css("display", "flex");
   });
 
   formulaire2.on("submit", function (e) {
@@ -46,7 +47,7 @@ $(document).ready(function () {
     permis.innerText = `${perms}`;
     // CACHER ANCIEN FORMULAIRE
     formulaire2.css("display", "none");
-    formulaire3.css("display", "block");
+    formulaire3.css("display", "flex");
   });
   // /////////////////////////////////////////////////////////////////////
   const formationAdd = $("#forma-add");
@@ -55,7 +56,7 @@ $(document).ready(function () {
     e.preventDefault();
 
     $("#input3").append(
-      '<label for="date">Date : </label><input type="text" name="date" class="date" value=""></input>  <label for="formation">Formation : </label><input type="text" name="formation" class="formation" value=""></input>'
+      '<label for="date">Date : </label><br><input type="text" name="date" class="date" value=""></input><br><label for="formation">Formation : </label><br><input type="text" name="formation" class="formation" value=""></input><br>'
     );
   });
 
@@ -77,7 +78,7 @@ $(document).ready(function () {
 
     // CACHER ANCIEN FORMULAIRE
     formulaire3.css("display", "none");
-    formulaire4.css("display", "block");
+    formulaire4.css("display", "flex");
   });
 
   // ////////////////////////////////////////
@@ -89,28 +90,27 @@ $(document).ready(function () {
     e.preventDefault();
 
     $("#input4").append(
-      '<label for="date-exp">Date : </label><input type="text" name="date-exp" class="date-exp" value=""></input>  <label for="experience">Experience : </label><input type="text" name="experience" class="experience" value=""></input>'
+      '<label for="date-exp">Date : </label><br><input type="text" name="date-exp" class="date-exp" value=""></input><br><label for="experience">Experience : </label><br><input type="text" name="experienceIn" class="experienceIn" value=""></input><br>'
     );
   });
 
   formulaire4.on("submit", function (e) {
     e.preventDefault();
-
     const input4 = document.querySelectorAll(".date-exp");
     input4.forEach((element) => {
-      let dateVal = element.value;
-      $(".date_experience").append("<p>" + dateVal + "</p>");
+      let dateExp = element.value;
+      $(".date_experience").append("<p>" + dateExp + "</p>");
     });
 
-    const experience4 = document.querySelectorAll(".experience");
+    const experience4 = document.querySelectorAll(".experienceIn");
     experience4.forEach((element) => {
-      let experience = element.value;
-      $(".experience").append("<h2>" + experience + "</h2>");
+      let experienceVal = element.value;
+      $(".experience").append("<h2>" + experienceVal + "</h2>");
     });
 
     // CACHER ANCIEN FORMULAIRE
     formulaire4.css("display", "none");
-    formulaire5.css("display", "block");
+    formulaire5.css("display", "flex");
   });
   // ////////////////////////////////////////////////
 
@@ -121,7 +121,7 @@ $(document).ready(function () {
     e.preventDefault();
 
     $("#input5").append(
-      '<label for="langue">Langue : </label><input type="text" name="langue" class="langue" value=""></input>  <label for="niveau">Niveau : </label><input type="text" name="niveau" class="niveau" value=""></input>'
+      '<label for="langue">Langue : </label><br><input type="text" name="langue" class="langue" value=""></input><br><label for="niveau">Niveau : </label><br><input type="text" name="niveau" class="niveau" value=""></input><br>'
     );
   });
 
@@ -142,7 +142,7 @@ $(document).ready(function () {
 
     // CACHER ANCIEN FORMULAIRE
     formulaire5.css("display", "none");
-    formulaire6.css("display", "block");
+    formulaire6.css("display", "flex");
   });
   // ///////////////////////////////////////////
   const formationAddLoisir = $("#forma-add-loisir");
@@ -152,7 +152,7 @@ $(document).ready(function () {
     e.preventDefault();
 
     $("#input6").append(
-      '<label for="loisir">Loisir : </label><input type="text" name="loisir" class="loisir" value=""></input>'
+      '<label for="loisir">Loisir : </label><br><input type="text" name="loisir" class="loisir" value=""></input><br>'
     );
   });
 
@@ -167,20 +167,21 @@ $(document).ready(function () {
 
     // CACHER ANCIEN FORMULAIRE
     formulaire6.css("display", "none");
-    // formulaire6.css("display", "block");
+    formulaire7.css("display", "block");
   });
 });
 
 const options = {
-  filename: "CV.pdf",
+  filename: "cv.pdf",
   image: {
     type: "png",
-    quality: 2400,
+    quality: 800,
   },
   html2canvas: {
     scale: 1,
   },
   jsPDF: {
+    format: "a4",
     unit: "in",
     format: "letter",
     orientation: "portrait",
