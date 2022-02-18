@@ -15,7 +15,7 @@ get_header(); ?>
                 <div class="message"></div>
                 <?php $args = array(
                     'post_type' => 'cv',
-                    'posts_per_page' => -1,
+                    'posts_per_page' => 4,
                     'order' => 'ASC'
                 );
                 $the_query = new WP_Query($args);
@@ -38,7 +38,7 @@ get_header(); ?>
             <?php  } else { ?>
                 <?php $args = array(
                     'post_type' => 'cv',
-                    'posts_per_page' => -1,
+                    'posts_per_page' => 4,
                     'order' => 'ASC'
                 );
                 $the_query = new WP_Query($args);
