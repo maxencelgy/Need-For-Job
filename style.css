@@ -918,6 +918,7 @@ header {
   color: white;
 }
 .message {
+  z-index: 999;
   display: none;
 }
 .popup {

@@ -51,6 +51,22 @@ get_header(); ?>
                             <?= getImageFeatured(get_the_ID(), 'imgcv', get_the_title()) ?>
                             <a href="<?= get_the_permalink() ?>" class="discover">Utiliser ce modèle</a>
                         </div>
+
+                        <?php if (!empty($_SESSION)) { ?>
+                            <div class="message"></div>
+                        <?php  } else { ?>
+                            <div class="message">
+                                <div class="popup">
+                                    <h2>Continuer sans se connecter ?</h2>
+                                    <p>Attention, si vous continuez sans vous connecté les recruteurs ne pourront pas vous trouvez
+                                        il sera aussi impossible de modifier votre CV par la suite.</p>
+                                    <div class="btnPop">
+                                        <a href="<?= get_the_permalink() ?>" class="btnPop1">Continuer sans se connecter</a>
+                                        <a href="<?= path('login'); ?>" class="btnPop2">Se connecter</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
                 <?php }
                 }
                 wp_reset_postdata(); ?>
@@ -62,21 +78,6 @@ get_header(); ?>
             <a href="">Voir plus de modèle</a>
         </div>
 
-        <?php if (!empty($_SESSION)) { ?>
-            <div class="message"></div>
-        <?php  } else { ?>
-            <div class="message">
-                <div class="popup">
-                    <h2>Continuer sans se connecter ?</h2>
-                    <p>Attention, si vous continuez sans vous connecté les recruteurs ne pourront pas vous trouvez
-                        il sera aussi impossible de modifier votre CV par la suite.</p>
-                    <div class="btnPop">
-                        <a href="<?= get_the_permalink() ?>" class="btnPop1">Continuer sans se connecter</a>
-                        <a href="<?= path('login'); ?>" class="btnPop2">Se connecter</a>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
     </div>
     </div>
 </section>
