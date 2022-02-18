@@ -65,6 +65,9 @@ function nfj_scripts()
     wp_enqueue_script('typerjs', 'https://unpkg.com/typewriter-effect@latest/dist/core.js', array(), '1.0.1', true);
     wp_enqueue_script('aosjs', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), '1.0.1', true);
 
+    wp_enqueue_script('jspdf', get_template_directory_uri() . '/asset/js/pdf/jspdf.debug.js', array(), '1.0.1', true);
+    wp_enqueue_script('html2canvas', get_template_directory_uri() . '/asset/js/pdf/html2canvas.min.js', array(), '1.0.1', true);
+    wp_enqueue_script('html2pdf', get_template_directory_uri() . '/asset/js/pdf/html2pdf.min.js', array(), '1.0.1', true);
 
     wp_enqueue_script('cvjs', get_template_directory_uri() . '/asset/js/cv.js', array(), '1.0.1', true);
     wp_enqueue_script('mainjs', get_template_directory_uri() . '/asset/js/main.js', array(), '1.0.1', true);

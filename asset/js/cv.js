@@ -1,10 +1,12 @@
 // /////////////////////////////////////////////////////////////////////////////////
-
+console.log("coucou cv");
 $(document).ready(function () {
   const formulaire = $("#formulaire");
   const formulaire2 = $("#formulaire2");
   const formulaire3 = $("#formulaire3");
   const formulaire4 = $("#formulaire4");
+  const formulaire5 = $("#formulaire5");
+  const formulaire6 = $("#formulaire6");
 
   formulaire.on("submit", function (e) {
     e.preventDefault();
@@ -49,12 +51,11 @@ $(document).ready(function () {
   // /////////////////////////////////////////////////////////////////////
   const formationAdd = $("#forma-add");
   // console.log(formationAdd);
-
   formationAdd.on("click", function (e) {
     e.preventDefault();
 
     $("#input3").append(
-      '<label for="date">Date : </label><input type="text" name="date" class="date" value=""></input>  <label for="formation">Formation(s) : </label><input type="text" name="formation" class="formation" value=""></input>'
+      '<label for="date">Date : </label><input type="text" name="date" class="date" value=""></input>  <label for="formation">Formation : </label><input type="text" name="formation" class="formation" value=""></input>'
     );
   });
 
@@ -81,89 +82,123 @@ $(document).ready(function () {
 
   // ////////////////////////////////////////
 
-  //   const formationAdd = $("#forma-add");
-  //   console.log(formationAdd);
+  const formationAddExperience = $("#forma-add-experience");
+  console.log(formationAddExperience);
 
-  //   formationAdd.on("click", function (e) {
-  //     e.preventDefault();
+  formationAddExperience.on("click", function (e) {
+    e.preventDefault();
 
-  //     $("#input3").append(
-  //       '<label for="date">Date : </label><input type="text" name="date" class="date" value=""></input>  <label for="formation">Formation(s) : </label><input type="text" name="formation" class="formation" value=""></input>'
-  //     );
-  //   });
+    $("#input4").append(
+      '<label for="date-exp">Date : </label><input type="text" name="date-exp" class="date-exp" value=""></input>  <label for="experience">Experience : </label><input type="text" name="experience" class="experience" value=""></input>'
+    );
+  });
 
-  //   formulaire4.on("submit", function (e) {
-  //     e.preventDefault();
+  formulaire4.on("submit", function (e) {
+    e.preventDefault();
 
-  //     const input3 = document.querySelectorAll(".date");
-  //     input3.forEach((element) => {
-  //       let dateVal = element.value;
-  //       $(".date_formation_cv").append("<p>" + dateVal + "</p>");
-  //     });
+    const input4 = document.querySelectorAll(".date-exp");
+    input4.forEach((element) => {
+      let dateVal = element.value;
+      $(".date_experience").append("<p>" + dateVal + "</p>");
+    });
 
-  //     const formation3 = document.querySelectorAll(".formation");
+    const experience4 = document.querySelectorAll(".experience");
+    experience4.forEach((element) => {
+      let experience = element.value;
+      $(".experience").append("<h2>" + experience + "</h2>");
+    });
 
-  //     formation3.forEach((element) => {
-  //       let formation = element.value;
-  //       $(".formation_faites_cv").append("<h2>" + formation + "</h2>");
-  //     });
+    // CACHER ANCIEN FORMULAIRE
+    formulaire4.css("display", "none");
+    formulaire5.css("display", "block");
+  });
+  // ////////////////////////////////////////////////
 
-  //     // CACHER ANCIEN FORMULAIRE
-  //     formulaire3.css("display", "none");
-  //     formulaire4.css("display", "block");
-  //   });
+  const formationAddLangue = $("#forma-add-langue");
+  console.log(formationAddLangue);
+
+  formationAddLangue.on("click", function (e) {
+    e.preventDefault();
+
+    $("#input5").append(
+      '<label for="langue">Langue : </label><input type="text" name="langue" class="langue" value=""></input>  <label for="niveau">Niveau : </label><input type="text" name="niveau" class="niveau" value=""></input>'
+    );
+  });
+
+  formulaire5.on("submit", function (e) {
+    e.preventDefault();
+
+    const input5 = document.querySelectorAll(".langue");
+    input5.forEach((element) => {
+      let langue = element.value;
+      $(".langues").append("<p>" + langue + "</p>");
+    });
+
+    const niveau = document.querySelectorAll(".niveau");
+    niveau.forEach((element) => {
+      let level = element.value;
+      $(".niveau_langues").append("<h2>" + level + "</h2>");
+    });
+
+    // CACHER ANCIEN FORMULAIRE
+    formulaire5.css("display", "none");
+    formulaire6.css("display", "block");
+  });
+  // ///////////////////////////////////////////
+  const formationAddLoisir = $("#forma-add-loisir");
+  console.log(formationAddLoisir);
+
+  formationAddLoisir.on("click", function (e) {
+    e.preventDefault();
+
+    $("#input6").append(
+      '<label for="loisir">Loisir : </label><input type="text" name="loisir" class="loisir" value=""></input>'
+    );
+  });
+
+  formulaire6.on("submit", function (e) {
+    e.preventDefault();
+
+    const input6 = document.querySelectorAll(".loisir");
+    input6.forEach((element) => {
+      let loisir = element.value;
+      $(".loisirs").append("<p>" + loisir + "</p>");
+    });
+
+    // CACHER ANCIEN FORMULAIRE
+    formulaire6.css("display", "none");
+    // formulaire6.css("display", "block");
+  });
 });
 
-// const subject = document.getElementById("subject");
-// console.log(subject.value );
+const options = {
+  filename: "CV.pdf",
+  image: {
+    type: "png",
+    quality: 2400,
+  },
+  html2canvas: {
+    scale: 1,
+  },
+  jsPDF: {
+    unit: "in",
+    format: "letter",
+    orientation: "portrait",
+  },
+};
 
-// const valeur = document.querySelector("#subject");
+$(".btn-download").click(function (e) {
+  e.preventDefault();
+  const element = document.getElementById("invoice");
+  html2pdf().from(element).set(options).save();
+});
 
-// valeur.addEventListener("keyup", function () {
-//   const name = document.getElementById("name");
-//   let tableau = valeur.value.split("");
-//   let tableauMaxLenght = valeur.value.split("").length;
-//   let valueLastIndex = tableau[tableauMaxLenght - 1];
-//   console.log(valueLastIndex);
-//   // console.log(tableau);
-//   console.log(tableauMaxLenght);
-//   // let cara = valeur.value;
-//   // console.log(cara);
+function printDiv(divName) {
+  var printContents = document.getElementById(divName).innerHTML;
+  var originalContents = document.body.innerHTML;
 
-//   name.innerText += `${valueLastIndex}`;
-// });
+  document.body.innerHTML = printContents;
 
-// valeur.addEventListener("keydown", function () {
-//   console.log(valeur.value.wich);
-// });
-
-// **************************************************************
-
-// $(document).ready(function () {
-//   //Change la couleur de fond du champ en bleu dès qu'une touche est pressée
-//   //et affiche le code de la dernière touche pressée
-//   $("#texte").keydown(function (event) {
-//     $(this).css("background-color", "lightBlue");
-//     // console.log(event);
-
-//     // $("#name").append(event.key);
-
-//     // console.log($("#name")[0].innerHTML);
-
-//     // text = $("#name")[0].html;
-
-//     // console.log(text);
-
-//     if (event.key == "Backspace") {
-//       console.log("cc");
-//       $("#name").append(slice(0, -1));
-//     } else {
-//       $("#name").append(event.key);
-//     }
-//   });
-
-//   //Change la couleur de fond du champ en jaune dès qu'une touche est pressée
-//   $("#texte").keyup(function () {
-//     $(this).css("background-color", "yellow");
-//   });
-// });
+  window.print();
+  document.body.innerHTML = originalContents;
+}
