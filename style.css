@@ -719,6 +719,7 @@ header {
   border-bottom: solid 2px #ea4c88;
 }
 .cv {
+  margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
 }
@@ -1044,6 +1045,7 @@ header {
 
 /* SINGLE */
 #single_blog {
+  padding: 2rem;
   background-color: #1e1e1e;
 }
 .wrapBlog {
@@ -1081,15 +1083,17 @@ header {
   margin-bottom: 1rem;
   border: solid 1px #5c068b;
 }
-.wrapBlog .left input[name*="submitted"] {
+.wrapBlog .left button {
   background-color: #5c068b;
   border-radius: 0.3rem;
   margin-bottom: 1rem;
   color: white;
   cursor: pointer;
   transition: 0.5s;
+  padding: 1rem;
+  border: none;
 }
-.wrapBlog .left input[name*="submitted"]:hover {
+.wrapBlog .left button:hover {
   background: rgba(255, 255, 255, 0.25);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
@@ -1123,7 +1127,10 @@ header {
   margin-bottom: 1rem;
 }
 /* FORMULAIRE */
-
+#formulaire1 {
+  display: flex;
+  flex-direction: column;
+}
 #formulaire2 {
   display: none;
   flex-direction: column;

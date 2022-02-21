@@ -1,7 +1,11 @@
 <?php
 /* Template Name: Recruteur*/
 session_start();
-
+global $wpdb;
+$cv = $wpdb->get_results(
+    $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv"),
+    ARRAY_A
+);
 debug($_SESSION);
 get_header(); ?>
 
@@ -15,7 +19,7 @@ get_header(); ?>
         <div class="lastCV">
             <div class="result">
                 <div class="left">
-                    <h2>7 resultats :</h2>
+                    <h2><?= count($cv) ?> resultats :</h2>
                 </div>
                 <div class="searchbar">
                     <label for="">Rechercher :</label>
@@ -24,46 +28,28 @@ get_header(); ?>
 
             </div>
 
-            <div class="cv">
-                <div class="cvImg">
-                    <img src="<?php echo get_template_directory_uri() . '/asset/img/cv1.jpg' ?>" alt="">
+            <?php
+            foreach ($cv as $value) {
+            ?>
+                <div class="cv">
+                    <div class="cvImg">
+                        <p><?= $value['id'] ?></p>
+                    </div>
+                    <div class="cvDescription">
+                        <h2><?= $value['prenom'] ?><span></span><?= $value['nom'] ?></h2>
+                        <a href="">Voir ce CV</a>
+                    </div>
                 </div>
-                <div class="cvDescription">
-                    <h2>Maxence <span>Leguay</span> </h2>
-                    <p>Ceci est une petite phrase d'accroche très trreès tchatcheuse. zefffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-                        ezfzfeffffffffffffffffffffffffffffff
-                        efzezfzefzefzefzffzefzefzf
-                        zefzefzf
-                    </p>
-                    <a href="">Voir ce CV</a>
-                </div>
-            </div>
+            <?php
+            }
+            ?>
+
         </div>
-
-
-
     </div>
 </section>
 
 
-<?php $args = array(
-    'post_type' => 'cv',
-    'posts_per_page' => -1,
-    'order' => 'ASC'
-);
-$the_query = new WP_Query($args);
-?>
-<?php if ($the_query->have_posts()) {
-    while ($the_query->have_posts()) {
-        $the_query->the_post();
-        $metas = get_post_meta(get_the_ID());
-?>
-        <a href="<?= get_the_permalink() ?>"><?= getImageFeatured(get_the_ID(), 'imgdiapo', get_the_title()) ?></a>
 
-<?php
-    }
-}
-wp_reset_postdata(); ?>
 
 <?php
 get_footer();

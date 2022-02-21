@@ -1,7 +1,7 @@
 // /////////////////////////////////////////////////////////////////////////////////
 console.log("coucou cv");
 $(document).ready(function () {
-  const formulaire = $("#formulaire");
+  const formulaire1 = $("#formulaire1");
   const formulaire2 = $("#formulaire2");
   const formulaire3 = $("#formulaire3");
   const formulaire4 = $("#formulaire4");
@@ -9,13 +9,19 @@ $(document).ready(function () {
   const formulaire6 = $("#formulaire6");
   const formulaire7 = $("#formulaire7");
 
-  formulaire.on("submit", function (e) {
-    e.preventDefault();
+  const formulaire1Btn = $("#formulaire1Btn");
+  const formulaire2Btn = $("#formulaire2Btn");
+  const formulaire3Btn = $("#formulaire3Btn");
+  const formulaire4Btn = $("#formulaire4Btn");
+  const formulaire5Btn = $("#formulaire5Btn");
+  const formulaire6Btn = $("#formulaire6Btn");
 
+  formulaire1Btn.on("click", function (e) {
+    e.preventDefault();
     // RECUPERATION INPUT
-    const name = $("#name").val();
+    const name = $("#nom").val();
     const prenom = $("#prenom").val();
-    const age = $("#age").val();
+    const dob = $("#dob").val();
     const lieux = $("#lieux").val();
     // REMPLISSAGE
     const nom = document.querySelector("#Nom");
@@ -24,14 +30,14 @@ $(document).ready(function () {
 
     // INJECTION DANS PAGE CV
     nom.innerText = ` ${name} ${prenom}`;
-    date.innerText = ` ${age}`;
+    date.innerText = ` ${dob}`;
     adresse.innerText = ` ${lieux}`;
     // CACHER ANCIEN FORMULAIRE
-    formulaire.css("display", "none");
-    formulaire2.css("display", "flex");
+    formulaire1.css("display", "none");
+    formulaire2.css({ display: "flex", "flex-direction": "column" });
   });
 
-  formulaire2.on("submit", function (e) {
+  formulaire2Btn.on("click", function (e) {
     e.preventDefault();
     // RECUPERATION INPUT
     const number = $("#number").val();
@@ -47,7 +53,7 @@ $(document).ready(function () {
     permis.innerText = `${perms}`;
     // CACHER ANCIEN FORMULAIRE
     formulaire2.css("display", "none");
-    formulaire3.css("display", "flex");
+    formulaire3.css({ display: "flex", "flex-direction": "column" });
   });
   // /////////////////////////////////////////////////////////////////////
   const formationAdd = $("#forma-add");
@@ -60,7 +66,7 @@ $(document).ready(function () {
     );
   });
 
-  formulaire3.on("submit", function (e) {
+  formulaire3Btn.on("click", function (e) {
     e.preventDefault();
 
     const input3 = document.querySelectorAll(".date");
@@ -70,7 +76,6 @@ $(document).ready(function () {
     });
 
     const formation3 = document.querySelectorAll(".formation");
-
     formation3.forEach((element) => {
       let formation = element.value;
       $(".formation_faites_cv").append("<h2>" + formation + "</h2>");
@@ -78,13 +83,13 @@ $(document).ready(function () {
 
     // CACHER ANCIEN FORMULAIRE
     formulaire3.css("display", "none");
-    formulaire4.css("display", "flex");
+    formulaire4.css({ display: "flex", "flex-direction": "column" });
   });
 
   // ////////////////////////////////////////
 
   const formationAddExperience = $("#forma-add-experience");
-  console.log(formationAddExperience);
+  // console.log(formationAddExperience);
 
   formationAddExperience.on("click", function (e) {
     e.preventDefault();
@@ -94,7 +99,7 @@ $(document).ready(function () {
     );
   });
 
-  formulaire4.on("submit", function (e) {
+  formulaire4Btn.on("click", function (e) {
     e.preventDefault();
     const input4 = document.querySelectorAll(".date-exp");
     input4.forEach((element) => {
@@ -110,12 +115,12 @@ $(document).ready(function () {
 
     // CACHER ANCIEN FORMULAIRE
     formulaire4.css("display", "none");
-    formulaire5.css("display", "flex");
+    formulaire5.css({ display: "flex", "flex-direction": "column" });
   });
   // ////////////////////////////////////////////////
 
   const formationAddLangue = $("#forma-add-langue");
-  console.log(formationAddLangue);
+  // console.log(formationAddLangue);
 
   formationAddLangue.on("click", function (e) {
     e.preventDefault();
@@ -125,7 +130,7 @@ $(document).ready(function () {
     );
   });
 
-  formulaire5.on("submit", function (e) {
+  formulaire5Btn.on("click", function (e) {
     e.preventDefault();
 
     const input5 = document.querySelectorAll(".langue");
@@ -142,11 +147,11 @@ $(document).ready(function () {
 
     // CACHER ANCIEN FORMULAIRE
     formulaire5.css("display", "none");
-    formulaire6.css("display", "flex");
+    formulaire6.css({ display: "flex", "flex-direction": "column" });
   });
   // ///////////////////////////////////////////
   const formationAddLoisir = $("#forma-add-loisir");
-  console.log(formationAddLoisir);
+  // console.log(formationAddLoisir);
 
   formationAddLoisir.on("click", function (e) {
     e.preventDefault();
@@ -156,7 +161,7 @@ $(document).ready(function () {
     );
   });
 
-  formulaire6.on("submit", function (e) {
+  formulaire6Btn.on("click", function (e) {
     e.preventDefault();
 
     const input6 = document.querySelectorAll(".loisir");

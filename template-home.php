@@ -92,11 +92,7 @@ get_header(); ?>
                 <p>Vous n'avez pas besoin d'être inscrit sur le site de Need for job pour créer votre CV en ligne, il vous suffit simplement de cliquer sur le bouton "Créer mon cv".</p>
             </div>
         </div>
-
     </section>
-
-
-
 
     <section id="cards">
         <div class="titre_card">
