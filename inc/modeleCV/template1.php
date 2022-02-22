@@ -136,7 +136,7 @@
                 <p id="permis"></p>
             </div>
             <div class="imgProfil">
-                <img src="<?php echo get_template_directory_uri() . '/asset/img/profil.jpg' ?>" alt="">
+                <img src="<?= get_the_post_thumbnail_url() ?>" alt="">
             </div>
         </div>
         <div class="formation_cv">

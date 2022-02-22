@@ -6,6 +6,7 @@ $(document).ready(function () {
     e.preventDefault();
     const userID = document.querySelector("#userID");
     const userId = userID.innerHTML;
+    const profil = $('#profil')
     const nom = $("#nom").val();
     const prenom = $("#prenom").val();
     const dob = $("#dob").val();
