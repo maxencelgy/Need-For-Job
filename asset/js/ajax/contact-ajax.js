@@ -6,7 +6,8 @@ $(document).ready(function () {
     e.preventDefault();
     const userID = document.querySelector("#userID");
     const userId = userID.innerHTML;
-    const profil = $('#profil')
+
+    const poste = $("#poste").val();
     const nom = $("#nom").val();
     const prenom = $("#prenom").val();
     const dob = $("#dob").val();
@@ -28,6 +29,8 @@ $(document).ready(function () {
       data: {
         action: "ajax_contact_2",
         userId: userId,
+        // profilVal: profilVal,
+        poste: poste,
         nom: nom,
         prenom: prenom,
         dob: dob,
@@ -56,4 +59,3 @@ $(document).ready(function () {
     });
   });
 });
-

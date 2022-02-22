@@ -621,7 +621,7 @@ header {
 
 /***************************** RECRUTEUR****************** */
 #recruteur {
-  padding: 1rem;
+  padding: 2rem 0;
 }
 #recruteur .wrap_recruteur {
   max-width: 1200px;
@@ -631,10 +631,10 @@ header {
 
 #recruteur .title_recru {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 #recruteur .title_recru h2 {
-  font-size: 2.5rem;
+  font-size: 3.2rem;
 
   margin-bottom: 0.5rem;
 }
@@ -648,14 +648,26 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-
-.lastCV .result .searchbar {
-  display: flex;
-  align-items: center;
+.lastCV .result .left {
+  width: 30%;
 }
 
+.lastCV .result .searchbar {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.lastCV .result .searchbar input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  border: solid 1px #5c068b;
+  width: 60%;
+  text-align: center;
+}
 .lastCV .result label {
   margin-right: 0.5rem;
+  font-size: 1.3rem;
 }
 .lastCV .result {
   display: flex;
@@ -668,47 +680,78 @@ header {
 }
 .lastCV .result .left h2 {
   font-weight: 300;
-  border-bottom: solid 2px #ea4c88;
+  display: inline;
+  border-bottom: solid 2px #5c068b;
 }
-.cv {
-  margin-bottom: 2rem;
+
+.cvs {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
-
-.cv .cvImg {
-  width: 20%;
-}
-
-.cv .cvImg img {
-  cursor: pointer;
-  width: 100%;
+.bloccv {
+  width: 49%;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3b4148;
+  padding: 1rem;
   border-radius: 0.3rem;
 }
-.cv .cvImg img:hover {
+.bloccv .cvImg {
+  width: 40%;
+}
+.nameSpan {
+  text-transform: uppercase;
+  color: #5c068b;
+}
+.bloccv .cvImg img {
+  cursor: pointer;
+  width: 50%;
+  border-radius: 0.3rem;
+}
+.bloccv .cvImg img:hover {
   filter: grayscale(0.5);
   transition: 0.5s;
 }
-.cv .cvDescription {
-  width: 70%;
+.bloccv .cvDescription {
+  width: 60%;
+  display: flex;
+
+  justify-content: space-between;
+  flex-direction: column;
 }
-.cv .cvDescription h2 {
-  font-size: 2rem;
+.bloccv .cvDescription h2 {
+  font-weight: 300;
   margin-bottom: 1rem;
+  font-size: 2rem;
+  color: white;
 }
-.cv .cvDescription h2 span {
+.bloccv .cvDescription h3 {
+  font-weight: 300;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+.bloccv .cvDescription h2 span {
   text-transform: uppercase;
 }
-.cv .cvDescription p {
+.bloccv .cvDescription p {
   font-size: 1.3rem;
   margin-bottom: 3rem;
 }
-.cv .cvDescription a {
+.bloccv .view {
   color: white;
   text-decoration: none;
   padding: 1rem;
-  background-color: #ea4c88;
+  background-color: #5c068b;
+  width: 60%;
+  text-align: center;
   border-radius: 0.3rem;
+}
+.descriptionName {
+  text-transform: uppercase;
 }
 
 /* Presentation Thibault */

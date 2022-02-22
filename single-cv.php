@@ -21,11 +21,12 @@ get_header();
             <div class="left">
 
 
+
                 <form id="formulaire" class="wrapform" action="" method="POST" novalidate>
                     <div id="formulaire1">
                         <p id="userID" style="display: none;"><?= $user_id ?></p>
-                        <label for="profil"></label>
-                        <input type="file" id="profil" name="profil">
+                        <label for="poste">Intitulé du poste :</label>
+                        <input type="text" name="poste" id="poste" value="">
 
                         <label for="nom">Nom :</label>
                         <input type="text" name="nom" id="nom" value="">

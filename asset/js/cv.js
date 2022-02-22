@@ -19,16 +19,21 @@ $(document).ready(function () {
   formulaire1Btn.on("click", function (e) {
     e.preventDefault();
     // RECUPERATION INPUT
+    const poste = $("#poste").val();
     const name = $("#nom").val();
     const prenom = $("#prenom").val();
     const dob = $("#dob").val();
     const lieux = $("#lieux").val();
     // REMPLISSAGE
+    // const img = document.querySelector("#imgProfil");
+    const Poste = document.querySelector("#Poste");
     const nom = document.querySelector("#Nom");
     const date = document.querySelector("#Date_de_naissance");
     const adresse = document.querySelector("#adresse");
 
     // INJECTION DANS PAGE CV
+    // img.src = `${profilVal}`;
+    Poste.innerText = `${poste}`;
     nom.innerText = ` ${name} ${prenom}`;
     date.innerText = ` ${dob}`;
     adresse.innerText = ` ${lieux}`;

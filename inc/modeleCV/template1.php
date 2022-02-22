@@ -136,7 +136,7 @@
                 <p id="permis"></p>
             </div>
             <div class="imgProfil">
-                <img src="<?= get_the_post_thumbnail_url() ?>" alt="">
+                <h2 id="Poste"></h2>
             </div>
         </div>
         <div class="formation_cv">
