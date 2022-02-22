@@ -239,3 +239,23 @@ function showJson($data)
         die('error in json encoding');
     }
 }
+
+function wpdocs_custom_login($login,$password) {
+    $creds = array(
+        'user_login'    => $login,
+        'user_password' => $password,
+        'remember'      => true
+    );
+    $user = wp_signon( $creds, false );
+
+    if ( is_wp_error( $user ) ) {
+        return $user->get_error_message();
+    }
+}
+
+function objectToArray ($object) {
+    if(!is_object($object) && !is_array($object)){
+        return $object;
+    }
+    return array_map('objectToArray', (array) $object);
+}

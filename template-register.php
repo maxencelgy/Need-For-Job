@@ -1,7 +1,10 @@
 <?php
 /* Template Name: Register Page*/
 
-session_start();
+if(is_user_logged_in()==true){
+    wp_redirect(path('home'));
+    exit;
+}
 
 $success = false;
 $errors = [];
@@ -10,6 +13,7 @@ if (!empty($_POST['submitted'])) {
     $prenom    = cleanXss('prenom');
     $nom       = cleanXss('nom');
     $email     = cleanXss('email');
+    $phone     = cleanXss('phone');
     $password  = cleanXss('password');
     $password2 = cleanXss('password2');
 
@@ -26,7 +30,6 @@ if (!empty($_POST['submitted'])) {
             $errors['email'] = 'Vous avez déjà un compte avec cette adresse mail';
         }
     }
-
     // password
     if (!empty($password) || !empty($password2)) {
         if ($password != $password2) {
@@ -40,30 +43,32 @@ if (!empty($_POST['submitted'])) {
     if (count($errors) == 0) {
         // generate token
         $token = generateRandomString(100);
-        // hashpassword
-        $hashpassword = password_hash($password, PASSWORD_DEFAULT);
+
         // INSERT INTO
         if (count($errors) === 0) {
             global $wpdb;
-            $wpdb->insert(
-                $wpdb->prefix . 'users',
-                array(
-                    'user_login'    => $email,
-                    'user_pass'    => $hashpassword,
-                    'user_nicename'      => $prenom,
-                    'user_email'    => $email,
-                    'user_registered' => current_time('mysql'),
-                    'user_status' => 0,
-                    'display_name'    => $nom,
-                ),
-                array('%s', '%s', '%s', '%s', '%s','%s','%s')
+            $userdata = array(
+                'ID'                    => 0,    //(int) User ID. If supplied, the user will be updated.
+                'user_pass'             => $password,   //(string) The plain-text user password.
+                'user_login'            => $email,   //(string) The user's login username.
+                'user_nicename'         => $prenom,   //(string) The URL-friendly user name.
+                'user_email'            => $email,   //(string) The user email address.
+                'display_name'          => $nom,   //(string) The user's display name. Default is the user's username.
+                'first_name'            => $nom,   //(string) The user's first name. For new users, will be used to build the first part of the user's display name if $display_name is not specified.
+                'last_name'             => $prenom,   //(string) The user's last name. For new users, will be used to build the second part of the user's display name if $display_name is not specified.
+                'user_registered'       => current_time('mysql'),   //(string) Date the user registered. Format is 'Y-m-d H:i:s'.
+                'show_admin_bar_front'  => 'false',
+                'user_activation_key'   => $token,   //Token
+                'role'                  => 'subscriber',   //(string) User's role.
             );
-
+           $newUser = wp_insert_user($userdata);
+            add_user_meta( $newUser, 'user_meta_role', 'utilisateur');
+            add_user_meta( $newUser, 'user_meta_phone', $phone);
             $success = true;
-            wp_redirect('home');
-            exit;
-        // redirection
 
+        // redirection
+            wp_redirect(path('home'));
+            exit;
     }
 }
 }
@@ -100,6 +105,14 @@ get_header();
                     <input type="email" placeholder="Email*" id="email" name="email" value="<?= recupInputValue('email'); ?>">
                     <span class="error"><?= viewError($errors, 'email'); ?></span>
                 </div>
+
+                <div class="info_box ">
+                    <label for="phone"></label>
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="tel" placeholder="Numéro de téléphone" pattern="[0-9]{10}" maxlength="10" id="phone" name="phone" value="<?= recupInputValue('phone'); ?>">
+                    <span class="error"><?= viewError($errors, 'phone'); ?></span>
+                </div>
+
 
                 <div class="info_box">
                     <i class="fa-solid fa-lock"></i>

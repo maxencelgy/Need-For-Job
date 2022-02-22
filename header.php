@@ -19,8 +19,9 @@
 
 			</div>
 			<?php
-			if (!empty($_SESSION)) {
-				$user_meta = get_user_meta($_SESSION['user']['id']);
+			if (!empty(is_user_logged_in())) {
+                $user_id=get_current_user_id();
+                $user_meta=get_user_meta($user_id);
 			}
 			?>
 			<div class="navigation">
@@ -29,7 +30,7 @@
 						<li><a href="<?= path('/'); ?>">Accueil</a></li>
 
                         <!--MENU QUAND CONNECTÉ-->
-                        <?php if(!empty($_SESSION)){ ?>
+                        <?php if(!empty(is_user_logged_in())){ ?>
                             <li><a href="<?= path('logout'); ?>">Se déconnecter</a></li>
                         <?php if($user_meta['user_meta_role'][0]=='utilisateur'){ ?>
                             <li><a href="<?= path('profil'); ?>">Mon profil</a></li>
