@@ -1,12 +1,12 @@
 <?php
 /* Template Name: Recruteur*/
-session_start();
+
 global $wpdb;
 $cv = $wpdb->get_results(
     $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv"),
     ARRAY_A
 );
-debug($_SESSION);
+
 get_header(); ?>
 
 <section id="recruteur">
