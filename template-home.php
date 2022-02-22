@@ -2,11 +2,13 @@
 
 /* Template Name: HomePage */
 
-session_start();
+if(!empty(is_user_logged_in())){
+    $user=wp_get_current_user();
+    $user_id=get_current_user_id();
+    $user_meta=get_user_meta($user_id);
 
-if (!empty($_SESSION)) {
-    $user_meta = get_user_meta($_SESSION['user']['id']);
 }
+
 
 get_header(); ?>
 

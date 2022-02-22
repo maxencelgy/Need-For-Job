@@ -1024,7 +1024,7 @@ header {
 }
 #profil .box_profil .box_profil_left {
   width: 30%;
-  background-color: #ea4c88;
+  background-color: #42325D;
   padding: 2rem;
   display: flex;
   flex-flow: column;
@@ -1032,7 +1032,7 @@ header {
   gap: 2rem;
 }
 #profil .box_profil .box_profil_left i {
-  font-size: 10rem;
+  font-size: 8rem;
 }
 #profil .box_profil .box_profil_right {
   width: 70%;

@@ -1,7 +1,10 @@
 <?php
 /* Template Name: Login Page*/
 
-session_start();
+if(is_user_logged_in()==true){
+    wp_redirect(path('home'));
+    exit;
+}
 
 $errors = [];
 
@@ -10,38 +13,16 @@ if(!empty($_POST['submitted'])) {
     $login   = trim(strip_tags($_POST['login']));
     $password  = trim(strip_tags($_POST['password']));
 
-
-    //Chercher User dans BDD
-    global $wpdb;
-    $user = $wpdb->get_results(
-        $wpdb->prepare("SELECT * FROM {$wpdb->prefix}users WHERE user_login=%s",$login),ARRAY_A);
-
-
-
-    if(empty($user)) {
-        $errors['login'] = 'Email invalide';
-    } else {
-        if (password_verify($password , $user[0]['user_pass'] )==true){
-            $_SESSION['user']=array(
-                'id'=>$user[0]['ID'],
-                'pseudo'=>$user[0]['user_nicename'],
-                'email' =>$user[0]['user_email'],
-                'status'=>$user[0]['user_status'],
-                'ip'=>$_SERVER['REMOTE_ADDR']
-            );
-            wp_redirect('home');
+    if(count($errors)==0){
+       $erreur_test= wpdocs_custom_login($login,$password);
+        if(empty($erreur_test)){
+            wp_redirect(path('home'));
             exit;
-        }else {
-            $errors['password'] = 'Mot de passe incorrect';
         }
-    }
-    if(count($errors) == 0) {
-
     }
 }
 
 get_header();
-
 ?>
 
     <section id="register_form">
@@ -60,7 +41,7 @@ get_header();
                         <input type="password" placeholder="Mot de Passe*" id="password" name="password" value="<?= recupInputValue('password'); ?>">
                     </div>
 
-                    <span class="error"><?php if(!empty($errors)){echo'Mot de passe ou Adresse Mail invalide';} ?></span>
+                    <span class="error"><?php if(!empty($erreur_test)){echo $erreur_test; } ?></span>
 
                     <div class="info_box info_box_button">
                         <input type="submit" name="submitted" value="ENVOYER">
