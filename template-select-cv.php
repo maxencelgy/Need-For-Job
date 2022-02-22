@@ -3,6 +3,8 @@
 session_start();
 
 debug($_SESSION);
+
+
 get_header(); ?>
 
 <section id="select">
@@ -11,7 +13,7 @@ get_header(); ?>
             <h2>Veuillez choisir un modèle de CV :)</h2>
         </div>
         <div class="CVS">
-            <?php if (!empty($_SESSION)) { ?>
+            <?php if (is_user_logged_in() == true) { ?>
                 <div class="message"></div>
                 <?php $args = array(
                     'post_type' => 'cv',
@@ -52,7 +54,7 @@ get_header(); ?>
                             <a href="<?= get_the_permalink() ?>" class="discover">Utiliser ce modèle</a>
                         </div>
 
-                        <?php if (!empty($_SESSION)) { ?>
+                        <?php if (is_user_logged_in() == true) { ?>
                             <div class="message"></div>
                         <?php  } else { ?>
                             <div class="message">

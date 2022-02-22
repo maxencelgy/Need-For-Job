@@ -20,8 +20,8 @@
 			</div>
 			<?php
 			if (!empty(is_user_logged_in())) {
-                $user_id=get_current_user_id();
-                $user_meta=get_user_meta($user_id);
+				$user_id = get_current_user_id();
+				$user_meta = get_user_meta($user_id);
 			}
 			?>
 			<div class="navigation">
@@ -29,17 +29,17 @@
 					<ul>
 						<li><a href="<?= path('/'); ?>">Accueil</a></li>
 
-                        <!--MENU QUAND CONNECTÉ-->
-                        <?php if(!empty(is_user_logged_in())){ ?>
-                            <li><a href="<?= path('logout'); ?>">Se déconnecter</a></li>
-                        <?php if($user_meta['user_meta_role'][0]=='utilisateur'){ ?>
-                            <li><a href="<?= path('profil'); ?>">Mon profil</a></li>
-                            <li><a href="#cards">Voir les modèles</a></li>
-                            <?php } ?>
-                            <?php if($user_meta['user_meta_role'][0]=='recruteur'){ ?>
-                                <li><a href="<?= path('profil'); ?>">Mon Profil</a></li>
-                                <li><a href="<?= path('recruteur'); ?>">Liste des CVs</a></li>
-                            <?php } ?>
+						<!--MENU QUAND CONNECTÉ-->
+						<?php if (!empty(is_user_logged_in())) { ?>
+							<li><a href="<?= path('logout'); ?>">Se déconnecter</a></li>
+							<?php if ($user_meta['user_meta_role'][0] == 'utilisateur') { ?>
+								<li><a href="<?= path('profil'); ?>">Mon profil</a></li>
+								<li><a href="select">Voir les modèles</a></li>
+							<?php } ?>
+							<?php if ($user_meta['user_meta_role'][0] == 'recruteur') { ?>
+								<li><a href="<?= path('profil'); ?>">Mon Profil</a></li>
+								<li><a href="<?= path('recruteur'); ?>">Liste des CVs</a></li>
+							<?php } ?>
 
 							<!--MENU QUAND DECONNECTÉ-->
 						<?php  } else { ?>

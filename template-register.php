@@ -1,7 +1,7 @@
 <?php
 /* Template Name: Register Page*/
 
-if(is_user_logged_in()==true){
+if (is_user_logged_in() == true) {
     wp_redirect(path('home'));
     exit;
 }
@@ -19,14 +19,16 @@ if (!empty($_POST['submitted'])) {
 
     // Validation
     $errors = mailValidation($errors, $email, 'email');
-    $errors = textValidation($errors, $prenom, 'prenom',2,100);
-    $errors = textValidation($errors, $nom, 'nom',2,100);
+    $errors = textValidation($errors, $prenom, 'prenom', 2, 100);
+    $errors = textValidation($errors, $nom, 'nom', 2, 100);
 
-    if(empty($errors['email'])) {
+    if (empty($errors['email'])) {
         global $wpdb;
         $verifPseudo = $wpdb->get_results(
-            $wpdb->prepare("SELECT * FROM {$wpdb->prefix}users WHERE user_email=%s",$email),ARRAY_A);
-        if(!empty($verifPseudo)) {
+            $wpdb->prepare("SELECT * FROM {$wpdb->prefix}users WHERE user_email=%s", $email),
+            ARRAY_A
+        );
+        if (!empty($verifPseudo)) {
             $errors['email'] = 'Vous avez déjà un compte avec cette adresse mail';
         }
     }
@@ -61,16 +63,16 @@ if (!empty($_POST['submitted'])) {
                 'user_activation_key'   => $token,   //Token
                 'role'                  => 'subscriber',   //(string) User's role.
             );
-           $newUser = wp_insert_user($userdata);
-            add_user_meta( $newUser, 'user_meta_role', 'utilisateur');
-            add_user_meta( $newUser, 'user_meta_phone', $phone);
+            $newUser = wp_insert_user($userdata);
+            add_user_meta($newUser, 'user_meta_role', 'utilisateur');
+            add_user_meta($newUser, 'user_meta_phone', $phone);
             $success = true;
 
-        // redirection
-            wp_redirect(path('home'));
+            // redirection
+            wp_redirect(path('login'));
             exit;
+        }
     }
-}
 }
 get_header();
 ?>
@@ -81,7 +83,7 @@ get_header();
 <section id="register_form">
 
     <div class="wrap_2">
-        <?php if(!$success==true){ ?>
+        <?php if (!$success == true) { ?>
             <form action="" method="post" class="wrapform" novalidate>
                 <div class="info_box">
                     <i class="fa-solid fa-user"></i>
@@ -136,14 +138,14 @@ get_header();
                 <p class="champsRequis">Les champs avec * sont requis</p>
 
             </form>
-        <?php }else {?>
+        <?php } else { ?>
 
             <div class="success_msg wrapform">
                 <h2>Compte créé avec succès !</h2>
                 <p>Redirection en cours...</p>
             </div>
 
-        <?php }?>
+        <?php } ?>
 
 
         <div class="img_part_register">

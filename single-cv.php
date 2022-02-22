@@ -20,11 +20,11 @@ get_header();
             the_post();
         ?>
             <div class="left">
+            
+
                 <form id="formulaire" class="wrapform" action="" method="POST" novalidate>
-
-
                     <div id="formulaire1">
-                        <p id="userID"><?= $user_id ?></p>
+                        <p id="userID" style="display: none;"><?= $user_id ?></p>
                         <label for="nom">Nom :</label>
                         <input type="text" name="nom" id="nom" value="">
 
@@ -73,10 +73,21 @@ get_header();
                     </div>
 
                     <div id="formulaire7">
-                        <h2>Merci d'avoir utiliser notre génerateur de CV</h2>
-                        <p>Vous pouvez maintenant affiche votre CV sur votre profil ou le télecharger au format pdf</p>
-                        <a href="javascript:void(0)" class="btn-download">Download PDF </a>
-                        <input type="submit" name="submitted" value="Ajouter à mon profil">
+                        <?php
+                        if (!empty(is_user_logged_in())) { ?>
+                            <h2>Merci d'avoir utiliser notre génerateur de CV</h2>
+                            <p>Vous pouvez maintenant affiche votre CV sur votre profil ou le télecharger au format pdf</p>
+                            <a href="javascript:void(0)" class="btn-download">Download PDF </a>
+                            <input type="submit" name="submitted" value="Ajouter à mon profil">
+                        <?php
+                        } else { ?>
+                            <h2>Merci d'avoir utiliser notre génerateur de CV</h2>
+                            <p>Vous pouvez maintenant affiche votre CV sur votre profil ou le télecharger au format pdf</p>
+                            <a href="javascript:void(0)" class="btn-download">Download PDF </a>
+                        <?php }
+
+                        ?>
+
                     </div>
 
                 </form>
@@ -91,8 +102,6 @@ get_header();
     </div>
     <div class="download">
         <a href="javascript:void(0)" class="btn-download">Download PDF </a>
-        <a href="" class="btn-add">Ajouter à mon profil</a>
-
     </div>
 
 </section>

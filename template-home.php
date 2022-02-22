@@ -2,11 +2,10 @@
 
 /* Template Name: HomePage */
 
-if(!empty(is_user_logged_in())){
-    $user=wp_get_current_user();
-    $user_id=get_current_user_id();
-    $user_meta=get_user_meta($user_id);
-
+if (!empty(is_user_logged_in())) {
+    $user = wp_get_current_user();
+    $user_id = get_current_user_id();
+    $user_meta = get_user_meta($user_id);
 }
 
 
@@ -103,7 +102,13 @@ get_header(); ?>
         </div>
         <div class="wrap_card">
             <div class="flexslider carousel">
+
+                <a href="<?= path('select'); ?>" class="slideH">Voir nos modèles</a>
                 <ul class="slides">
+
+                    <div class="filter filter2" style="display: none;">
+
+                    </div>
 
                     <?php $args = array(
                         'post_type' => 'cv',

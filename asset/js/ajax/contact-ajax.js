@@ -2,14 +2,10 @@ console.log("contact ajax js");
 // ajax_contact_2
 $(document).ready(function () {
   const formulaire = $("#formulaire");
-
-  // console.log(userId);
-
   formulaire.on("submit", function (e) {
     e.preventDefault();
     const userID = document.querySelector("#userID");
     const userId = userID.innerHTML;
-    // const userId = userId;
     const nom = $("#nom").val();
     const prenom = $("#prenom").val();
     const dob = $("#dob").val();
@@ -52,11 +48,11 @@ $(document).ready(function () {
       },
       success: function (res) {
         if (res.success) {
-          formulaire.fadeOut(1000, function () {
-            $("#success").fadeIn(1000);
-          });
+          let profil = "http://localhost/NFJ/profil/";
+          window.location = profil;
         }
       },
     });
   });
 });
+
