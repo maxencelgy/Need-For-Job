@@ -1,6 +1,14 @@
 <?php
 
 session_start();
+
+if (!empty(is_user_logged_in())) {
+    $user = wp_get_current_user();
+    $user_id = get_current_user_id();
+    $user_meta = get_user_meta($user_id);
+}
+
+
 get_header();
 
 ?>
@@ -13,7 +21,10 @@ get_header();
         ?>
             <div class="left">
                 <form id="formulaire" class="wrapform" action="" method="POST" novalidate>
+
+
                     <div id="formulaire1">
+                        <p id="userID"><?= $user_id ?></p>
                         <label for="nom">Nom :</label>
                         <input type="text" name="nom" id="nom" value="">
 

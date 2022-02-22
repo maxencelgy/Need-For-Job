@@ -5,9 +5,12 @@ add_action('wp_ajax_ajax_contact_2', 'gestionFormulaireContact2');
 add_action('wp_ajax_nopriv_ajax_contact_2', 'gestionFormulaireContact2');
 
 
+
 function gestionFormulaireContact2()
 {
+
     $success = false;
+    $userId = cleanXss('userId');
     $nom = cleanXss('nom');
     $prenom = cleanXss('prenom');
     $dob = cleanXss('dob');
@@ -27,6 +30,7 @@ function gestionFormulaireContact2()
     $wpdb->insert(
         $wpdb->prefix . 'cv',
         array(
+            'user_id' => $userId,
             'nom'    => $nom,
             'prenom'    => $prenom,
             'dob'      => $dob,

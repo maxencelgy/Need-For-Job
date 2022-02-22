@@ -3,8 +3,13 @@ console.log("contact ajax js");
 $(document).ready(function () {
   const formulaire = $("#formulaire");
 
+  // console.log(userId);
+
   formulaire.on("submit", function (e) {
     e.preventDefault();
+    const userID = document.querySelector("#userID");
+    const userId = userID.innerHTML;
+    // const userId = userId;
     const nom = $("#nom").val();
     const prenom = $("#prenom").val();
     const dob = $("#dob").val();
@@ -25,6 +30,7 @@ $(document).ready(function () {
       type: "POST",
       data: {
         action: "ajax_contact_2",
+        userId: userId,
         nom: nom,
         prenom: prenom,
         dob: dob,
@@ -38,7 +44,7 @@ $(document).ready(function () {
         experience: experience,
         langue: langue,
         niveau: niveau,
-        loisir: loisir
+        loisir: loisir,
       },
       beforeSend: function () {
         console.log("start ajax contact");
