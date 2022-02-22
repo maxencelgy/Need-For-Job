@@ -41,13 +41,12 @@
                                 <li><a href="<?= path('recruteur'); ?>">Liste des CVs</a></li>
                             <?php } ?>
 
-
-                        <!--MENU QUAND DECONNECTÉ-->
-                      <?php  } else{ ?>
-                        <li><a href="<?= path('select'); ?>">Nos modèles</a></li>
-						<li><a href="<?= path('login'); ?>">Connexion</a></li>
-						<li><a href="<?= path('register'); ?>">Inscription</a></li>
-                        <?php } ?>
+							<!--MENU QUAND DECONNECTÉ-->
+						<?php  } else { ?>
+							<li><a href="<?= path('select'); ?>">Nos modèles</a></li>
+							<li><a href="<?= path('login'); ?>">Connexion</a></li>
+							<li><a href="<?= path('register'); ?>">Inscription</a></li>
+						<?php } ?>
 
 
 

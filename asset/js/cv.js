@@ -1,18 +1,27 @@
 // /////////////////////////////////////////////////////////////////////////////////
-
+console.log("coucou cv");
 $(document).ready(function () {
-  const formulaire = $("#formulaire");
+  const formulaire1 = $("#formulaire1");
   const formulaire2 = $("#formulaire2");
   const formulaire3 = $("#formulaire3");
   const formulaire4 = $("#formulaire4");
+  const formulaire5 = $("#formulaire5");
+  const formulaire6 = $("#formulaire6");
+  const formulaire7 = $("#formulaire7");
 
-  formulaire.on("submit", function (e) {
+  const formulaire1Btn = $("#formulaire1Btn");
+  const formulaire2Btn = $("#formulaire2Btn");
+  const formulaire3Btn = $("#formulaire3Btn");
+  const formulaire4Btn = $("#formulaire4Btn");
+  const formulaire5Btn = $("#formulaire5Btn");
+  const formulaire6Btn = $("#formulaire6Btn");
+
+  formulaire1Btn.on("click", function (e) {
     e.preventDefault();
-
     // RECUPERATION INPUT
-    const name = $("#name").val();
+    const name = $("#nom").val();
     const prenom = $("#prenom").val();
-    const age = $("#age").val();
+    const dob = $("#dob").val();
     const lieux = $("#lieux").val();
     // REMPLISSAGE
     const nom = document.querySelector("#Nom");
@@ -21,14 +30,14 @@ $(document).ready(function () {
 
     // INJECTION DANS PAGE CV
     nom.innerText = ` ${name} ${prenom}`;
-    date.innerText = ` ${age}`;
+    date.innerText = ` ${dob}`;
     adresse.innerText = ` ${lieux}`;
     // CACHER ANCIEN FORMULAIRE
-    formulaire.css("display", "none");
-    formulaire2.css("display", "block");
+    formulaire1.css("display", "none");
+    formulaire2.css({ display: "flex", "flex-direction": "column" });
   });
 
-  formulaire2.on("submit", function (e) {
+  formulaire2Btn.on("click", function (e) {
     e.preventDefault();
     // RECUPERATION INPUT
     const number = $("#number").val();
@@ -44,21 +53,20 @@ $(document).ready(function () {
     permis.innerText = `${perms}`;
     // CACHER ANCIEN FORMULAIRE
     formulaire2.css("display", "none");
-    formulaire3.css("display", "block");
+    formulaire3.css({ display: "flex", "flex-direction": "column" });
   });
   // /////////////////////////////////////////////////////////////////////
   const formationAdd = $("#forma-add");
   // console.log(formationAdd);
-
   formationAdd.on("click", function (e) {
     e.preventDefault();
 
     $("#input3").append(
-      '<label for="date">Date : </label><input type="text" name="date" class="date" value=""></input>  <label for="formation">Formation(s) : </label><input type="text" name="formation" class="formation" value=""></input>'
+      '<label for="date">Date : </label><br><input type="text" name="date" class="date" value=""></input><br><label for="formation">Formation : </label><br><input type="text" name="formation" class="formation" value=""></input><br>'
     );
   });
 
-  formulaire3.on("submit", function (e) {
+  formulaire3Btn.on("click", function (e) {
     e.preventDefault();
 
     const input3 = document.querySelectorAll(".date");
@@ -68,7 +76,6 @@ $(document).ready(function () {
     });
 
     const formation3 = document.querySelectorAll(".formation");
-
     formation3.forEach((element) => {
       let formation = element.value;
       $(".formation_faites_cv").append("<h2>" + formation + "</h2>");
@@ -76,94 +83,128 @@ $(document).ready(function () {
 
     // CACHER ANCIEN FORMULAIRE
     formulaire3.css("display", "none");
-    formulaire4.css("display", "block");
+    formulaire4.css({ display: "flex", "flex-direction": "column" });
   });
 
   // ////////////////////////////////////////
 
-  //   const formationAdd = $("#forma-add");
-  //   console.log(formationAdd);
+  const formationAddExperience = $("#forma-add-experience");
+  // console.log(formationAddExperience);
 
-  //   formationAdd.on("click", function (e) {
-  //     e.preventDefault();
+  formationAddExperience.on("click", function (e) {
+    e.preventDefault();
 
-  //     $("#input3").append(
-  //       '<label for="date">Date : </label><input type="text" name="date" class="date" value=""></input>  <label for="formation">Formation(s) : </label><input type="text" name="formation" class="formation" value=""></input>'
-  //     );
-  //   });
+    $("#input4").append(
+      '<label for="date-exp">Date : </label><br><input type="text" name="date-exp" class="date-exp" value=""></input><br><label for="experience">Experience : </label><br><input type="text" name="experienceIn" class="experienceIn" value=""></input><br>'
+    );
+  });
 
-  //   formulaire4.on("submit", function (e) {
-  //     e.preventDefault();
+  formulaire4Btn.on("click", function (e) {
+    e.preventDefault();
+    const input4 = document.querySelectorAll(".date-exp");
+    input4.forEach((element) => {
+      let dateExp = element.value;
+      $(".date_experience").append("<p>" + dateExp + "</p>");
+    });
 
-  //     const input3 = document.querySelectorAll(".date");
-  //     input3.forEach((element) => {
-  //       let dateVal = element.value;
-  //       $(".date_formation_cv").append("<p>" + dateVal + "</p>");
-  //     });
+    const experience4 = document.querySelectorAll(".experienceIn");
+    experience4.forEach((element) => {
+      let experienceVal = element.value;
+      $(".experience").append("<h2>" + experienceVal + "</h2>");
+    });
 
-  //     const formation3 = document.querySelectorAll(".formation");
+    // CACHER ANCIEN FORMULAIRE
+    formulaire4.css("display", "none");
+    formulaire5.css({ display: "flex", "flex-direction": "column" });
+  });
+  // ////////////////////////////////////////////////
 
-  //     formation3.forEach((element) => {
-  //       let formation = element.value;
-  //       $(".formation_faites_cv").append("<h2>" + formation + "</h2>");
-  //     });
+  const formationAddLangue = $("#forma-add-langue");
+  // console.log(formationAddLangue);
 
-  //     // CACHER ANCIEN FORMULAIRE
-  //     formulaire3.css("display", "none");
-  //     formulaire4.css("display", "block");
-  //   });
+  formationAddLangue.on("click", function (e) {
+    e.preventDefault();
+
+    $("#input5").append(
+      '<label for="langue">Langue : </label><br><input type="text" name="langue" class="langue" value=""></input><br><label for="niveau">Niveau : </label><br><input type="text" name="niveau" class="niveau" value=""></input><br>'
+    );
+  });
+
+  formulaire5Btn.on("click", function (e) {
+    e.preventDefault();
+
+    const input5 = document.querySelectorAll(".langue");
+    input5.forEach((element) => {
+      let langue = element.value;
+      $(".langues").append("<p>" + langue + "</p>");
+    });
+
+    const niveau = document.querySelectorAll(".niveau");
+    niveau.forEach((element) => {
+      let level = element.value;
+      $(".niveau_langues").append("<h2>" + level + "</h2>");
+    });
+
+    // CACHER ANCIEN FORMULAIRE
+    formulaire5.css("display", "none");
+    formulaire6.css({ display: "flex", "flex-direction": "column" });
+  });
+  // ///////////////////////////////////////////
+  const formationAddLoisir = $("#forma-add-loisir");
+  // console.log(formationAddLoisir);
+
+  formationAddLoisir.on("click", function (e) {
+    e.preventDefault();
+
+    $("#input6").append(
+      '<label for="loisir">Loisir : </label><br><input type="text" name="loisir" class="loisir" value=""></input><br>'
+    );
+  });
+
+  formulaire6Btn.on("click", function (e) {
+    e.preventDefault();
+
+    const input6 = document.querySelectorAll(".loisir");
+    input6.forEach((element) => {
+      let loisir = element.value;
+      $(".loisirs").append("<p>" + loisir + "</p>");
+    });
+
+    // CACHER ANCIEN FORMULAIRE
+    formulaire6.css("display", "none");
+    formulaire7.css("display", "block");
+  });
 });
 
-// const subject = document.getElementById("subject");
-// console.log(subject.value );
+const options = {
+  filename: "cv.pdf",
+  image: {
+    type: "png",
+    quality: 800,
+  },
+  html2canvas: {
+    scale: 1,
+  },
+  jsPDF: {
+    format: "a4",
+    unit: "in",
+    format: "letter",
+    orientation: "portrait",
+  },
+};
 
-// const valeur = document.querySelector("#subject");
+$(".btn-download").click(function (e) {
+  e.preventDefault();
+  const element = document.getElementById("invoice");
+  html2pdf().from(element).set(options).save();
+});
 
-// valeur.addEventListener("keyup", function () {
-//   const name = document.getElementById("name");
-//   let tableau = valeur.value.split("");
-//   let tableauMaxLenght = valeur.value.split("").length;
-//   let valueLastIndex = tableau[tableauMaxLenght - 1];
-//   console.log(valueLastIndex);
-//   // console.log(tableau);
-//   console.log(tableauMaxLenght);
-//   // let cara = valeur.value;
-//   // console.log(cara);
+function printDiv(divName) {
+  var printContents = document.getElementById(divName).innerHTML;
+  var originalContents = document.body.innerHTML;
 
-//   name.innerText += `${valueLastIndex}`;
-// });
+  document.body.innerHTML = printContents;
 
-// valeur.addEventListener("keydown", function () {
-//   console.log(valeur.value.wich);
-// });
-
-// **************************************************************
-
-// $(document).ready(function () {
-//   //Change la couleur de fond du champ en bleu dès qu'une touche est pressée
-//   //et affiche le code de la dernière touche pressée
-//   $("#texte").keydown(function (event) {
-//     $(this).css("background-color", "lightBlue");
-//     // console.log(event);
-
-//     // $("#name").append(event.key);
-
-//     // console.log($("#name")[0].innerHTML);
-
-//     // text = $("#name")[0].html;
-
-//     // console.log(text);
-
-//     if (event.key == "Backspace") {
-//       console.log("cc");
-//       $("#name").append(slice(0, -1));
-//     } else {
-//       $("#name").append(event.key);
-//     }
-//   });
-
-//   //Change la couleur de fond du champ en jaune dès qu'une touche est pressée
-//   $("#texte").keyup(function () {
-//     $(this).css("background-color", "yellow");
-//   });
-// });
+  window.print();
+  document.body.innerHTML = originalContents;
+}

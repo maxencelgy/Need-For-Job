@@ -1,7 +1,3 @@
-<?php
-session_start();
-get_header();
-?>
 <style>
   #cv_entier {
     background-color: aliceblue;
@@ -127,88 +123,58 @@ get_header();
 
 <body>
   <section id="cv_entier">
-    <div class="en_tete_cv">
-      <div class="info_perso_cv">
-        <h1 id="Nom">Maxence Legay</h1>
-        <p id="Date_de_naissance">Né le 01/02/2003</p>
-        <br>
-        <p id="adresse">Impasse des gay </p>
-        <p id="adresse_two">Rouen 76000</p>
-        <p id="numero">06.70.50.61.70</p>
-        <p id="adresse_mail">MaxenceLeGay@gmail.com</p>
-        <br>
-        <p id="permis">Permis B (voiture)</p>
-      </div>
-      <div class="photo_cv">
-        <img src="https://th.bing.com/th/id/R.f0fdbe409055da5ad7edddf36cdd6326?rik=2mbqAXK6dzGz6A&riu=http%3a%2f%2fimg.20mn.fr%2ffRtrk_A1S_2T36rqYCa1eQ%2f2048x1536-fit_maitre-gims-nrj-music-awards-12-novembre-2016-cannes.jpg&ehk=DijO9ATnI0n6R9pp2gzT1wgsaHyloUQ4dSTwGq0%2fPng%3d&risl=&pid=ImgRaw&r=0" alt="">
-      </div>
-    </div>
-    <div class="formation_cv">
-      <h1>Les Formations</h1>
-      <div class="date_and_forma">
-        <div class="date_formation_cv">
-          <p>2021-2022</p>
-          <p>2020-2021</p>
-          <p>2019-2020</p>
-        </div>
-        <div class="formation_faites_cv">
-          <h2>Need For School - Campus St Marc, Rouen</h2>
-          <p>Bachelor informatique</p>
-          <h2>Lycée je sais pas du tout</h2>
-          <p>Bac Stmg</p>
-          <h2>Conducteur poids lourds</h2>
-          <p>sa grosse daronne</p>
+    <div id="invoice">
+
+
+      <div class="en_tete_cv">
+        <div class="info_perso_cv">
+          <h1 id="Nom"></h1>
+          <p id="Date_de_naissance"></p>
+          <br>
+          <p id="adresse"></p>
+          <p id="adresse_two"></p>
+          <p id="numero"></p>
+          <p id="adresse_mail"></p>
+          <br>
+          <p id="permis"></p>
         </div>
       </div>
-    </div>
-    <div class="experience_pro">
-      <h1>Experience professionelle</h1>
-      <div class="date_and_exp">
-        <div class="date_experience">
-          <p>2021-2022</p>
-          <p>2020-2021</p>
-          <p>2019-2020</p>
-        </div>
-        <div class="experience">
-          <h2>Chargé de Projet</h2>
-          <p>J'avais pour rôle de diriger un group de personne afin d'établir un objectif</p>
-          <h2>Maxencelgy.fr</h2>
-          <p>J'ai créée un site e-commerce disponible dans toute la France Metropolitaine</p>
-          <h2>La Vacuna Del Sol</h2>
-          <p>Site de carnet de vaccination</p>
+      <div class="formation_cv">
+        <h1>Les Formations</h1>
+        <div class="date_and_forma">
+          <div class="date_formation_cv">
+
+          </div>
+          <div class="formation_faites_cv">
+
+          </div>
         </div>
       </div>
-    </div>
-    <div class="maitrise_langues">
-      <h1>Langues étrangères</h1>
-      <div class="langues_and_niveau">
-        <div class="langues">
-          <p>Anglais</p>
-          <p>Espagnol</p>
-          <p>Latin</p>
-          <p>PHP</p>
-          <p>HTML</p>
-          <p>CSS</p>
-          <p>React.Js</p>
-          <p>Javascript</p>
-        </div>
-        <div class="niveau_langues">
-          <h2>Niveau A2</h2>
-          <h2>Correct</h2>
-          <h2>Correct</h2>
-          <h2>Bon</h2>
-          <h2>Très bon</h2>
-          <h2>Très bon</h2>
-          <h2>Correct</h2>
-          <h2>Correct</h2>
+      <div class="experience_pro">
+        <h1>Experience professionelle</h1>
+        <div class="date_and_exp">
+          <div class="date_experience">
+
+          </div>
+          <div class="experience">
+
+          </div>
         </div>
       </div>
-      <div class="loisirs">
-        <h1>Loisirs</h1>
-        <p>Les Meufs</p>
-        <p>L'alcool</p>
-        <p>La drogue</p>
-        <p>L'informatique</p>
+      <div class="maitrise_langues">
+        <h1>Langues étrangères</h1>
+        <div class="langues_and_niveau">
+          <div class="langues">
+
+          </div>
+          <div class="niveau_langues">
+
+          </div>
+        </div>
+        <div class="loisirs">
+          <h1>Loisirs</h1>
+
+        </div>
       </div>
   </section>
 </body>

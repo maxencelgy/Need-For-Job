@@ -25,16 +25,10 @@ if(!empty($_POST['submitted'])) {
 get_header();
 ?>
 
-
-
-
     <section id="register_form">
-
         <div class="wrap_2">
-
                 <form action="" method="post" class="wrapform" novalidate>
                     <h2>Connexion :</h2>
-
                     <div class="info_box">
                         <label for="login"></label>
                         <i class="fa-solid fa-user"></i>
@@ -77,12 +71,9 @@ get_header();
                         <div class="separator"></div>
                         <p>En créant ton compte, tu peux créer, sauvegarder et modifier tes différents CV ! Les recruteurs contactent plus souvent les personnes ayant un compte !</p>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
     </section>
 
 <?php
