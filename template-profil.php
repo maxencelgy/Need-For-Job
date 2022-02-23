@@ -41,7 +41,31 @@ get_header();
     </div>
 </section>
 
+<section>
+    <?php
+    global $wpdb;
+    $cvs = $wpdb->get_results(
+        $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s",$user_id),
+        ARRAY_A
+    );
+    debug($cvs);
 
+    if(!empty($cvs)){
+        foreach ($cvs as $cv){?>
+           <div class="box_cv_profil">
+               <h2>CV pour : <?php echo $cv['poste'] ?></h2>
+               <a href="<?= path('cv-detail')?>?id=<?= $cv['id'] ?>">Voir</a>
+               <a href="#">Supprimer</a>
+           </div>
+
+
+       <?php }
+    }else{
+        echo'non';
+    }
+    ?>
+
+</section>
 
 
 
