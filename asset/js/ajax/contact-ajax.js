@@ -6,7 +6,8 @@ $(document).ready(function () {
     e.preventDefault();
     const userID = document.querySelector("#userID");
     const userId = userID.innerHTML;
-
+    const themeID = document.querySelector("#themeID");
+    const themeId = themeID.innerHTML;
     const poste = $("#poste").val();
     const nom = $("#nom").val();
     const prenom = $("#prenom").val();
@@ -29,6 +30,7 @@ $(document).ready(function () {
       data: {
         action: "ajax_contact_2",
         userId: userId,
+        themeId: themeId,
         // profilVal: profilVal,
         poste: poste,
         nom: nom,

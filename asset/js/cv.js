@@ -108,7 +108,9 @@ $(document).ready(function () {
     e.preventDefault();
     const input4 = document.querySelectorAll(".date-exp");
     input4.forEach((element) => {
+      console.log(element);
       let dateExp = element.value;
+      console.log(dateExp);
       $(".date_experience").append("<p>" + dateExp + "</p>");
     });
 

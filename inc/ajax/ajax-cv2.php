@@ -10,6 +10,7 @@ function gestionFormulaireContact2()
 
     $success = false;
     $userId = cleanXss('userId');
+    $themeId = cleanXss('themeId');
     $poste = cleanXss('poste');
     $nom = cleanXss('nom');
     $prenom = cleanXss('prenom');
@@ -31,6 +32,7 @@ function gestionFormulaireContact2()
         $wpdb->prefix . 'cv',
         array(
             'user_id' => $userId,
+            'template-id' => $themeId,
             'poste' => $poste,
             'nom'    => $nom,
             'prenom'    => $prenom,
@@ -47,7 +49,7 @@ function gestionFormulaireContact2()
             'niveau' => $niveau,
             'loisirs' => $loisir,
         ),
-        array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')
+        array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')
 
     );
 

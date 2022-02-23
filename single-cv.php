@@ -19,11 +19,9 @@ get_header();
             the_post();
         ?>
             <div class="left">
-
-
-
                 <form id="formulaire" class="wrapform" action="" method="POST" novalidate>
                     <div id="formulaire1">
+                        <p id="themeID" style="display: none;"><?= get_the_content() ?></p>
                         <p id="userID" style="display: none;"><?= $user_id ?></p>
                         <label for="poste">Intitulé du poste :</label>
                         <input type="text" name="poste" id="poste" value="">
