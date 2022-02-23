@@ -1,6 +1,7 @@
 // /////////////////////////////////////////////////////////////////////////////////
 console.log("coucou cv");
 $(document).ready(function () {
+  
   const formulaire1 = $("#formulaire1");
   const formulaire2 = $("#formulaire2");
   const formulaire3 = $("#formulaire3");
@@ -67,7 +68,7 @@ $(document).ready(function () {
     e.preventDefault();
 
     $("#input3").append(
-      '<label for="date">Date : </label><br><input type="text" name="date" class="date" value=""></input><br><label for="formation">Formation : </label><br><input type="text" name="formation" class="formation" value=""></input><br>'
+      '<label for="date">Date : </label><br><input type="text" name="date[]" class="date" value=""></input><br><label for="formation">Formation : </label><br><input type="text" name="formation" class="formation" value=""></input><br>'
     );
   });
 
@@ -75,8 +76,14 @@ $(document).ready(function () {
     e.preventDefault();
 
     const input3 = document.querySelectorAll(".date");
+
+    console.log(input3);
+    //const inputValeur = input3;
+    //console.log(input3);
+    //console.log(inputValeur);
     input3.forEach((element) => {
       let dateVal = element.value;
+      console.log(dateVal);
       $(".date_formation_cv").append("<p>" + dateVal + "</p>");
     });
 

@@ -688,6 +688,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .bloccv {
   width: 49%;
@@ -1165,6 +1166,9 @@ header {
 #formulaire7 p {
   margin-bottom: 6rem;
 }
+/* #formulaire7 input[sub] {
+  margin-bottom: 6rem;
+} */
 /*  */
 .download {
   max-width: 1200px;
@@ -1216,4 +1220,9 @@ header {
 .btn-add:hover {
   transition: 0.5s;
   background-color: transparent;
+}
+/* ************CV DéTAIL */
+
+#cv_detail {
+  padding: 2rem;
 }

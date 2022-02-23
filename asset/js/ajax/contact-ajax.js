@@ -17,6 +17,7 @@ $(document).ready(function () {
     const mail = $("#mail").val();
     const perms = $("#perms").val();
     const dateFormation = $(".date").val();
+
     const formation = $(".formation").val();
     const dateExp = $(".date-exp").val();
     const experience = $(".experienceIn").val();

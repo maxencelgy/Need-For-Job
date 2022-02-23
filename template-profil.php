@@ -1,16 +1,16 @@
 <?php
 /*Template Name: Profil*/
 
-if (is_user_logged_in()==false){
-        wp_redirect(path('home'));
-        exit;
+if (is_user_logged_in() == false) {
+    wp_redirect(path('home'));
+    exit;
 }
-$user=wp_get_current_user();
+$user = wp_get_current_user();
 $userArray = objectToArray($user);
 
 
-$user_id=get_current_user_id();
-$user_meta=get_user_meta($user_id);
+$user_id = get_current_user_id();
+$user_meta = get_user_meta($user_id);
 
 
 get_header();
@@ -25,7 +25,7 @@ get_header();
         <div class="box_profil">
             <div class="box_profil_left">
                 <i class="fa-solid fa-circle-user"></i>
-                 <h2><?php echo $userArray['data']['user_nicename'].' '.$userArray['data']['display_name']; ?></h2>
+                <h2><?php echo $userArray['data']['user_nicename'] . ' ' . $userArray['data']['display_name']; ?></h2>
             </div>
             <div class="box_profil_right">
                 <p> <strong> Email :</strong> <?php echo $userArray['data']['user_email']; ?> </p>
@@ -41,10 +41,32 @@ get_header();
     </div>
 </section>
 
-<section id="singleCv">
-    
-</section>
+<section>
+    <?php
+    global $wpdb;
+    $cvs = $wpdb->get_results(
+        $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s", $user_id),
+        ARRAY_A
+    );
+    debug($cvs);
 
+    if (!empty($cvs)) {
+        foreach ($cvs as $cv) { ?>
+            <div class="box_cv_profil">
+                <h2>CV pour : <?php echo $cv['poste'] ?></h2>
+                <a href="<?= path('cv-detail') ?>?id=<?= $cv['id'] ?>">Voir</a>
+                <a href="#">Supprimer</a>
+            </div>
+
+
+    <?php }
+    } else {
+        echo 'non';
+    }
+    ?>
+
+
+</section>
 
 
 
