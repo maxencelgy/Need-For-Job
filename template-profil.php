@@ -50,14 +50,14 @@ get_header();
     );
     debug($cvs);
 
-    if (!empty($cvs)) {
-        foreach ($cvs as $cv) { ?>
-            <div class="box_cv_profil">
-                <h2>CV pour : <?php echo $cv['poste'] ?></h2>
-                <a href="<?= path('cv-detail') ?>?id=<?= $cv['id'] ?>">Voir</a>
-                <a href="#">Supprimer</a>
-            </div>
 
+    if(!empty($cvs)){
+        foreach ($cvs as $cv){?>
+           <div class="box_cv_profil">
+               <h2>CV pour : <?php echo $cv['poste'] ?></h2>
+               <a href="<?= path('cv-detail')?>?id=<?= $cv['id'] ?>">Voir</a>
+               <a href="<?= path('delete-cv-profil')?>?id=<?= $cv['id'] ?>">Supprimer</a>
+           </div>
 
     <?php }
     } else {
