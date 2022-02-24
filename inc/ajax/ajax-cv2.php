@@ -99,6 +99,8 @@ function gestionFormulaireContact2()
             array('%s', '%s')
         );
     }
+    mail($data['d'][0]['mail'], 'Confirmation création de CV, Need For Job vous remercie !', 'oui', 'From: needforjob-support@gmail.com' );
+
     $success = true;
 
     $dataa = array(

@@ -51,6 +51,7 @@ get_header();
 
         <div class="cv_user">
                     <h2 class="box_title">Vos CV :</h2>
+            <div class="list_cv">
             <?php
             global $wpdb;
             $cvs = $wpdb->get_results(
@@ -75,8 +76,9 @@ get_header();
                 <?php }
             } else { ?>
                 <h3 class="box_title">Vous n'avez pas encore créé de CV, commencez dès maintenant en cliquant <a href="<?= path('select')?>">ici !</a></h3>
-        <?php }
-        }?>
+        <?php }?>
+                </div>
+      <?php  } ?>
 
     </div>
 </section>

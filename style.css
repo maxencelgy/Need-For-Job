@@ -702,10 +702,16 @@ header {
 }
 
 .cv_user .bloccv{
-  width:80%;
+  width:49%;
 }
 .bloccv .cvImg {
   width: 40%;
+}
+
+.list_cv{
+  display:flex;
+  justify-content:space-between;
+  flex-flow: row wrap;
 }
 
 .nameSpan {

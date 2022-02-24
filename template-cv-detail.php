@@ -39,7 +39,7 @@ $cvLangue = $wpdb->get_results(
     ARRAY_A
 );
 
-// debug($cv);
+
 
 get_header()
 ?>
