@@ -17,10 +17,10 @@ debug($user);
 
 
 global $wpdb;
-// $cv = $wpdb->get_results(
-//     $q = $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE nom = '%" . $_GET['q'] . "%'"),
-//     ARRAY_A
-// );
+$cv = $wpdb->get_results(
+    $q = $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE nom = '%" . $_GET['q'] . "%'"),
+    ARRAY_A
+);
 
 
 
