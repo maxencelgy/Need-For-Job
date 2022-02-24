@@ -81,6 +81,10 @@ function nfj_scripts()
         wp_enqueue_script('contactjs', get_template_directory_uri() . '/asset/js/ajax/contact-ajax.js', array('jquery'), _S_VERSION, true);
         wp_add_inline_script('contactjs', 'const ajaxUrl = ' . json_encode(admin_url('admin-ajax.php')), 'before');
     }
+    if (is_page_template('template-cv-detail.php')) {
+        wp_enqueue_script('cvjs', get_template_directory_uri() . '/asset/js/cv.js', array(), '1.0.1', true);
+    }
+
     wp_enqueue_script('mainjs', get_template_directory_uri() . '/asset/js/main.js', array(), '1.0.1', true);
 }
 add_action('wp_enqueue_scripts', 'nfj_scripts');

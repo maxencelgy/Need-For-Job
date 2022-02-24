@@ -12,11 +12,11 @@ $user_meta = get_user_meta($user_id);
 
 
 
- global $wpdb;
- $cvs = $wpdb->get_results(
-     $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s", $user_id),
-     ARRAY_A
- );
+global $wpdb;
+$cvs = $wpdb->get_results(
+    $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s", $user_id),
+    ARRAY_A
+);
 
 
 get_header();
@@ -76,11 +76,7 @@ get_header();
                 <?php }
             } else { ?>
                 <h3 class="box_title">Vous n'avez pas encore créé de CV, commencez dès maintenant en cliquant <a href="<?= path('select')?>">ici !</a></h3>
-        <?php }?>
-                </div>
-      <?php  } ?>
-
-    </div>
+        <?php }}?>
 </section>
 
 <?php

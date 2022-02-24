@@ -79,7 +79,7 @@ get_header();
                             <h2>Merci d'avoir utiliser notre génerateur de CV</h2>
                             <p>Vous pouvez maintenant affiche votre CV sur votre profil ou le télecharger au format pdf</p>
                             <a href="javascript:void(0)" class="btn-download">Telecharger PDF </a>
-                            <input type="submit" name="submitted" value="Ajouter à mon profil">
+                            <input id="buttonAddProfile" type="submit" name="submitted" value="Ajouter à mon profil">
                         <?php
                         } else { ?>
                             <h2>Merci d'avoir utiliser notre génerateur de CV</h2>
