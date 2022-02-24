@@ -210,24 +210,9 @@ $(document).ready(function () {
     const userId = userID.innerHTML;
     const themeID = document.querySelector("#themeID");
     const themeId = themeID.innerHTML;
-    // const nom = $("#nom").val();
-    // const prenom = $("#prenom").val();
-    // const dob = $("#dob").val();
-    // const lieux = $("#lieux").val();
-    // const number = $("#number").val();
-    // const mail = $("#mail").val();
-    // const perms = $("#perms").val();
-    // const dateFormation = $(".date").val();
-    // const formation = $(".formation").val();
-    // const dateExp = $(".date-exp").val();
-    // const experience = $(".experienceIn").val();
-    // const langue = $(".langue").val();
-    // const niveau = $(".niveau").val();
-    // const loisir = $(".loisir").val();
+    const posteID = document.querySelector("#Poste");
+    const posteId = posteID.innerHTML;
 
-    let aaaaa = {
-      name: "michel",
-    };
     console.log(JSON.stringify(cv));
 
     let newcv = JSON.stringify([cv]);
@@ -240,26 +225,8 @@ $(document).ready(function () {
         action: "ajax_contact_2",
         userId: userId,
         themeId: themeId,
+        posteId: posteId,
         dataaa: newcv,
-        //dataaa: JSON.stringify(aaaaa),
-        // dataG : JSON.parse(dataaa),
-
-        // profilVal: profilVal,
-        // poste: poste,
-        // nom: nom,
-        // prenom: prenom,
-        // dob: dob,
-        // lieux: lieux,
-        // number: number,
-        // mail: mail,
-        // perms: perms,
-        // dateFormation: dateFormation,
-        // formation: formation,
-        // dateExp: dateExp,
-        // experience: experience,
-        // langue: langue,
-        // niveau: niveau,
-        // loisir: loisir,
       },
       beforeSend: function () {
         console.log("start ajax contact");

@@ -12,11 +12,18 @@ $userArray = objectToArray($user);
 $user_id = get_current_user_id();
 $user_meta = get_user_meta($user_id);
 
+// global $wpdb;
+// $cvs = $wpdb->get_results(
+//     $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s", $user_id),
+//     ARRAY_A
+// );
+
 global $wpdb;
-$cvs= $wpdb->get_results(
-    $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s",$user_id),
+$cvs = $wpdb->get_results(
+    $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE id=%s", $id),
     ARRAY_A
 );
+
 debug($cvs);
 
 get_header();
@@ -48,19 +55,20 @@ get_header();
 
         <div class="cv_user">
 
-                    <h2 class="box_title">Vos CV :</h2>
+            <h2 class="box_title">Vos CV :</h2>
 
-            <?php if(!empty($cvs)){
-                foreach ($cvs as $cv){ ?>
+            <?php if (!empty($cvs)) {
+                foreach ($cvs as $cv) { ?>
 
                     <div>
                         <p>ici le cv</p>
                     </div>
 
 
-                <?php } }else{ ?>
+                <?php }
+            } else { ?>
 
-                       <h3 class="box_title">Vous n'avez pas encore créé de CV, commencez dès maintenant en cliquant <a href="<?= path('select')?>">ici !</a></h3>
+                <h3 class="box_title">Vous n'avez pas encore créé de CV, commencez dès maintenant en cliquant <a href="<?= path('select') ?>">ici !</a></h3>
 
             <?php  } ?>
 
@@ -80,13 +88,13 @@ get_header();
     debug($cvs);
 
 
-    if(!empty($cvs)){
-        foreach ($cvs as $cv){?>
-           <div class="box_cv_profil">
-               <h2>CV pour : <?php echo $cv['poste'] ?></h2>
-               <a href="<?= path('cv-detail')?>?id=<?= $cv['id'] ?>">Voir</a>
-               <a href="<?= path('delete-cv-profil')?>?id=<?= $cv['id'] ?>">Supprimer</a>
-           </div>
+    if (!empty($cvs)) {
+        foreach ($cvs as $cv) { ?>
+            <div class="box_cv_profil">
+                <h2>CV pour : <?php echo $cv['poste'] ?></h2>
+                <a href="<?= path('cv-detail') ?>?id=<?= $cv['id'] ?>">Voir</a>
+                <a href="<?= path('delete-cv-profil') ?>?id=<?= $cv['id'] ?>">Supprimer</a>
+            </div>
 
     <?php }
     } else {

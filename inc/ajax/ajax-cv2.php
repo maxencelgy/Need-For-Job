@@ -14,27 +14,11 @@ function gestionFormulaireContact2()
         'd' => $y,
     );
 
-    // debug($data);
-    // showJson($data);
 
     $success = false;
     $userId = cleanXss('userId');
     $themeId = cleanXss('themeId');
-    $poste = cleanXss('poste');
-    // $nom = cleanXss('nom');
-    // $prenom = cleanXss('prenom');
-    // $dob = cleanXss('dob');
-    // $lieux = cleanXss('lieux');
-    // $number = cleanXss('number');
-    // $mail = cleanXss('mail');
-    // $perms = cleanXss('perms');
-    // $dateFormation = cleanXss('dateFormation');
-    // $formation = cleanXss('formation');
-    // $dateExp = cleanXss('dateExp');
-    // $experience = cleanXss('experience');
-    // $langue = cleanXss('langue');
-    // $niveau = cleanXss('niveau');
-    // $loisir = cleanXss('loisir');
+    $posteId = cleanXss('posteId');
 
     global $wpdb;
     $wpdb->insert(
@@ -42,7 +26,7 @@ function gestionFormulaireContact2()
         array(
             'user_id' => $userId,
             'template-id' => $themeId,
-            'poste' => $poste,
+            'poste' => $posteId,
             'nom'   => $data['d'][0]['name'],
             'prenom'    => $data['d'][0]['prenom'],
             'dob'      => $data['d'][0]['dob'],
@@ -50,13 +34,7 @@ function gestionFormulaireContact2()
             'phone' => $data['d'][0]['number'],
             'email' => $data['d'][0]['mail'],
             'permis' => $data['d'][0]['perms'],
-            // 'date-formation' => $dateFormation,
-            // 'formation' => $formation,
-            // 'date-experience' => $dateExp,
-            // 'experience' => $experience,
-            // 'langue' => $langue,
-            // 'niveau' => $niveau,
-            // 'loisirs' => $loisir,
+
         ),
         array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')
 
@@ -126,5 +104,5 @@ function gestionFormulaireContact2()
     $dataa = array(
         'success' => $success
     );
-    showJson($data);
+    showJson($dataa);
 }
