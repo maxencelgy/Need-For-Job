@@ -210,24 +210,9 @@ $(document).ready(function () {
     const userId = userID.innerHTML;
     const themeID = document.querySelector("#themeID");
     const themeId = themeID.innerHTML;
-    // const nom = $("#nom").val();
-    // const prenom = $("#prenom").val();
-    // const dob = $("#dob").val();
-    // const lieux = $("#lieux").val();
-    // const number = $("#number").val();
-    // const mail = $("#mail").val();
-    // const perms = $("#perms").val();
-    // const dateFormation = $(".date").val();
-    // const formation = $(".formation").val();
-    // const dateExp = $(".date-exp").val();
-    // const experience = $(".experienceIn").val();
-    // const langue = $(".langue").val();
-    // const niveau = $(".niveau").val();
-    // const loisir = $(".loisir").val();
+    const posteID = document.querySelector("#Poste");
+    const posteId = posteID.innerHTML;
 
-    let aaaaa = {
-      name: "michel",
-    };
     console.log(JSON.stringify(cv));
 
     let newcv = JSON.stringify([cv]);
@@ -240,7 +225,7 @@ $(document).ready(function () {
         action: "ajax_contact_2",
         userId: userId,
         themeId: themeId,
-        // poste: poste,
+        posteId: posteId,
         dataaa: newcv,
 
       },
@@ -250,10 +235,10 @@ $(document).ready(function () {
       },
       success: function (res) {
         console.log(res);
-        // if (res.success) {
-        //   let profil = "http://localhost/NFJ/profil/";
-        //   window.location = profil;
-        // }
+        if (res.success) {
+          let profil = "http://localhost/NFJ/profil/";
+          window.location = profil;
+        }
       },
     });
   });

@@ -127,7 +127,34 @@ $cv = $wpdb->get_results(
     ARRAY_A
 );
 
-
+$cvFormation = $wpdb->get_results(
+    $wpdb->prepare("SELECT * FROM {$wpdb->prefix}formation WHERE cv_id=%s", $id),
+    ARRAY_A
+);
+$cvExperience = $wpdb->get_results(
+    $wpdb->prepare("SELECT * FROM {$wpdb->prefix}experience WHERE cv_id=%s", $id),
+    ARRAY_A
+);
+$cvLoisir = $wpdb->get_results(
+    $wpdb->prepare("SELECT * FROM {$wpdb->prefix}passion WHERE cv_id=%s", $id),
+    ARRAY_A
+);
+$cvLangue = $wpdb->get_results(
+    $wpdb->prepare("SELECT * FROM {$wpdb->prefix}langue WHERE cv_id=%s", $id),
+    ARRAY_A
+);
+// debug($cv);
+// debug($cvFormation);
+// debug($cvExperience);
+// debug($cvLoisir);
+// debug($cvLangue);
+?>
+<!-- <div class="wrapCV"> -->
+<!-- 
+<div class="cvLeft">
+    <h2>zeff</h2>
+</div> -->
+<?php
 if (!empty($cv)) { ?>
     <section class="cv_entier">
         <div id="invoice">
@@ -137,8 +164,6 @@ if (!empty($cv)) { ?>
                         <h1 id="Nom"><?= $cv[0]['nom'] ?> <?= $cv[0]['prenom'] ?></h1>
                     <?php } else {
                     ?> <h1 id="Nom"></h1> <?php } ?>
-                    
-
                     <p id="Date_de_naissance"><?= $cv[0]['dob'] ?></p>
                     <br>
                     <p id="adresse"><?= $cv[0]['adresse'] ?></p>
@@ -157,10 +182,19 @@ if (!empty($cv)) { ?>
                 <h1>Les Formations</h1>
                 <div class="date_and_forma">
                     <div class="date_formation_cv">
-                        <p><?= $cv[0]['date-formation'] ?></p>
+                        <?php
+                        foreach ($cvFormation as $cvFormations) {
+                        ?>
+                            <p><?= $cvFormations['date_formation'] ?></p>
+                        <?php } ?>
                     </div>
                     <div class="formation_faites_cv">
-                        <h2><?= $cv[0]['formation'] ?></h2>
+                        <?php
+                        foreach ($cvFormation as $cvFormations) {
+                        ?>
+                            <h2><?= $cvFormations['formation'] ?></h2>
+                        <?php } ?>
+
                     </div>
                 </div>
             </div>
@@ -168,25 +202,48 @@ if (!empty($cv)) { ?>
                 <h1>Experience professionelle</h1>
                 <div class="date_and_exp">
                     <div class="date_experience">
-                        <p><?= $cv[0]['date-experience'] ?></p>
+                        <?php
+                        foreach ($cvExperience as $cvExperiences) {
+                        ?>
+                            <p><?= $cvExperiences['date_experience'] ?></p>
+                        <?php } ?>
+
                     </div>
                     <div class="experience">
-                        <h2><?= $cv[0]['experience'] ?></h2>
+                        <?php
+                        foreach ($cvExperience as $cvExperiences) {
+                        ?>
+                            <h2><?= $cvExperiences['experience'] ?></h2>
+                        <?php } ?>
+
                     </div>
                 </div>
             </div>
             <div class="loisirs">
                 <h1>Loisirs</h1>
-                <p><?= $cv[0]['loisirs'] ?></p>
+                <?php
+                foreach ($cvLoisir as $cvLoisirs) {
+                ?>
+                    <p><?= $cvLoisirs['passion'] ?></p>
+                <?php } ?>
+
             </div>
             <div class="maitrise_langues">
                 <h1>Langues étrangères</h1>
                 <div class="langues_and_niveau">
                     <div class="langues">
-                        <p><?= $cv[0]['langue'] ?></p>
+                        <?php
+                        foreach ($cvLangue as $cvLangues) {
+                        ?>
+                            <p><?= $cvLangues['langue'] ?></p>
+                        <?php } ?>
                     </div>
                     <div class="niveau_langues">
-                        <h2><?= $cv[0]['langue'] ?></h2>
+                        <?php
+                        foreach ($cvLangue as $cvLangues) {
+                        ?>
+                            <p><?= $cvLangues['niveau_langue'] ?></p>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -248,3 +305,8 @@ if (!empty($cv)) { ?>
     </section>
 <?php
 }
+?>
+
+
+
+<!-- </div> -->

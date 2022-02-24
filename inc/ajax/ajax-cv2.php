@@ -14,10 +14,11 @@ function gestionFormulaireContact2()
         'd' => $y,
     );
 
+
     $success = false;
     $userId = cleanXss('userId');
     $themeId = cleanXss('themeId');
-    $poste = cleanXss('poste');
+    $posteId = cleanXss('posteId');
 
     global $wpdb;
     $wpdb->insert(
@@ -25,7 +26,7 @@ function gestionFormulaireContact2()
         array(
             'user_id' => $userId,
             'template-id' => $themeId,
-            'poste' => $poste,
+            'poste' => $posteId,
             'nom'   => $data['d'][0]['name'],
             'prenom'    => $data['d'][0]['prenom'],
             'dob'      => $data['d'][0]['dob'],
@@ -33,17 +34,20 @@ function gestionFormulaireContact2()
             'phone' => $data['d'][0]['number'],
             'email' => $data['d'][0]['mail'],
             'permis' => $data['d'][0]['perms'],
+
         ),
         array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')
 
     );
+
 
     $lastCv = $wpdb->get_results(
         $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s ORDER BY id DESC", $userId),
         ARRAY_A
     );
 
-    $cvId=$lastCv[0]['id'];
+    $cvId = $lastCv[0]['id'];
+
 
     foreach (array_combine($data['d'][0]['formation'], $data['d'][0]['dateVal']) as $formationn => $formationDate) {
         global $wpdb;
@@ -95,10 +99,10 @@ function gestionFormulaireContact2()
             array('%s', '%s')
         );
     }
-
     $success = true;
+
     $dataa = array(
         'success' => $success
     );
-    showJson($data);
+    showJson($dataa);
 }
