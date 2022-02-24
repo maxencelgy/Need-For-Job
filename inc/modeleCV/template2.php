@@ -41,25 +41,30 @@
         border-bottom: 3px solid blue;
         margin-left: 2rem;
         margin-right: 2rem;
-        padding-bottom: 1rem;
+        margin-bottom: 1rem;
         font-weight: 800;
     }
 
     .date_and_forma {
         display: flex;
+        align-items: center;
         justify-content: space-between;
     }
 
     .date_formation_cv {
-        padding-top: 2rem;
         margin-left: 2rem;
-        line-height: 4rem;
+    }
+
+    .date_formation_cv p {
+        margin-bottom: 1rem;
+    }
+
+    .date_formation_cv h2 {
+        margin-bottom: .5rem;
     }
 
     .formation_faites_cv {
-        padding-top: 2rem;
         margin-right: 2rem;
-        line-height: 2.5rem;
     }
 
     .experience_pro h1 {
@@ -73,18 +78,17 @@
     .date_and_exp {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-left: 2rem;
         margin-right: 2rem;
         padding-bottom: 2rem;
     }
 
     .date_experience {
-        padding-top: 2rem;
         line-height: 4rem;
     }
 
     .experience {
-        padding-top: 2rem;
         line-height: 2.5rem;
     }
 
@@ -101,8 +105,8 @@
         justify-content: space-between;
         margin-left: 2rem;
         margin-right: 2rem;
-        padding-bottom: 2rem;
-        padding-top: 3rem;
+
+
         line-height: 3rem;
     }
 
@@ -110,14 +114,14 @@
         border-bottom: 3px solid blue;
         margin-left: 2rem;
         margin-right: 2rem;
-        padding-bottom: 1rem;
+        margin-bottom: 1rem;
         font-weight: 800;
     }
 
     .loisirs p {
         margin-left: 2rem;
-        padding-top: 2rem;
-        font-weight: 900;
+        margin-bottom: 1rem;
+
     }
 </style>
 <?php
@@ -127,6 +131,7 @@ $cv = $wpdb->get_results(
     $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE id=%s", $id),
     ARRAY_A
 );
+
 $cvFormation = $wpdb->get_results(
     $wpdb->prepare("SELECT * FROM {$wpdb->prefix}formation WHERE cv_id=%s", $id),
     ARRAY_A
@@ -146,8 +151,10 @@ $cvLangue = $wpdb->get_results(
 
 ?>
 
+
 <?php
 if (!empty($cv)) { ?>
+
     <section class="cv_entier">
         <div id="invoice">
             <div class="en_tete_cv">
@@ -155,15 +162,13 @@ if (!empty($cv)) { ?>
                     <?php if (!empty($cv)) { ?>
                         <h1 id="Nom"><?= $cv[0]['nom'] ?> <?= $cv[0]['prenom'] ?></h1>
                     <?php } else {
-                        ?> <h1 id="Nom"></h1> <?php } ?>
+                    ?> <h1 id="Nom"></h1> <?php } ?>
                     <p id="Date_de_naissance"><?= $cv[0]['dob'] ?></p>
                     <br>
                     <p id="adresse"><?= $cv[0]['adresse'] ?></p>
-
-                    <p id="numero"><?= $cv[0]['phone'] ?></p>
-
-                    <p id="adresse_mail"><?= $cv[0]['email'] ?></p>
                     <br>
+                    <p id="numero"><?= $cv[0]['phone'] ?></p>
+                    <p id="adresse_mail"><?= $cv[0]['email'] ?></p>
                     <p id="permis"><?= $cv[0]['permis'] ?></p>
                 </div>
                 <div class="imgProfil">
@@ -176,14 +181,14 @@ if (!empty($cv)) { ?>
                     <div class="date_formation_cv">
                         <?php
                         foreach ($cvFormation as $cvFormations) {
-                            ?>
+                        ?>
                             <p><?= $cvFormations['date_formation'] ?></p>
                         <?php } ?>
                     </div>
                     <div class="formation_faites_cv">
                         <?php
                         foreach ($cvFormation as $cvFormations) {
-                            ?>
+                        ?>
                             <h2><?= $cvFormations['formation'] ?></h2>
                         <?php } ?>
 
@@ -196,7 +201,7 @@ if (!empty($cv)) { ?>
                     <div class="date_experience">
                         <?php
                         foreach ($cvExperience as $cvExperiences) {
-                            ?>
+                        ?>
                             <p><?= $cvExperiences['date_experience'] ?></p>
                         <?php } ?>
 
@@ -204,7 +209,7 @@ if (!empty($cv)) { ?>
                     <div class="experience">
                         <?php
                         foreach ($cvExperience as $cvExperiences) {
-                            ?>
+                        ?>
                             <h2><?= $cvExperiences['experience'] ?></h2>
                         <?php } ?>
 
@@ -215,7 +220,7 @@ if (!empty($cv)) { ?>
                 <h1>Loisirs</h1>
                 <?php
                 foreach ($cvLoisir as $cvLoisirs) {
-                    ?>
+                ?>
                     <p><?= $cvLoisirs['passion'] ?></p>
                 <?php } ?>
 
@@ -226,14 +231,14 @@ if (!empty($cv)) { ?>
                     <div class="langues">
                         <?php
                         foreach ($cvLangue as $cvLangues) {
-                            ?>
+                        ?>
                             <p><?= $cvLangues['langue'] ?></p>
                         <?php } ?>
                     </div>
                     <div class="niveau_langues">
                         <?php
                         foreach ($cvLangue as $cvLangues) {
-                            ?>
+                        ?>
                             <p><?= $cvLangues['niveau_langue'] ?></p>
                         <?php } ?>
                     </div>
@@ -251,10 +256,10 @@ if (!empty($cv)) { ?>
                     <p id="Date_de_naissance"></p>
                     <br>
                     <p id="adresse"></p>
+                    <br>
                     <p id="adresse_two"></p>
                     <p id="numero"></p>
                     <p id="adresse_mail"></p>
-                    <br>
                     <p id="permis"></p>
                 </div>
                 <div class="imgProfil">
@@ -295,9 +300,6 @@ if (!empty($cv)) { ?>
             </div>
         </div>
     </section>
-    <?php
+<?php
 }
 ?>
-
-
-
