@@ -1261,3 +1261,8 @@ header {
   width: 49%;
   text-align: center;
 }
+#buttonAddProfile {
+  padding: 1.1rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}

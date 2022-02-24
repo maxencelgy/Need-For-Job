@@ -234,10 +234,10 @@ $(document).ready(function () {
       },
       success: function (res) {
         console.log(res);
-        // if (res.success) {
-        //   let profil = "http://localhost/NFJ/profil/";
-        //   window.location = profil;
-        // }
+        if (res.success) {
+          let profil = "http://localhost/NFJ/profil/";
+          window.location = profil;
+        }
       },
     });
   });

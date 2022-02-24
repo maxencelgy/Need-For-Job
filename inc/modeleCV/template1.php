@@ -150,106 +150,108 @@ $cvLangue = $wpdb->get_results(
 // debug($cvLangue);
 ?>
 <!-- <div class="wrapCV"> -->
-<!-- 
-<div class="cvLeft">
-    <h2>zeff</h2>
-</div> -->
+
+
 <?php
 if (!empty($cv)) { ?>
-    <section class="cv_entier">
-        <div id="invoice">
-            <div class="en_tete_cv">
-                <div class="info_perso_cv">
-                    <?php if (!empty($cv)) { ?>
-                        <h1 id="Nom"><?= $cv[0]['nom'] ?> <?= $cv[0]['prenom'] ?></h1>
-                    <?php } else {
-                    ?> <h1 id="Nom"></h1> <?php } ?>
-                    <p id="Date_de_naissance"><?= $cv[0]['dob'] ?></p>
-                    <br>
-                    <p id="adresse"><?= $cv[0]['adresse'] ?></p>
-
-                    <p id="numero"><?= $cv[0]['phone'] ?></p>
-
-                    <p id="adresse_mail"><?= $cv[0]['email'] ?></p>
-                    <br>
-                    <p id="permis"><?= $cv[0]['permis'] ?></p>
-                </div>
-                <div class="imgProfil">
-                    <h2 id="Poste"><?= $cv[0]['poste'] ?></h2>
-                </div>
-            </div>
-            <div class="formation_cv">
-                <h1>Les Formations</h1>
-                <div class="date_and_forma">
-                    <div class="date_formation_cv">
-                        <?php
-                        foreach ($cvFormation as $cvFormations) {
-                        ?>
-                            <p><?= $cvFormations['date_formation'] ?></p>
-                        <?php } ?>
-                    </div>
-                    <div class="formation_faites_cv">
-                        <?php
-                        foreach ($cvFormation as $cvFormations) {
-                        ?>
-                            <h2><?= $cvFormations['formation'] ?></h2>
-                        <?php } ?>
-
-                    </div>
-                </div>
-            </div>
-            <div class="experience_pro">
-                <h1>Experience professionelle</h1>
-                <div class="date_and_exp">
-                    <div class="date_experience">
-                        <?php
-                        foreach ($cvExperience as $cvExperiences) {
-                        ?>
-                            <p><?= $cvExperiences['date_experience'] ?></p>
-                        <?php } ?>
-
-                    </div>
-                    <div class="experience">
-                        <?php
-                        foreach ($cvExperience as $cvExperiences) {
-                        ?>
-                            <h2><?= $cvExperiences['experience'] ?></h2>
-                        <?php } ?>
-
-                    </div>
-                </div>
-            </div>
-            <div class="loisirs">
-                <h1>Loisirs</h1>
-                <?php
-                foreach ($cvLoisir as $cvLoisirs) {
-                ?>
-                    <p><?= $cvLoisirs['passion'] ?></p>
-                <?php } ?>
-
-            </div>
-            <div class="maitrise_langues">
-                <h1>Langues étrangères</h1>
-                <div class="langues_and_niveau">
-                    <div class="langues">
-                        <?php
-                        foreach ($cvLangue as $cvLangues) {
-                        ?>
-                            <p><?= $cvLangues['langue'] ?></p>
-                        <?php } ?>
-                    </div>
-                    <div class="niveau_langues">
-                        <?php
-                        foreach ($cvLangue as $cvLangues) {
-                        ?>
-                            <p><?= $cvLangues['niveau_langue'] ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-            </div>
+    <div class="wrapCV">
+        <div class="cvLeft">
+            <h2>zeff</h2>
         </div>
-    </section>
+        <section class="cv_entier">
+            <div id="invoice">
+                <div class="en_tete_cv">
+                    <div class="info_perso_cv">
+                        <?php if (!empty($cv)) { ?>
+                            <h1 id="Nom"><?= $cv[0]['nom'] ?> <?= $cv[0]['prenom'] ?></h1>
+                        <?php } else {
+                        ?> <h1 id="Nom"></h1> <?php } ?>
+                        <p id="Date_de_naissance"><?= $cv[0]['dob'] ?></p>
+                        <br>
+                        <p id="adresse"><?= $cv[0]['adresse'] ?></p>
 
+                        <p id="numero"><?= $cv[0]['phone'] ?></p>
+
+                        <p id="adresse_mail"><?= $cv[0]['email'] ?></p>
+                        <br>
+                        <p id="permis"><?= $cv[0]['permis'] ?></p>
+                    </div>
+                    <div class="imgProfil">
+                        <h2 id="Poste"><?= $cv[0]['poste'] ?></h2>
+                    </div>
+                </div>
+                <div class="formation_cv">
+                    <h1>Les Formations</h1>
+                    <div class="date_and_forma">
+                        <div class="date_formation_cv">
+                            <?php
+                            foreach ($cvFormation as $cvFormations) {
+                            ?>
+                                <p><?= $cvFormations['date_formation'] ?></p>
+                            <?php } ?>
+                        </div>
+                        <div class="formation_faites_cv">
+                            <?php
+                            foreach ($cvFormation as $cvFormations) {
+                            ?>
+                                <h2><?= $cvFormations['formation'] ?></h2>
+                            <?php } ?>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="experience_pro">
+                    <h1>Experience professionelle</h1>
+                    <div class="date_and_exp">
+                        <div class="date_experience">
+                            <?php
+                            foreach ($cvExperience as $cvExperiences) {
+                            ?>
+                                <p><?= $cvExperiences['date_experience'] ?></p>
+                            <?php } ?>
+
+                        </div>
+                        <div class="experience">
+                            <?php
+                            foreach ($cvExperience as $cvExperiences) {
+                            ?>
+                                <h2><?= $cvExperiences['experience'] ?></h2>
+                            <?php } ?>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="loisirs">
+                    <h1>Loisirs</h1>
+                    <?php
+                    foreach ($cvLoisir as $cvLoisirs) {
+                    ?>
+                        <p><?= $cvLoisirs['passion'] ?></p>
+                    <?php } ?>
+
+                </div>
+                <div class="maitrise_langues">
+                    <h1>Langues étrangères</h1>
+                    <div class="langues_and_niveau">
+                        <div class="langues">
+                            <?php
+                            foreach ($cvLangue as $cvLangues) {
+                            ?>
+                                <p><?= $cvLangues['langue'] ?></p>
+                            <?php } ?>
+                        </div>
+                        <div class="niveau_langues">
+                            <?php
+                            foreach ($cvLangue as $cvLangues) {
+                            ?>
+                                <p><?= $cvLangues['niveau_langue'] ?></p>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 <?php } else { ?>
     <section class="cv_entier">
         <div id="invoice">
