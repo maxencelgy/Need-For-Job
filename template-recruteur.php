@@ -17,11 +17,11 @@ debug($user);
 
 
 global $wpdb;
-// $cv = $wpdb->get_results(
-//     $q = $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE nom = '%" . $_GET['q'] . "%'"),
-//     ARRAY_A
-// );
-
+ $cvs = $wpdb->get_results(
+      $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv ORDER BY id DESC"),
+     ARRAY_A
+ );
+debug($cvs);
 
 
 get_header(); ?>
@@ -35,7 +35,7 @@ get_header(); ?>
         <div class="lastCV">
             <div class="result">
                 <div class="left">
-                    <h2><?= count($cv) ?> resultats :</h2>
+                    <h2><?= count($cvs) ?> resultats :</h2>
                 </div>
 
                 <div class="searchbar">
@@ -46,9 +46,9 @@ get_header(); ?>
 
             <div class="cvs">
                 <?php
-                foreach ($cv as $value) {
+                foreach ($cvs as $cv) {
                 ?>
-                    <div class="bloccv">
+                    <div class="blocc       v">
                         <div class="cvImg">
                             <img src="<?= get_template_directory_uri() . '/asset/img/cv1.jpg' ?>" alt="">
                         </div>

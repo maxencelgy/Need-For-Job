@@ -17,7 +17,7 @@ $cvs= $wpdb->get_results(
     $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s",$user_id),
     ARRAY_A
 );
-debug($cvs);
+
 
 get_header();
 ?>
@@ -49,18 +49,28 @@ get_header();
         <div class="cv_user">
 
                     <h2 class="box_title">Vos CV :</h2>
+            <?php
+            global $wpdb;
+            $cvs = $wpdb->get_results(
+                $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s", $user_id),
+                ARRAY_A
+            );
 
-            <?php if(!empty($cvs)){
-                foreach ($cvs as $cv){ ?>
-
-                    <div>
-                        <p>ici le cv</p>
+            if(!empty($cvs)){
+                foreach ($cvs as $cv){?>
+                    <div class="box_cv_profil">
+                        <?php if (!empty($cv['poste'])){ ?>
+                            <h2>CV pour : <?php echo $cv['poste'] ?></h2>
+                        <?php }else{ ?>
+                            <h2>CV</h2>
+                        <?php  } ?>
+                        <a href="<?= path('cv-detail')?>?id=<?= $cv['id'] ?>">Voir</a>
+                        <a href="<?= path('delete-cv-profil')?>?id=<?= $cv['id'] ?>">Supprimer</a>
                     </div>
 
-
-                <?php } }else{ ?>
-
-                       <h3 class="box_title">Vous n'avez pas encore créé de CV, commencez dès maintenant en cliquant <a href="<?= path('select')?>">ici !</a></h3>
+                <?php }
+            } else { ?>
+                <h3 class="box_title">Vous n'avez pas encore créé de CV, commencez dès maintenant en cliquant <a href="<?= path('select')?>">ici !</a></h3>
 
             <?php  } ?>
 
@@ -71,32 +81,7 @@ get_header();
 </section>
 
 <section>
-    <?php
-    global $wpdb;
-    $cvs = $wpdb->get_results(
-        $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s", $user_id),
-        ARRAY_A
-    );
-    debug($cvs);
 
-
-    if(!empty($cvs)){
-        foreach ($cvs as $cv){?>
-           <div class="box_cv_profil">
-               <?php if (!empty($cv['poste'])){ ?>
-               <h2>CV pour : <?php echo $cv['poste'] ?></h2>
-                <?php }else{ ?>
-                    <h2>CV</h2>
-                <?php  } ?>
-               <a href="<?= path('cv-detail')?>?id=<?= $cv['id'] ?>">Voir</a>
-               <a href="<?= path('delete-cv-profil')?>?id=<?= $cv['id'] ?>">Supprimer</a>
-           </div>
-
-    <?php }
-    } else {
-        echo 'non';
-    }
-    ?>
 
 
 </section>
