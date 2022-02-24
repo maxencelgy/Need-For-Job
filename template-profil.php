@@ -12,11 +12,11 @@ $user_meta = get_user_meta($user_id);
 
 
 
- global $wpdb;
- $cvs = $wpdb->get_results(
-     $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s", $user_id),
-     ARRAY_A
- );
+global $wpdb;
+$cvs = $wpdb->get_results(
+    $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s", $user_id),
+    ARRAY_A
+);
 
 
 get_header();
@@ -47,38 +47,40 @@ get_header();
         </div>
 
         <?php
-        if($user_meta['user_meta_role'][0]=='utilisateur') {?>
+        if ($user_meta['user_meta_role'][0] == 'utilisateur') { ?>
 
-        <div class="cv_user">
-                    <h2 class="box_title">Vos CV :</h2>
-            <?php
-            global $wpdb;
-            $cvs = $wpdb->get_results(
-                $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s", $user_id),
-                ARRAY_A
-            );
+            <div class="cv_user">
+                <h2 class="box_title">Vos CV :</h2>
+                <div class="list_cv">
+                    <?php
+                    global $wpdb;
+                    $cvs = $wpdb->get_results(
+                        $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s ORDER BY id DESC", $user_id),
+                        ARRAY_A
+                    );
 
-            if(!empty($cvs)){
-                foreach ($cvs as $cv){?>
+                    if (!empty($cvs)) {
+                        foreach ($cvs as $cv) { ?>
 
-                    <div class="bloccv">
-                        <div class="cvImg">
-                            <img src="<?= get_template_directory_uri() . '/asset/img/cv1.jpg' ?>" alt="">
-                        </div>
-                        <div class="cvDescription">
-                            <h2><?= $cv['prenom'] ?><span> </span><span class="descriptionName"><?= $cv['nom'] ?></span></h2>
-                            <h3><i><?= $cv['poste'] ?></i></h3>
-                            <a href="<?= path('cv-detail')?>?id=<?= $cv['id'] ?>" class="view">Voir ce CV</a>
-                        </div>
-                    </div>
+                            <div class="bloccv">
+                                <div class="cvImg">
+                                    <img src="<?= get_template_directory_uri() . '/asset/img/cv1.jpg' ?>" alt="">
+                                </div>
+                                <div class="cvDescription">
+                                    <h2><?= $cv['prenom'] ?><span> </span><span class="descriptionName"><?= $cv['nom'] ?></span></h2>
+                                    <h3><i><?= $cv['poste'] ?></i></h3>
+                                    <a href="<?= path('cv-detail') ?>?id=<?= $cv['id'] ?>" class="view">Voir ce CV</a>
+                                </div>
+                            </div>
 
-                <?php }
-            } else { ?>
-                <h3 class="box_title">Vous n'avez pas encore créé de CV, commencez dès maintenant en cliquant <a href="<?= path('select')?>">ici !</a></h3>
-        <?php }
-        }?>
+                        <?php }
+                    } else { ?>
+                        <h3 class="box_title">Vous n'avez pas encore créé de CV, commencez dès maintenant en cliquant <a href="<?= path('select') ?>">ici !</a></h3>
+                    <?php } ?>
+                </div>
+            <?php  } ?>
 
-    </div>
+            </div>
 </section>
 
 <?php

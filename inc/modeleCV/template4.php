@@ -1,10 +1,10 @@
 <style>
     .cv_entier {
-        background-color: aliceblue;
+        background-color: black;
         width: 100%;
         max-width: 1400px;
         margin: auto;
-        border: 2px solid black;
+        border: 2px solid white;
         border-radius: .3rem;
     }
 
@@ -38,7 +38,7 @@
     }
 
     .formation_cv h1 {
-        border-bottom: 3px solid #ea4c88;
+        border-bottom: 3px solid white;
         margin-left: 2rem;
         margin-right: 2rem;
         padding-bottom: 1rem;
@@ -63,7 +63,7 @@
     }
 
     .experience_pro h1 {
-        border-bottom: 3px solid #ea4c88;
+        border-bottom: 3px solid white;
         margin-left: 2rem;
         margin-right: 2rem;
         padding-bottom: 1rem;
@@ -89,7 +89,7 @@
     }
 
     .maitrise_langues h1 {
-        border-bottom: 3px solid #ea4c88;
+        border-bottom: 3px solid white;
         margin-left: 2rem;
         margin-right: 2rem;
         padding-bottom: 1rem;
@@ -107,7 +107,7 @@
     }
 
     .loisirs h1 {
-        border-bottom: 3px solid #ea4c88;
+        border-bottom: 3px solid white;
         margin-left: 2rem;
         margin-right: 2rem;
         padding-bottom: 1rem;
@@ -118,6 +118,7 @@
         margin-left: 2rem;
         padding-top: 2rem;
         font-weight: 900;
+        color: white;
     }
 </style>
 <?php
@@ -127,7 +128,6 @@ $cv = $wpdb->get_results(
     $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE id=%s", $id),
     ARRAY_A
 );
-
 $cvFormation = $wpdb->get_results(
     $wpdb->prepare("SELECT * FROM {$wpdb->prefix}formation WHERE cv_id=%s", $id),
     ARRAY_A
@@ -146,11 +146,8 @@ $cvLangue = $wpdb->get_results(
 );
 
 ?>
-
-
 <?php
 if (!empty($cv)) { ?>
-
     <section class="cv_entier">
         <div id="invoice">
             <div class="en_tete_cv">
