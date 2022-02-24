@@ -343,6 +343,8 @@ header {
   align-items: center;
 }
 
+.rowdies{font-family:'Rowdies',cursive;}
+
 .prenom {
   margin-bottom: 0.5rem;
 }
@@ -393,7 +395,7 @@ header {
 #register_form .error {
   color: red;
   text-align: center;
-  padding-top: 1rem;
+  padding-bottom:1rem;
 }
 #register_form .img_float1 {
   width: 300px;
@@ -762,6 +764,12 @@ header {
   text-align: center;
   border-radius: 0.3rem;
 }
+.bloccv .profil_cv_btn{
+  display:flex;
+  flex-flow:column;
+  gap:1rem;
+}
+
 .descriptionName {
   text-transform: uppercase;
 }

@@ -27,17 +27,14 @@ get_header();
 
     <div class="wrap">
 
-
-
         <div class="box_profil">
             <div class="box_profil_left">
                 <i class="fa-solid fa-circle-user"></i>
-                <h2><?php echo $userArray['data']['user_nicename'] . ' ' . $userArray['data']['display_name']; ?></h2>
+                <h2 class="rowdies"><?php echo ucwords($userArray['data']['user_nicename']) . ' ' . $userArray['data']['display_name']; ?></h2>
             </div>
             <div class="box_profil_right">
                 <p> <strong> Email :</strong> <?php echo $userArray['data']['user_email']; ?> </p>
                 <p><strong> Numéro de téléphone :</strong> <?php echo $user_meta['user_meta_phone'][0]; ?> </p>
-                <p><strong> Date de naissance :</strong> 01/01/0001 </p>
                 <p><strong> Mot de passe :</strong> *****</p>
                 <p><strong> Compte créé le :</strong> <?php echo $userArray['data']['user_registered'] ?></p>
 
@@ -50,7 +47,7 @@ get_header();
         if($user_meta['user_meta_role'][0]=='utilisateur') {?>
 
         <div class="cv_user">
-                    <h2 class="box_title">Vos CV :</h2>
+                    <h2 class="box_title rowdies">Vos CV :</h2>
             <div class="list_cv">
             <?php
             global $wpdb;
@@ -67,9 +64,12 @@ get_header();
                             <img src="<?= get_template_directory_uri() . '/asset/img/cv1.jpg' ?>" alt="">
                         </div>
                         <div class="cvDescription">
-                            <h2><?= $cv['prenom'] ?><span> </span><span class="descriptionName"><?= $cv['nom'] ?></span></h2>
+                            <h2 class="rowdies"><?= $cv['prenom'] ?><span> </span><span class="descriptionName"><?= $cv['nom'] ?></span></h2>
                             <h3><i><?= $cv['poste'] ?></i></h3>
+                            <div class="profil_cv_btn">
                             <a href="<?= path('cv-detail')?>?id=<?= $cv['id'] ?>" class="view">Voir ce CV</a>
+                            <a href="<?= path('delete-cv-profil')?>?id=<?= $cv['id'] ?>" class="view">Supprimer ce CV</a>
+                            </div>
                         </div>
                     </div>
 

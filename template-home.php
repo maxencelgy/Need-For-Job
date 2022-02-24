@@ -81,7 +81,7 @@ get_header(); ?>
     <section id="presentation">
         <div class="wrap">
             <div data-aos="fade-right" data-aos-duration="1000" class="presentation_box">
-                <p class="presentation_titre">⌛ Rapide et facile !</p>
+                <p class="presentation_titre ">⌛ Rapide et facile !</p>
                 <p>Notre outil de rédaction de CV en ligne permet aisément à chacun(e) de faire un CV professionnel de manière rapide. Vous introduisez vos données personnelles avant d'entamer la rédaction du contenu de votre CV. Pour conclure, vous choisissez une mise en page parmi nos 36 versions de CV proposées et vous téléchargez votre CV.</p>
             </div>
             <div data-aos="fade-left" data-aos-duration="1000" class="presentation_box2">

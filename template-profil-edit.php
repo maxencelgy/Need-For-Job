@@ -8,10 +8,9 @@ if (is_user_logged_in()==false){
 $user=wp_get_current_user();
 $userArray = objectToArray($user);
 
-debug($userArray);
 $user_id=get_current_user_id();
 $user_meta=get_user_meta($user_id);
-debug($user_meta);
+
 
 
 
@@ -22,9 +21,7 @@ if(!empty($_POST['submitted'])) {
     // Faille xss
     $email = cleanXss ('email');
     $login = cleanXss ('email');
-    $date_de_naissance = cleanXss ('date_de_naissance');
     $portable = cleanXss ('portable');
-
     $errors = mailValidation($errors, $email,'email');
     $errors = phoneNumberValidation($errors, $portable, 'portable');
 
@@ -41,7 +38,6 @@ if(!empty($_POST['submitted'])) {
                 $errors['email'] = 'Un compte existe déjà sur cette adresse email';
         }
     }
-debug($errors);
     if(count($errors) == 0){
         $userdata = array(
             'ID'                    => $user_id,
@@ -57,7 +53,6 @@ debug($errors);
 }
 
 
-debug($_POST);
 
 get_header()
 ?>
@@ -86,15 +81,6 @@ get_header()
                             </div>
                         </div>
 
-                        <div class="form_box_modif">
-                            <div class="form_box_input">
-                                <label for="date_de_naissance">Date de naissance</label>
-                                <input type="date" name="date_de_naissance" id="date_de_naissance" value="<?php if(!empty($user_meta['user_meta_birthday']['0'])){ echo $user_meta['user_meta_birthday']['0']; };?>">
-                            </div>
-                            <div class="error_box">
-                                <span class="error"><?= viewError($errors,'date_de_naissance'); ?></span>
-                            </div>
-                        </div>
 
                         <div class="form_box_modif">
                             <div class="form_box_input">

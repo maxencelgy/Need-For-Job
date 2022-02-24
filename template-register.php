@@ -18,15 +18,17 @@ if (!empty($_POST['submitted'])) {
     $password2 = cleanXss('password2');
 
 
-    if ( preg_match ( " #^[0-9]{2}[-/ ]?[0-9]{2}[-/ ]?[0-9]{2}[-/ ]?[0-9]{2}[-/ ]?[0-9]{2}?$# " , $phone) ){
-        echo "Le téléphone est valide";
-    }else{
-        echo'non';
-    }
+
+
     // Validation
     $errors = mailValidation($errors, $email, 'email');
     $errors = textValidation($errors, $prenom, 'prenom', 2, 100);
     $errors = textValidation($errors, $nom, 'nom', 2, 100);
+    if ( preg_match ( " #^[0-9]{2}[-/ ]?[0-9]{2}[-/ ]?[0-9]{2}[-/ ]?[0-9]{2}[-/ ]?[0-9]{2}?$# " , $phone) ){
+
+    }else{
+        $errors['phone']='Veuillez renseigner un numéro de téléphone valide';
+    }
 
 
     if (empty($errors['email'])) {
@@ -49,6 +51,11 @@ if (!empty($_POST['submitted'])) {
     } else {
         $errors['password'] = 'Veuillez renseigner un mot de passe';
     }
+    //    CGU check
+    if (empty($_POST['cgu'])) {
+        $errors['cgu'] = 'Veuillez accepter les conditions d\'utilisation';
+    }
+
     if (count($errors) == 0) {
         // generate token
         $token = generateRandomString(100);
@@ -98,13 +105,14 @@ get_header();
                         <div>
                             <label for="nom"></label>
                             <input type="text" placeholder="Nom" id="nom" name="nom" value="<?= recupInputValue('nom'); ?>">
-                            <span class="error"><?= viewError($errors, 'nom'); ?></span>
+
                         </div>
+                        <span class="error"><?= viewError($errors, 'prenom'); ?></span>
                         <div class="prenom">
                             <label for="prenom"></label>
                             <input type="text" placeholder="Prénom" id="prenom" class="pre" name="prenom" value="<?= recupInputValue('prenom'); ?>">
-                            <span class="error"><?= viewError($errors, 'prenom'); ?></span>
                         </div>
+                        <span class="error"><?= viewError($errors, 'prenom'); ?></span>
                     </div>
                 </div>
 
@@ -112,16 +120,15 @@ get_header();
                     <label for="email"></label>
                     <i class="fa-solid fa-envelope"></i>
                     <input type="email" placeholder="Email*" id="email" name="email" value="<?= recupInputValue('email'); ?>">
-                    <span class="error"><?= viewError($errors, 'email'); ?></span>
                 </div>
-
+                <span class="error"><?= viewError($errors, 'email'); ?></span>
                 <div class="info_box ">
                     <label for="phone"></label>
                     <i class="fa-solid fa-phone"></i>
                     <input type="tel" placeholder="Numéro de téléphone" pattern="[0-9]{10}" maxlength="10" id="phone" name="phone" value="<?= recupInputValue('phone'); ?>">
-                    <span class="error"><?= viewError($errors, 'phone'); ?></span>
-                </div>
 
+                </div>
+                <span class="error"><?= viewError($errors, 'phone'); ?></span>
 
                 <div class="info_box">
                     <i class="fa-solid fa-lock"></i>
@@ -129,15 +136,21 @@ get_header();
                         <div>
                             <label for="password"></label>
                             <input type="password" placeholder="Mot de passe*" id="password" name="password" value="">
-                            <span class="error"><?= viewError($errors, 'password'); ?></span>
+
                         </div>
                         <div>
                             <label for="password2"></label>
                             <input type="password" placeholder="Confirmer Mot de passe*" id="password2" name="password2" value="">
                         </div>
                     </div>
-
                 </div>
+                <span class="error"><?= viewError($errors, 'password'); ?></span>
+
+                <div class="cguRegister">
+                    <input type="checkbox" name="cgu">J'accepte les <a href="<?php path('mentions-legales') ?>>">conditions d'utilisations</a> de Need For Job.
+                </div>
+
+                <span class="error"><?= viewError($errors,'cgu'); ?></span>
 
                 <div class="info_box info_box_button">
                     <input type="submit" name="submitted" value="ENVOYER">
