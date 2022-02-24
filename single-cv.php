@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 
 if (!empty(is_user_logged_in())) {
     $user = wp_get_current_user();

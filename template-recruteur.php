@@ -53,9 +53,9 @@ get_header(); ?>
                             <img src="<?= get_template_directory_uri() . '/asset/img/cv1.jpg' ?>" alt="">
                         </div>
                         <div class="cvDescription">
-                            <h2><?= $value['prenom'] ?><span> </span><span class="descriptionName"><?= $value['nom'] ?></span></h2>
-                            <h3><i><?= $value['poste'] ?></i></h3>
-                            <a href="" class="view">Voir ce CV</a>
+                            <h2><?= $cv['prenom'] ?><span> </span><span class="descriptionName"><?= $cv['nom'] ?></span></h2>
+                            <h3><i><?= $cv['poste'] ?></i></h3>
+                            <a href="<?= path('cv-detail')?>?id=<?= $cv['id'] ?>" class="view">Voir ce CV</a>
                         </div>
 
                     </div>
