@@ -2,7 +2,7 @@ console.log("contact ajax js");
 // ajax_contact_2
 $(document).ready(function () {
   var cv = {};
-  console.log(cv);
+  // console.log(cv);
   const formulaire1 = $("#formulaire1");
   const formulaire2 = $("#formulaire2");
   const formulaire3 = $("#formulaire3");
@@ -84,7 +84,7 @@ $(document).ready(function () {
     e.preventDefault();
 
     const input3 = document.querySelectorAll(".date");
-    console.log(input3);
+    // console.log(input3);
     cv.dateVal = [];
     input3.forEach((element) => {
       let dateVal = element.value;
@@ -198,7 +198,7 @@ $(document).ready(function () {
       $(".loisirs").append("<p>" + loisir + "</p>");
     });
 
-    console.log(cv);
+    // console.log(cv);
     // CACHER ANCIEN FORMULAIRE
     formulaire6.css("display", "none");
     formulaire7.css("display", "block");
@@ -213,7 +213,7 @@ $(document).ready(function () {
     const posteID = document.querySelector("#Poste");
     const posteId = posteID.innerHTML;
 
-    console.log(JSON.stringify(cv));
+    // console.log(JSON.stringify(cv));
 
     let newcv = JSON.stringify([cv]);
     $.ajax({
@@ -227,14 +227,13 @@ $(document).ready(function () {
         themeId: themeId,
         posteId: posteId,
         dataaa: newcv,
-
       },
       beforeSend: function () {
         console.log("start ajax contact");
         formulaire.children("input[type=submit]").prop("disabled", true);
       },
       success: function (res) {
-        console.log(res);
+        // console.log(res);
         if (res.success) {
           let profil = "http://localhost/NFJ/profil/";
           window.location = profil;
