@@ -18,6 +18,7 @@
 				<a href="<?= path('/'); ?>"><img src="<?php echo get_template_directory_uri() . '/asset/img/NeedForJobv2.png' ?>" /></a>
 
 			</div>
+            <i class="fa-solid fa-bars responsive_button hidden"></i>
 			<?php
 			if (!empty(is_user_logged_in())) {
 				$user_id = get_current_user_id();
@@ -54,4 +55,30 @@
 				</nav>
 			</div>
 		</div>
+
 	</header>
+
+    <div class="header_responsive hidden">
+        <ul>
+            <li><a href="<?= path('/'); ?>">Accueil</a></li>
+
+            <!--MENU QUAND CONNECTÉ-->
+            <?php if (!empty(is_user_logged_in())) { ?>
+                <li><a href="<?= path('logout'); ?>">Se déconnecter</a></li>
+                <?php if ($user_meta['user_meta_role'][0] == 'utilisateur') { ?>
+                    <li><a href="<?= path('profil'); ?>">Mon profil</a></li>
+                    <li><a href="select">Voir les modèles</a></li>
+                <?php } ?>
+                <?php if ($user_meta['user_meta_role'][0] == 'recruteur') { ?>
+                    <li><a href="<?= path('profil'); ?>">Mon Profil</a></li>
+                    <li><a href="<?= path('recruteur'); ?>">Liste des CVs</a></li>
+                <?php } ?>
+
+                <!--MENU QUAND DECONNECTÉ-->
+            <?php  } else { ?>
+                <li><a href="<?= path('select'); ?>">Nos modèles</a></li>
+                <li><a href="<?= path('login'); ?>">Connexion</a></li>
+                <li><a href="<?= path('register'); ?>">Inscription</a></li>
+            <?php } ?>
+        </ul>
+    </div>

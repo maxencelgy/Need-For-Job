@@ -10,6 +10,9 @@ window.onload = function () {
   document.getElementsByTagName("HEADER")[0].style.position = "fixed";
   document.getElementsByTagName("HEADER")[0].style.backgroundColor =
     "transparent";
+
+  document.getElementsByClassName('header_responsive')[0].style.position = "fixed";
+  document.getElementsByClassName('header_responsive')[0].style.top = "95px";
 };
 
 $(document).ready(function () {

@@ -1,0 +1,19 @@
+@media screen and (max-width: 900px){
+    #masthead .navigation{
+        display:none;
+    }
+    header .responsive_button{
+        display:block;
+        font-size: 2rem;
+        color:white;
+    }
+    .header_responsive{
+        /*top:95px;*/
+        /*margin-top:95.4px;*/
+        /*position:fixed;*/
+        z-index:99999999999999;
+        background-color:grey;
+        height:90vh;
+        width:100%;
+    }
+}
