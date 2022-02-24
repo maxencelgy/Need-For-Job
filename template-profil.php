@@ -47,7 +47,7 @@ get_header();
         if($user_meta['user_meta_role'][0]=='utilisateur') {?>
 
         <div class="cv_user">
-                    <h2 class="box_title rowdies">Vos CV :</h2>
+<!--                    <h2 class="box_title rowdies">Vos CV :</h2>-->
             <div class="list_cv">
             <?php
             global $wpdb;
