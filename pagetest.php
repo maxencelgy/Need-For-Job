@@ -56,7 +56,6 @@
     line-height: 2.5rem;
   }
 
-  .experience_pro {}
 
   .experience_pro h1 {
     border-bottom: 3px solid #ea4c88;

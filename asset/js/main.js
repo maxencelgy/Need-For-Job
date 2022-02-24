@@ -26,17 +26,14 @@ new Typewriter(txtAnim, {
   .pauseFor(700)
   .start();
 
-
-
 const txtAnimation = document.getElementById("typer_2");
 new Typewriter(txtAnimation, {
   deleteSpeed: 55,
 })
-    .changeDelay(105)
-    .typeString("Bienvenue sur la partie recruteur ! 😁")
-    .pauseFor(700)
-    .start();
-
+  .changeDelay(105)
+  .typeString("Bienvenue sur la partie recruteur ! 😁")
+  .pauseFor(700)
+  .start();
 
 const discover = document.querySelectorAll(".discover");
 const discoverTwo = document.querySelectorAll(".discoverTwo");
@@ -56,4 +53,3 @@ discoverTwo.forEach((elements) => {
   });
 });
 console.log(message);
-

@@ -11,21 +11,25 @@ if (!empty(is_user_logged_in())) {
     $userArray = objectToArray($user);
 }
 
+
 debug($user);
 // echo $user['data']['user_nicename'];
 
+
 global $wpdb;
-$cv = $wpdb->get_results(
-    $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv"),
-    ARRAY_A
-);
+// $cv = $wpdb->get_results(
+//     $q = $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE nom = '%" . $_GET['q'] . "%'"),
+//     ARRAY_A
+// );
+
+
 
 get_header(); ?>
 
 <section id="recruteur">
     <div class="wrap_recruteur">
         <div class="title_recru">
-            <h2>Bonjour <?= $userArray['data']['user_nicename'] ?></h2>
+            <h2>Bonjour, <span class="nameSpan"><?= $userArray['data']['user_nicename'] ?></span></h2>
             <h3>Voici la liste des derniers CV en ligne</h3>
         </div>
         <div class="lastCV">
@@ -33,27 +37,33 @@ get_header(); ?>
                 <div class="left">
                     <h2><?= count($cv) ?> resultats :</h2>
                 </div>
+
                 <div class="searchbar">
                     <label for="">Rechercher :</label>
-                    <input type="search" placeholder="Entrez un job particulier ou un nom">
+                    <input type="search" name="q" placeholder="Entrez un job particulier ou un nom">
                 </div>
             </div>
 
-            <?php
-            foreach ($cv as $value) {
-            ?>
-                <div class="cv">
-                    <div class="cvImg">
-                        <p><?= $value['id'] ?></p>
+            <div class="cvs">
+                <?php
+                foreach ($cv as $value) {
+                ?>
+                    <div class="bloccv">
+                        <div class="cvImg">
+                            <img src="<?= get_template_directory_uri() . '/asset/img/cv1.jpg' ?>" alt="">
+                        </div>
+                        <div class="cvDescription">
+                            <h2><?= $value['prenom'] ?><span> </span><span class="descriptionName"><?= $value['nom'] ?></span></h2>
+                            <h3><i><?= $value['poste'] ?></i></h3>
+                            <a href="" class="view">Voir ce CV</a>
+                        </div>
+
                     </div>
-                    <div class="cvDescription">
-                        <h2><?= $value['prenom'] ?><span></span><?= $value['nom'] ?></h2>
-                        <a href="">Voir ce CV</a>
-                    </div>
-                </div>
-            <?php
-            }
-            ?>
+                <?php
+                }
+                ?>
+            </div>
+
 
         </div>
     </div>
