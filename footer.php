@@ -40,7 +40,7 @@ if(!empty($user_meta) && $user_meta['user_meta_role'][0]=='recruteur' ){ ?>
             <div class="footer_nav">
                 <nav>
                     <ul>
-                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="<?= path('mentions-legales') ?>">Mentions légales</a></li>
                         <li><a href="#">Créer un CV</a></li>
                         <li><a href="#">À propos de nous</a></li>
                     </ul>

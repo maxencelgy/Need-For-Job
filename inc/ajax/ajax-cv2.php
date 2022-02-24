@@ -2,12 +2,8 @@
 
 // action : "ajax_contact2"
 add_action('wp_ajax_ajax_contact_2', 'gestionFormulaireContact2');
-add_action('wp_ajax_ajax_contact_3', 'gestionFormulaireContact2');
 
-add_action('wp_ajax_nopriv_ajax_contact_2', 'gestionFormulaireContact3');
-add_action('wp_ajax_nopriv_ajax_contact_3', 'gestionFormulaireContact3');
-
-
+add_action('wp_ajax_nopriv_ajax_contact_2', 'gestionFormulaireContact2');
 
 function gestionFormulaireContact2()
 {
@@ -60,5 +56,3 @@ function gestionFormulaireContact2()
     );
     showJson($data);
 }
-
-

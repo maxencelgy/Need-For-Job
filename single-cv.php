@@ -8,7 +8,6 @@ if (!empty(is_user_logged_in())) {
     $user_meta = get_user_meta($user_id);
 }
 
-
 get_header();
 
 ?>
@@ -20,11 +19,14 @@ get_header();
             the_post();
         ?>
             <div class="left">
-            
+
 
                 <form id="formulaire" class="wrapform" action="" method="POST" novalidate>
                     <div id="formulaire1">
                         <p id="userID" style="display: none;"><?= $user_id ?></p>
+                        <label for="profil"></label>
+                        <input type="file" id="profil" name="profil">
+
                         <label for="nom">Nom :</label>
                         <input type="text" name="nom" id="nom" value="">
 
