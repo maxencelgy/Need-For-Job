@@ -17,10 +17,17 @@ if (!empty($_POST['submitted'])) {
     $password  = cleanXss('password');
     $password2 = cleanXss('password2');
 
+
+    if ( preg_match ( " #^[0-9]{2}[-/ ]?[0-9]{2}[-/ ]?[0-9]{2}[-/ ]?[0-9]{2}[-/ ]?[0-9]{2}?$# " , $phone) ){
+        echo "Le téléphone est valide";
+    }else{
+        echo'non';
+    }
     // Validation
     $errors = mailValidation($errors, $email, 'email');
     $errors = textValidation($errors, $prenom, 'prenom', 2, 100);
     $errors = textValidation($errors, $nom, 'nom', 2, 100);
+
 
     if (empty($errors['email'])) {
         global $wpdb;

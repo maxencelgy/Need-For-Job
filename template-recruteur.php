@@ -1,5 +1,8 @@
 <?php
 /* Template Name: Recruteur*/
+
+
+
 session_start();
 if (!empty(is_user_logged_in())) {
     $user = wp_get_current_user();
@@ -8,15 +11,12 @@ if (!empty(is_user_logged_in())) {
     $userArray = objectToArray($user);
 }
 
+
+debug($user);
+// echo $user['data']['user_nicename'];
+
+
 global $wpdb;
-
-
-
-$cv = $wpdb->get_results(
-    $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE nom = 'Leguay'"),
-    ARRAY_A
-);
-
 // $cv = $wpdb->get_results(
 //     $q = $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE nom = '%" . $_GET['q'] . "%'"),
 //     ARRAY_A

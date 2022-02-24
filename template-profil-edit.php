@@ -13,6 +13,10 @@ $user_id=get_current_user_id();
 $user_meta=get_user_meta($user_id);
 debug($user_meta);
 
+
+
+
+
 $errors = [];
 if(!empty($_POST['submitted'])) {
     // Faille xss

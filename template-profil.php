@@ -1,31 +1,38 @@
 <?php
 /*Template Name: Profil*/
 
-if (is_user_logged_in()==false){
-        wp_redirect(path('home'));
-        exit;
+if (is_user_logged_in() == false) {
+    wp_redirect(path('home'));
+    exit;
 }
-$user=wp_get_current_user();
+$user = wp_get_current_user();
 $userArray = objectToArray($user);
 
 
-$user_id=get_current_user_id();
-$user_meta=get_user_meta($user_id);
+$user_id = get_current_user_id();
+$user_meta = get_user_meta($user_id);
 
+global $wpdb;
+$cvs= $wpdb->get_results(
+    $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s",$user_id),
+    ARRAY_A
+);
+debug($cvs);
 
 get_header();
 ?>
 
 
 <section id="profil">
+
     <div class="wrap">
 
-        <h2 class="box_title">Mon Profil</h2>
+
 
         <div class="box_profil">
             <div class="box_profil_left">
                 <i class="fa-solid fa-circle-user"></i>
-                 <h2><?php echo $userArray['data']['user_nicename'].' '.$userArray['data']['display_name']; ?></h2>
+                <h2><?php echo $userArray['data']['user_nicename'] . ' ' . $userArray['data']['display_name']; ?></h2>
             </div>
             <div class="box_profil_right">
                 <p> <strong> Email :</strong> <?php echo $userArray['data']['user_email']; ?> </p>
@@ -38,6 +45,28 @@ get_header();
             </div>
 
         </div>
+
+        <div class="cv_user">
+
+                    <h2 class="box_title">Vos CV :</h2>
+
+            <?php if(!empty($cvs)){
+                foreach ($cvs as $cv){ ?>
+
+                    <div>
+                        <p>ici le cv</p>
+                    </div>
+
+
+                <?php } }else{ ?>
+
+                       <h3 class="box_title">Vous n'avez pas encore créé de CV, commencez dès maintenant en cliquant <a href="<?= path('select')?>">ici !</a></h3>
+
+            <?php  } ?>
+
+        </div>
+
+
     </div>
 </section>
 
@@ -45,10 +74,11 @@ get_header();
     <?php
     global $wpdb;
     $cvs = $wpdb->get_results(
-        $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s",$user_id),
+        $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE user_id=%s", $user_id),
         ARRAY_A
     );
     debug($cvs);
+
 
     if(!empty($cvs)){
         foreach ($cvs as $cv){?>
@@ -62,15 +92,14 @@ get_header();
                <a href="<?= path('delete-cv-profil')?>?id=<?= $cv['id'] ?>">Supprimer</a>
            </div>
 
-
-       <?php }
-    }else{
-        echo'non';
+    <?php }
+    } else {
+        echo 'non';
     }
     ?>
 
-</section>
 
+</section>
 
 
 <?php
