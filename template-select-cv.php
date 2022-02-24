@@ -1,9 +1,5 @@
 <?php
 /* Template Name: Select Cv*/
-session_start();
-
-debug($_SESSION);
-
 
 get_header(); ?>
 

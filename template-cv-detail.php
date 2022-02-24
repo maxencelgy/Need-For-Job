@@ -1,15 +1,27 @@
 <?php
 /*Template Name: CV Détail*/
 
-
+if(is_user_logged_in()==false){
+    wp_redirect(path('profil'));
+    exit;
+}
 
 $id = $_GET['id'];
+
+if (empty($id)){
+    wp_redirect(path('404'));
+    exit;
+}
 
 global $wpdb;
 $cv = $wpdb->get_results(
     $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE id=%s", $id),
     ARRAY_A
 );
+if(empty($cv)){
+    wp_redirect(path('404'));
+    exit;
+}
 $cvFormation = $wpdb->get_results(
     $wpdb->prepare("SELECT * FROM {$wpdb->prefix}formation WHERE cv_id=%s", $id),
     ARRAY_A

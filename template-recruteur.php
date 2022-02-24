@@ -2,28 +2,22 @@
 /* Template Name: Recruteur*/
 
 
-
-session_start();
 if (!empty(is_user_logged_in())) {
     $user = wp_get_current_user();
     $user_id = get_current_user_id();
     $user_meta = get_user_meta($user_id);
     $userArray = objectToArray($user);
+
+    if ($user_meta['user_meta_role'][0]!=='recruteur'){
+        wp_redirect(path('home'));
+        exit;
+    }
 }
-
-
-debug($user);
-// echo $user['data']['user_nicename'];
-
-
 global $wpdb;
  $cvs = $wpdb->get_results(
       $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv ORDER BY id DESC"),
      ARRAY_A
  );
-debug($cvs);
-
-
 get_header(); ?>
 
 <section id="recruteur">
@@ -48,7 +42,7 @@ get_header(); ?>
                 <?php
                 foreach ($cvs as $cv) {
                 ?>
-                    <div class="blocc       v">
+                    <div class="bloccv">
                         <div class="cvImg">
                             <img src="<?= get_template_directory_uri() . '/asset/img/cv1.jpg' ?>" alt="">
                         </div>

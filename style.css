@@ -700,9 +700,14 @@ header {
   padding: 1rem;
   border-radius: 0.3rem;
 }
+
+.cv_user .bloccv{
+  width:80%;
+}
 .bloccv .cvImg {
   width: 40%;
 }
+
 .nameSpan {
   text-transform: uppercase;
   color: #5c068b;

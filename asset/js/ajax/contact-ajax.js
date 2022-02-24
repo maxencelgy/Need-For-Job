@@ -240,26 +240,9 @@ $(document).ready(function () {
         action: "ajax_contact_2",
         userId: userId,
         themeId: themeId,
-        dataaa: newcv,
-        //dataaa: JSON.stringify(aaaaa),
-        // dataG : JSON.parse(dataaa),
-
-        // profilVal: profilVal,
         // poste: poste,
-        // nom: nom,
-        // prenom: prenom,
-        // dob: dob,
-        // lieux: lieux,
-        // number: number,
-        // mail: mail,
-        // perms: perms,
-        // dateFormation: dateFormation,
-        // formation: formation,
-        // dateExp: dateExp,
-        // experience: experience,
-        // langue: langue,
-        // niveau: niveau,
-        // loisir: loisir,
+        dataaa: newcv,
+
       },
       beforeSend: function () {
         console.log("start ajax contact");
