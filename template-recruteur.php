@@ -2,28 +2,22 @@
 /* Template Name: Recruteur*/
 
 
-
-session_start();
 if (!empty(is_user_logged_in())) {
     $user = wp_get_current_user();
     $user_id = get_current_user_id();
     $user_meta = get_user_meta($user_id);
     $userArray = objectToArray($user);
+
+    if ($user_meta['user_meta_role'][0]!=='recruteur'){
+        wp_redirect(path('home'));
+        exit;
+    }
 }
-
-
-debug($user);
-// echo $user['data']['user_nicename'];
-
-
 global $wpdb;
-$cv = $wpdb->get_results(
-    $q = $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv WHERE nom = '%" . $_GET['q'] . "%'"),
-    ARRAY_A
-);
-
-
-
+ $cvs = $wpdb->get_results(
+      $wpdb->prepare("SELECT * FROM {$wpdb->prefix}cv ORDER BY id DESC"),
+     ARRAY_A
+ );
 get_header(); ?>
 
 <section id="recruteur">
@@ -35,7 +29,7 @@ get_header(); ?>
         <div class="lastCV">
             <div class="result">
                 <div class="left">
-                    <h2><?= count($cv) ?> resultats :</h2>
+                    <h2><?= count($cvs) ?> resultats :</h2>
                 </div>
 
                 <div class="searchbar">
@@ -46,16 +40,16 @@ get_header(); ?>
 
             <div class="cvs">
                 <?php
-                foreach ($cv as $value) {
+                foreach ($cvs as $cv) {
                 ?>
                     <div class="bloccv">
                         <div class="cvImg">
                             <img src="<?= get_template_directory_uri() . '/asset/img/cv1.jpg' ?>" alt="">
                         </div>
                         <div class="cvDescription">
-                            <h2><?= $value['prenom'] ?><span> </span><span class="descriptionName"><?= $value['nom'] ?></span></h2>
-                            <h3><i><?= $value['poste'] ?></i></h3>
-                            <a href="" class="view">Voir ce CV</a>
+                            <h2><?= $cv['prenom'] ?><span> </span><span class="descriptionName"><?= $cv['nom'] ?></span></h2>
+                            <h3><i><?= $cv['poste'] ?></i></h3>
+                            <a href="<?= path('cv-detail')?>?id=<?= $cv['id'] ?>" class="view">Voir ce CV</a>
                         </div>
 
                     </div>

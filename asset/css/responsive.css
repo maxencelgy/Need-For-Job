@@ -1,0 +1,240 @@
+@media screen and (max-width: 900px){
+    #masthead .navigation{
+        display:none;
+    }
+    header .responsive_button{
+        display:block;
+        font-size: 2rem;
+        color:white;
+    }
+    .header_responsive{
+        /*top:95px;*/
+        /*margin-top:95.4px;*/
+        /*position:fixed;*/
+        z-index:99999999999999;
+        background-color:grey;
+        height:90vh;
+        width:100%;
+    }
+}
+
+/* Menu burger */
+@media screen and (max-width: 1290px) {
+    #home .title h1 {
+        font-size: 5rem;
+        text-align: center;
+    }
+    #home .title a {
+        font-size: 0.8rem;
+    }
+    #home_recruteur .title h1 {
+        font-size: 5rem;
+        text-align: center;
+    }
+    #home_recruteur .title a {
+        font-size: 0.8rem;
+    }
+    #register_form .img_part_register .title {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+    }
+    #register_form .wrap_2 {
+        display: flex;
+        flex-flow: column;
+    }
+    #register_form .wrapform {
+        width: 100%;
+        height: 100vh;
+    }
+    #register_form .box_part .box {
+        margin-bottom: 2rem;
+    }
+    #register_form .img_part_register {
+        width: 100%;
+    }
+    #register_form h2 {
+        margin: 1rem 0;
+    }
+    #register_form p {
+        margin: 1rem 0;
+    }
+}
+@media screen and (max-width: 1250px) {
+    #info_recruteur .info_box .right_part_box img {
+        display: none;
+    }
+    #info_recruteur .left_part_box .box {
+        width: 100%;
+    }
+    #info_recruteur .info_box .left_part_box {
+        width: 100%;
+    }
+    #info_recruteur .info_box {
+        display: initial;
+    }
+}
+@media screen and (max-width: 1090px) {
+    #home .title h1 {
+        font-size: 4rem;
+    }
+    #home span {
+        font-size: 0.9rem;
+    }
+    #home_recruteur .title h1 {
+        font-size: 4rem;
+    }
+    #home_recruteur span {
+        font-size: 0.9rem;
+    }
+    #presentation .presentation_box {
+        width: 95%;
+        margin: 1rem auto;
+    }
+    #presentation .presentation_box2 {
+        width: 95%;
+        margin: 1rem auto;
+    }
+}
+@media screen and (max-width: 1000px) {
+    #register_form .wrapform {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 905px) {
+    #footer_recruteur .wrap_footer {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+    #footer_recruteur .wrap_footer .separator_footer{
+        display: none;
+    }
+    #footer_recruteur .footer_nav nav a{
+        margin-left: 6rem;
+    }
+}
+@media screen and (max-width: 890px) {
+    #home .title h1 {
+        font-size: 3rem;
+    }
+    #home_recruteur .title h1 {
+        font-size: 3rem;
+    }
+    #pub .pub_titre p {
+        font-size: 1.3rem;
+    }
+    #entreprise .entreprises li {
+        width: 30%
+    }
+    #entreprise .entreprises ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    #select .CVS .CV {
+        width: 45%;
+        margin: 1rem auto;
+    }
+}
+@media screen and (max-width: 725px) {
+    #pub .pub_titre p {
+        font-size: 1.2rem;
+    }
+    #register_form .img_part_register {
+        display: none;
+    }
+}
+@media screen and (max-width: 680px) {
+    #home .title h1 {
+        font-size: 2rem;
+    }
+    #home span {
+        font-size: 0.7rem;
+    }
+    #home a {
+        font-size: 0.8rem;
+    }
+    #home .title .btn-a {
+        width: 80%;
+    }
+    #home_recruteur .title h1 {
+        font-size: 2rem;
+    }
+    #home_recruteur span {
+        font-size: 0.7rem;
+    }
+    #home_recruteur a {
+        font-size: 0.8rem;
+    }
+    #home_recruteur .title .btn-a {
+        width: 80%;
+    }
+    #pub .pub_titre p {
+        font-size: 1.1rem;
+    }
+}
+@media screen and (max-width: 600px) {
+    #pub .pub_titre p {
+        font-size: 0.8rem;
+    }
+    #select .CVS .CV {
+        width: 90%;
+        margin: 1rem auto;
+    }
+}
+@media screen and (max-width: 475px) {
+    #home .title h1 {
+        font-size: 1.5rem;
+    }
+    #home span {
+        font-size: 0.6rem;
+    }
+    #home a {
+        font-size: 0.6rem;
+    }
+    #home_recruteur .title h1 {
+        font-size: 1.5rem;
+    }
+    #home_recruteur span {
+        font-size: 0.6rem;
+    }
+    #home_recruteur a {
+        font-size: 0.6rem;
+    }
+    #pub .pub_titre p {
+        font-size: 0.6rem;
+    }
+}
+@media screen and (max-width: 400px) {
+    #info_recruteur i {
+        display: none;
+    }
+}
+@media screen and (max-width: 370px) {
+    #home .title h1 {
+        font-size: 1.2rem;
+    }
+    #home span {
+        font-size: 0.5rem;
+    }
+    #home .title .btn-a {
+        width: 100%;
+    }
+    #home_recruteur .title h1 {
+        font-size: 1.2rem;
+    }
+    #home_recruteur span {
+        font-size: 0.5rem;
+    }
+    #home_recruteur .title .btn-a {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 310px) {
+    #home .title h1 {
+        font-size: 1rem;
+    }
+    #home_recruteur .title h1 {
+        font-size: 1rem;
+    }
+}

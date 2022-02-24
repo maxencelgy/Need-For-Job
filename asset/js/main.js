@@ -53,3 +53,13 @@ discoverTwo.forEach((elements) => {
   });
 });
 console.log(message);
+
+
+const nav=$('.header_responsive')
+
+const logo=$('.responsive_button')
+logo.on('click',function (e){
+  nav.toggleClass('hidden')
+  nav.toggleClass('check')
+  logo.toggleClass('far fa-times-circle')
+})

@@ -227,6 +227,7 @@ $(document).ready(function () {
         themeId: themeId,
         posteId: posteId,
         dataaa: newcv,
+
       },
       beforeSend: function () {
         console.log("start ajax contact");
