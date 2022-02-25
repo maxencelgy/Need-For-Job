@@ -1,21 +1,37 @@
-@media screen and (max-width: 980px) {
-  #masthead .navigation {
-    display: none;
-  }
-  header .responsive_button {
-    display: block;
-    font-size: 2rem;
-    color: white;
-  }
-  .header_responsive {
-    /*top:95px;*/
-    /*margin-top:95.4px;*/
-    /*position:fixed;*/
-    z-index: 99999999999999;
-    background-color: grey;
-    height: 90vh;
-    width: 100%;
-  }
+
+@media screen and (max-width: 980px){
+
+    #masthead .navigation{
+        display:none;
+    }
+    header .responsive_button{
+        display:block;
+        font-size: 2rem;
+        color:white;
+    }
+    .header_responsive{
+        z-index:99999999999999;
+        background-color:#2C3338;
+        height:90vh;
+        width:100%;
+    }
+    .header_responsive  ul{
+        padding-top:1.5rem;
+        display:flex;
+        flex-flow:column;
+        align-items:center;
+        gap:4rem;
+        margin:auto 0;
+    }
+    .header_responsive li a{
+        background-color: #ffffff;
+        color:black;
+        padding:1em 2.5em;
+        border-radius:10px;
+    }
+    .header_responsive li a:hover{
+        background-color:#777777FF;
+    }
 }
 
 /* Menu burger */
@@ -82,26 +98,26 @@
   }
 }
 @media screen and (max-width: 1090px) {
-  #home .title h1 {
-    font-size: 4rem;
-  }
-  #home span {
-    font-size: 0.9rem;
-  }
-  #home_recruteur .title h1 {
-    font-size: 4rem;
-  }
-  #home_recruteur span {
-    font-size: 0.9rem;
-  }
-  #presentation .presentation_box {
-    width: 95%;
-    margin: 1rem auto;
-  }
-  #presentation .presentation_box2 {
-    width: 95%;
-    margin: 1rem auto;
-  }
+    #home .title h1 {
+        font-size: 4rem;
+    }
+    #home span {
+        font-size: 0.9rem;
+    }
+    #home_recruteur .title h1 {
+        font-size: 4rem;
+    }
+    #home_recruteur span {
+        font-size: 0.9rem;
+    }
+    #presentation .presentation_box {
+        width: 95%;
+        margin: 1rem auto;
+    }
+    #presentation .presentation_box2 {
+        width: 95%;
+        margin: 1rem auto;
+    }
 }
 @media screen and (max-width: 1000px) {
   #register_form .wrapform {
