@@ -1,4 +1,5 @@
 @media screen and (max-width: 980px){
+
     #masthead .navigation{
         display:none;
     }
@@ -8,13 +9,27 @@
         color:white;
     }
     .header_responsive{
-        /*top:95px;*/
-        /*margin-top:95.4px;*/
-        /*position:fixed;*/
         z-index:99999999999999;
-        background-color:grey;
+        background-color:#2C3338;
         height:90vh;
         width:100%;
+    }
+    .header_responsive  ul{
+        padding-top:1.5rem;
+        display:flex;
+        flex-flow:column;
+        align-items:center;
+        gap:4rem;
+        margin:auto 0;
+    }
+    .header_responsive li a{
+        background-color: #ffffff;
+        color:black;
+        padding:1em 2.5em;
+        border-radius:10px;
+    }
+    .header_responsive li a:hover{
+        background-color:#777777FF;
     }
 }
 
@@ -74,6 +89,8 @@
     }
 }
 @media screen and (max-width: 1090px) {
+
+
     #home .title h1 {
         font-size: 4rem;
     }
